@@ -290,6 +290,49 @@
                 font-size: 39px;
             }
         }
+
+        /* Мобильная навигация и удобство касаний */
+        .menu-toggle { display: none; }
+        html { scroll-behavior: smooth; }
+        .button, .project-card a, nav a { -webkit-tap-highlight-color: transparent; }
+        @media (max-width: 850px) {
+            header { position: relative; z-index: 10; height: 72px; padding: 0 5%; }
+            .logo { font-size: 26px; }
+            .menu-toggle {
+                display: flex; flex-direction: column; align-items: center;
+                justify-content: center; gap: 5px; width: 46px; height: 46px;
+                border: 1px solid #dce6da; border-radius: 10px;
+                background: #f4f7f2; cursor: pointer;
+            }
+            .menu-toggle span { display: block; width: 22px; height: 2px; background: #263c2b; border-radius: 2px; }
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                padding: 12px 5% 18px; background: white;
+                box-shadow: 0 12px 20px rgba(0,0,0,.12); flex-direction: column; gap: 0;
+            }
+            nav.is-open { display: flex; }
+            nav a { display: block; padding: 15px 8px; border-bottom: 1px solid #edf0eb; }
+            nav a:last-child { border-bottom: 0; }
+            .hero { padding: 65px 6%; }
+            .categories { padding: 65px 5%; }
+            .project-card a { display: inline-flex; align-items: center; min-height: 44px; }
+        }
+        @media (max-width: 500px) {
+            .hero { min-height: 620px; padding: 55px 6%; background-position: 62% center; }
+            .hero-small { font-size: 12px; letter-spacing: .6px; }
+            .hero h1 { font-size: clamp(34px, 9vw, 42px); line-height: 1.1; }
+            .hero p { font-size: 16px; line-height: 1.55; }
+            .buttons { flex-direction: column; align-items: stretch; }
+            .button { text-align: center; padding: 16px 18px; min-height: 52px; }
+            .section-title { margin-bottom: 34px; }
+            .section-title h2 { font-size: 29px; }
+            .section-title p { font-size: 16px; }
+            .project-grid { gap: 18px; }
+            .project-card { min-height: 0; padding: 24px; }
+            .project-image { margin: -24px -24px 22px; height: 200px; }
+            .project-card h3 { font-size: 22px; }
+            footer { font-size: 13px; line-height: 1.6; }
+        }
     </style>
 </head>
 
@@ -300,12 +343,15 @@
         Dacha<span>Design</span>
     </div>
 
-    <nav>
-        <a href="#projects">Проекты</a>
-        <a href="#how">Как это работает</a>
-        <a href="#prices">Цены</a>
+    <nav id="site-nav" aria-label="Навигация по сайту">
+        <a href="#projects">Все проекты</a>
+        <a href="gazebos.html">Беседки</a>
+        <a href="bbq.html">Мангальные зоны</a>
         <a href="#contacts">Контакты</a>
     </nav>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+    </button>
 </header>
 
 
@@ -438,5 +484,21 @@
     © 2026 DachaDesign — идеи для вашего участка
 </footer>
 
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('#site-nav');
+    menuToggle.addEventListener('click', () => {
+        const open = siteNav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    });
+    siteNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            siteNav.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Открыть меню');
+        });
+    });
+</script>
 </body>
 </html>

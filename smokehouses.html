@@ -318,6 +318,69 @@
                 padding: 35px 25px;
             }
         }
+
+        /* Мобильное меню и адаптация каталога */
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #d7ddd4;
+            border-radius: 10px;
+            background: #f7f9f5;
+            color: #263c2b;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        @media (max-width: 950px) {
+            header { position: relative; height: 72px; padding: 0 5%; z-index: 10; }
+            .logo { font-size: 25px; }
+            .menu-toggle { display: flex; }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: white;
+                padding: 8px 5% 15px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                box-shadow: 0 12px 18px rgba(20,40,25,.12);
+            }
+            nav.is-open { display: flex; }
+            nav a { display: block; padding: 14px 4px; border-bottom: 1px solid #edf0eb; }
+            nav .order-button { margin-top: 12px; text-align: center; border: 0; }
+        }
+        @media (max-width: 600px) {
+            .page-hero { min-height: 360px; padding: 55px 6%; }
+            .page-hero h1 { font-size: 36px; }
+            .page-hero p { font-size: 16px; line-height: 1.6; }
+            .breadcrumb { font-size: 13px; }
+            .catalog { padding: 55px 5% 70px; }
+            .catalog-top { margin-bottom: 26px; }
+            .catalog-top h2 { font-size: 29px; }
+            .catalog-top p { font-size: 15px; line-height: 1.5; }
+            .filters {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                padding: 0 2px 10px;
+                margin-bottom: 24px;
+            }
+            .filter { flex: 0 0 auto; white-space: nowrap; min-height: 44px; }
+            .projects { grid-template-columns: 1fr; gap: 20px; }
+            .project-image { height: 230px; }
+            .project-info { padding: 22px 20px; }
+            .project h3 { font-size: 23px; }
+            .project-bottom { flex-wrap: wrap; }
+            .details { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+            .custom { margin-top: 42px; padding: 28px 22px; gap: 22px; }
+            .custom h2 { font-size: 26px; }
+            .custom a { display: block; width: 100%; text-align: center; }
+        }
     </style>
 </head>
 
@@ -329,13 +392,14 @@
         Dacha<span>Design</span>
     </a>
 
-    <nav>
+    <nav id="site-nav">
         <a href="index.html">Главная</a>
         <a href="index.html#projects">Проекты</a>
-        <a href="#">Как это работает</a>
-        <a href="#">Цены</a>
-        <a href="#" class="order-button">Создать свой проект</a>
+        <a href="index.html#projects">Все проекты</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#custom-order" class="order-button">Создать свой проект</a>
     </nav>
+    <button type="button" class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">☰</button>
 
 </header>
 
@@ -362,7 +426,7 @@
 </section>
 
 
-<main class="catalog">
+<main class="catalog" id="catalog">
 
     <div class="catalog-top">
 
@@ -429,7 +493,6 @@
     </div>
 
 </article>
-        </article>
 
 
         
@@ -640,7 +703,7 @@
 </article>
 
 </div>
-    <section class="custom">
+    <section class="custom" id="custom-order">
 
         <div>
 
@@ -649,13 +712,13 @@
             <p>
                 Отправьте размеры участка, фотографию и свои пожелания.
                 Мы адаптируем существующий проект или разработаем
-                индивидуальную беседку специально для вас.
+                индивидуальную коптильню специально для вас.
             </p>
 
         </div>
 
-        <a href="#">
-            Создать свой проект →
+        <a href="index.html#contacts">
+            Связаться с нами →
         </a>
 
     </section>
@@ -667,6 +730,18 @@
     © 2026 DachaDesign — идеи для вашего участка
 </footer>
 <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('#site-nav');
+    menuToggle.addEventListener('click', () => {
+        const open = siteNav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    });
+    siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        siteNav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
     const filterButtons = document.querySelectorAll('.filter');
     const projects = document.querySelectorAll('.project');
 
