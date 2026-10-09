@@ -828,6 +828,58 @@
     color: #7a827b;
     font-weight: 400;
 }
+
+/* DachaDesign: адаптация страниц проектов для мобильных экранов */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
+img, video, iframe { max-width: 100%; }
+.header-inner { position: relative; }
+.mobile-menu-toggle { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border: 1px solid #d9e1d8; border-radius: 10px; background: #fff; color: #294b31; font-size: 26px; cursor: pointer; }
+@media (max-width: 760px) {
+  .header-inner { padding: 14px 18px; gap: 12px; }
+  .logo { font-size: 23px; }
+  .mobile-menu-toggle { display: flex; }
+  .header-inner nav { display: none; position: absolute; z-index: 100; top: calc(100% - 1px); left: 12px; right: 12px; flex-direction: column; align-items: stretch; gap: 0; padding: 8px; background: #fff; border: 1px solid #e2e8df; border-radius: 12px; box-shadow: 0 16px 35px rgba(25,45,27,.16); }
+  .header-inner nav.is-open { display: flex; }
+  .header-inner nav a { display: block; padding: 13px 14px; font-size: 16px; border-radius: 7px; }
+  .header-inner nav a:focus-visible, .mobile-menu-toggle:focus-visible { outline: 3px solid #91b898; outline-offset: 2px; }
+  main { padding: 24px 16px 55px; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .detail-image { min-height: 0; height: auto; aspect-ratio: 4 / 3; border-radius: 16px; }
+  .detail-image img { width: 100%; height: 100%; object-fit: cover; }
+  .detail-info { min-width: 0; padding: 25px 20px; border-radius: 16px; }
+  .detail-info h1 { font-size: clamp(27px, 7vw, 36px); overflow-wrap: anywhere; }
+  .detail-specs { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
+  .detail-specs div { min-width: 0; padding: 12px; }
+  .detail-specs span { font-size: 14px; overflow-wrap: anywhere; }
+  .detail-price strong { font-size: 30px; }
+  .project-about { margin-top: 44px; }
+  .project-about h2 { font-size: 27px; }
+  .included-grid { grid-template-columns: minmax(0,1fr); }
+  .included-item { padding: 18px; }
+  .order-box { flex-direction: column; align-items: stretch; gap: 18px; padding: 26px 20px; }
+  .order-box .order-button { text-align: center; }
+  .plan-preview { padding: 24px 16px; }
+  .order-form-section { margin-top: 45px; padding: 26px 18px; border-radius: 16px; }
+  .order-form-section h2 { font-size: 27px; }
+  .order-form { grid-template-columns: minmax(0,1fr); gap: 16px; }
+  .full-width { grid-column: auto; }
+  .selected-project { flex-direction: column; gap: 12px; padding: 16px; }
+  .form-group, .form-group input, .form-group textarea { min-width: 0; }
+  .form-group input, .form-group textarea { font-size: 16px; }
+  .submit-order { width: 100%; min-height: 48px; }
+  .protected-plan { min-height: 350px; }
+  .protected-plan img { height: 350px; }
+  .plan-lock { padding: 18px; }
+  .plan-lock h3 { font-size: 21px; }
+  .plan-lock p { font-size: 14px; margin-bottom: 16px; }
+  .plan-lock .order-button { max-width: 100%; text-align: center; }
+}
+@media (max-width: 380px) {
+  .detail-specs { grid-template-columns: minmax(0,1fr); }
+  .protected-plan, .protected-plan img { min-height: 390px; height: 390px; }
+}
+
 </style>
 
 </head>
@@ -848,11 +900,12 @@
                 DachaDesign
             </a>
 
-            <nav>
+            <nav id="project-navigation" aria-label="Навигация по сайту">
                 <a href="index.html">Главная</a>
                 <a href="index.html#catalog">Каталог</a>
-                <a href="gazebos.html">Беседки</a>
+                <a href="garden-houses.html">Вернуться в категорию</a>
             </nav>
+            <button type="button" class="mobile-menu-toggle" aria-label="Открыть меню" aria-controls="project-navigation" aria-expanded="false">☰</button>
 
         </div>
 
@@ -1233,6 +1286,25 @@ successMessage.classList.add("show");
     }
 });
 </script>
+
+<script>
+/* Независимое мобильное меню; обработчик отправки заказа не изменён. */
+(function () {
+  const button = document.querySelector('.mobile-menu-toggle');
+  const menu = document.querySelector('.header-inner nav');
+  if (!button || !menu) return;
+  function closeMenu() { menu.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false'); button.textContent = '☰'; }
+  button.addEventListener('click', function () {
+    const open = menu.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(open));
+    button.textContent = open ? '✕' : '☰';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  document.addEventListener('click', e => { if (!e.target.closest('.header-inner')) closeMenu(); });
+})();
+</script>
+
 </body>
 
 </html>
