@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Смерека — DachaDesign</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f5f0;
+            color: #273329;
+        }
+
+
+        /* =========================
+           ШАПКА
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e8e2;
+        }
+
+        .header-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 18px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #294b31;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #48534a;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #3f7048;
+        }
+
+
+        /* =========================
+           ОСНОВНАЯ СТРАНИЦА
+        ========================= */
+
+        main {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 45px 30px 80px;
+        }
+
+
+        /* НАЗАД */
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+
+            color: #58705b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .back-link:hover {
+            color: #294b31;
+        }
+
+
+        /* =========================
+           ГЛАВНЫЙ БЛОК ПРОЕКТА
+        ========================= */
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 42px;
+            align-items: stretch;
+        }
+
+
+        /* ФОТО */
+
+        .detail-image {
+            min-height: 530px;
+            border-radius: 22px;
+            overflow: hidden;
+
+            background: #dde2d9;
+
+            box-shadow:
+                0 15px 40px rgba(30, 50, 32, 0.13);
+        }
+
+        .detail-image img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* ИНФОРМАЦИЯ СПРАВА */
+
+        .detail-info {
+            background: #ffffff;
+
+            border-radius: 22px;
+            padding: 40px;
+
+            box-shadow:
+                0 15px 40px rgba(30, 50, 32, 0.09);
+        }
+
+        .project-number {
+            margin-bottom: 12px;
+
+            color: #71856f;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .detail-info h1 {
+            margin: 0 0 16px;
+
+            color: #243126;
+
+            font-size: 42px;
+            line-height: 1.1;
+        }
+
+        .detail-subtitle {
+            margin: 0 0 28px;
+
+            color: #687169;
+
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+
+        /* =========================
+           ХАРАКТЕРИСТИКИ
+        ========================= */
+
+        .detail-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-bottom: 28px;
+        }
+
+        .detail-specs div {
+            padding: 16px;
+
+            background: #f2f4ee;
+
+            border-radius: 12px;
+        }
+
+        .detail-specs strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #7b847c;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .detail-specs span {
+            color: #273329;
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           ЦЕНА
+        ========================= */
+
+        .detail-price {
+            padding-top: 22px;
+            margin-bottom: 22px;
+
+            border-top: 1px solid #e1e5df;
+        }
+
+        .detail-price span {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .detail-price strong {
+            display: block;
+
+            color: #294b31;
+
+            font-size: 34px;
+        }
+
+
+        /* =========================
+           КНОПКИ
+        ========================= */
+
+        .order-button {
+            display: inline-block;
+
+            padding: 16px 25px;
+
+            background: #3f7048;
+            color: #ffffff;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .order-button:hover {
+            background: #315a39;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           О ПРОЕКТЕ
+        ========================= */
+
+        .project-about {
+            max-width: 900px;
+
+            margin: 75px auto 0;
+        }
+
+        .section-label {
+            color: #71856f;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .project-about h2 {
+            margin: 10px 0 20px;
+
+            color: #243126;
+
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .project-about > p {
+            margin: 0;
+
+            color: #5d665e;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .project-about h3 {
+            margin: 42px 0 20px;
+
+            color: #243126;
+
+            font-size: 25px;
+        }
+
+
+        /* =========================
+           ЧТО ВХОДИТ В ПРОЕКТ
+        ========================= */
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
+        }
+
+        .included-grid div {
+            padding: 18px 20px;
+
+            background: #ffffff;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 18px rgba(30, 50, 32, 0.07);
+
+            color: #37443a;
+            font-weight: 600;
+        }
+
+        .check {
+            color: #3f7048;
+            font-weight: 900;
+
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           БЛОК ПЛАНИРОВКИ
+        ========================= */
+
+        .plan-preview {
+            margin-top: 70px;
+
+            padding: 45px;
+
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px rgba(30, 50, 32, 0.07);
+        }
+
+        .plan-preview h2 {
+            margin: 8px 0 12px;
+
+            color: #243126;
+
+            font-size: 30px;
+        }
+
+        .plan-preview p {
+            max-width: 700px;
+
+            margin: 0;
+
+            color: #687169;
+
+            line-height: 1.7;
+        }
+
+        .plan-placeholder {
+            margin-top: 30px;
+
+            min-height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px dashed #cbd2c8;
+            border-radius: 16px;
+
+            background: #f6f7f3;
+
+            color: #788078;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           ЗАКАЗ
+        ========================= */
+
+        .order-box {
+            margin-top: 70px;
+
+            padding: 45px 50px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 40px;
+
+            background: #263c2b;
+            color: #ffffff;
+
+            border-radius: 22px;
+        }
+
+        .order-box > div {
+            max-width: 700px;
+        }
+
+        .order-box .project-number {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .order-box h2 {
+            margin: 7px 0 10px;
+
+            color: #ffffff;
+
+            font-size: 30px;
+        }
+
+        .order-box p {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.82);
+
+            line-height: 1.65;
+        }
+
+        .order-box .order-button {
+            flex-shrink: 0;
+
+            background: #ffffff;
+            color: #294b31;
+        }
+
+        .order-box .order-button:hover {
+            background: #eef1eb;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #1f3023;
+            color: rgba(255, 255, 255, 0.75);
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           ПЛАНШЕТ
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-image {
+                min-height: 430px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .order-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+
+        /* =========================
+           ТЕЛЕФОН
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .header-inner {
+                padding: 16px 18px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            main {
+                padding: 30px 18px 55px;
+            }
+
+            .detail-image {
+                min-height: 280px;
+            }
+
+            .detail-info {
+                padding: 26px 22px;
+            }
+
+            .detail-info h1 {
+                font-size: 33px;
+            }
+
+            .detail-specs {
+                grid-template-columns: 1fr;
+            }
+
+            .project-about {
+                margin-top: 55px;
+            }
+
+            .project-about h2 {
+                font-size: 28px;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-preview {
+                padding: 28px 22px;
+            }
+
+            .order-box {
+                padding: 32px 25px;
+            }
+
+            .order-box h2 {
+                font-size: 26px;
+            }
+        }
+
+    .plan-image {
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #e1e5df;
+    background: white;
+}
+
+.plan-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* ФОРМА ЗАКАЗА */
+
+.order-form-section {
+    margin-top: 70px;
+    padding: 45px 50px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(30, 50, 32, 0.07);
+}
+
+.order-form-section h2 {
+    margin: 8px 0 10px;
+    font-size: 32px;
+    color: #243126;
+}
+
+.order-form-text {
+    margin: 0 0 30px;
+    color: #687169;
+    line-height: 1.6;
+}
+
+.selected-project {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 20px 22px;
+    margin-bottom: 30px;
+
+    background: #f2f4ee;
+    border-radius: 12px;
+}
+
+.selected-project span {
+    display: block;
+    margin-bottom: 5px;
+    color: #7b847c;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.selected-project strong {
+    color: #294b31;
+    font-size: 17px;
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: #37443a;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 16px;
+
+    border: 1px solid #d5dbd2;
+    border-radius: 10px;
+
+    background: #fafbf8;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3f7048;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.submit-order {
+    border: 0;
+    padding: 16px 28px;
+
+    background: #3f7048;
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.submit-order:hover {
+    background: #315a39;
+}
+
+@media (max-width: 600px) {
+
+    .order-form-section {
+        padding: 30px 22px;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .selected-project {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+.order-success {
+    display: none;
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: #eef6ee;
+    border: 1px solid #b9d5bd;
+    border-radius: 10px;
+    color: #315a39;
+    font-weight: 700;
+}
+
+.order-success.show {
+    display: block;
+}
+.website-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* ЗАЩИЩЁННОЕ ПРЕВЬЮ ЧЕРТЕЖЕЙ */
+
+.protected-plan {
+    position: relative;
+    min-height: 430px;
+}
+
+.protected-plan img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    filter: none;
+    transform: none;
+    opacity: 1;
+}
+
+.plan-lock {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    text-align: center;
+
+    background: rgba(36, 49, 38, 0.35);
+}
+
+.lock-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.plan-lock h3 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    color: white;
+}
+
+.plan-lock p {
+    max-width: 600px;
+    margin: 0 0 25px;
+    color: white;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.plan-lock .order-button {
+    width: auto;
+    display: inline-block;
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .protected-plan,
+    .protected-plan img {
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .plan-lock {
+        padding: 25px;
+    }
+
+    .plan-lock h3 {
+        font-size: 23px;
+    }
+}
+.included-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 24px 25px;
+}
+
+.included-item strong {
+    display: block;
+    font-size: 18px;
+    line-height: 1.25;
+    color: #243126;
+}
+
+.included-item span {
+    display: block;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #7a827b;
+    font-weight: 400;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ШАПКА
+    ========================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a href="index.html" class="logo">
+                DachaDesign
+            </a>
+
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="index.html#catalog">Каталог</a>
+                <a href="gazebos.html">Беседки</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ПРОЕКТ
+    ========================== -->
+
+    <main>
+
+       <a href="smokehouses.html" class="back-link">
+    ← Вернуться к коптильням
+</a>
+
+
+        <section class="detail-grid">
+
+
+            <!-- ФОТО -->
+
+            <div class="detail-image">
+
+                <img
+    src="images/terrace-smereka-card.png"
+    alt="Премиальная летняя кухня Смерека"
+>
+
+            </div>
+
+
+            <!-- ИНФОРМАЦИЯ -->
+
+            <div class="detail-info">
+
+                <div class="project-number">
+                    ПРОЕКТ DD-T01
+                </div>
+
+                <h1>
+                    Смерека
+                </h1>
+
+                <p class="detail-subtitle">
+    Небольшая уютная деревянная терраса под навесом с обеденным столиком и комфортной зоной отдыха
+</p>
+
+
+                <div class="detail-specs">
+
+                    <div>
+                        <strong>Размер</strong>
+                        <span>2,5 × 3 м<span>
+                    </div>
+
+                    <div>
+                        <strong>Вид</strong>
+                        <span>Маленькая терраса</span>
+                    </div>
+
+                    <div>
+                        <strong>Материал</strong>
+                        <span>Камень + металл + дерево</span>
+                    </div>
+
+                    <div>
+                        <strong>Тип</strong>
+                        <span>Компактная терраса</span>
+                    </div>
+
+                </div>
+
+
+                <div class="detail-price">
+
+                    <span>
+                        Стоимость проекта
+                    </span>
+
+                    <strong>
+                        490 грн
+                    </strong>
+
+                </div>
+
+
+                <a href="#order" class="order-button">
+                    Заказать проект →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             О ПРОЕКТЕ
+        ========================== -->
+
+        <section class="project-about">
+
+            <div class="section-label">ПРОЕКТ И КОНСТРУКЦИЯ</div>
+
+            <h2>Устройство террасы «Смерека»</h2>
+
+<p>
+    «Смерека» — компактная деревянная терраса для небольшого
+    загородного участка или дачи. Конструкция объединяет
+    деревянный навес, обеденную зону и комфортное пространство
+    для отдыха на свежем воздухе.
+</p>
+
+
+            <h3>
+                Что входит в проект
+            </h3>
+
+
+            <div class="included-grid">
+
+    <div class="included-item">
+        <strong>Общие размеры террасы</strong>
+        <span>Габариты и расположение основных элементов конструкции</span>
+    </div>
+
+    <div class="included-item">
+        <strong>Деревянный навес</strong>
+        <span>Конструкция стоек, балок и кровли террасы</span>
+    </div>
+
+    <div class="included-item">
+        <strong>Основание террасы</strong>
+        <span>Схема основания и расположение опор конструкции</span>
+    </div>
+
+    <div class="included-item">
+        <strong>Настил</strong>
+        <span>Устройство деревянного пола и направление укладки доски</span>
+    </div>
+
+    <div class="included-item">
+        <strong>Зона отдыха</strong>
+        <span>Планировка пространства для стола и садовой мебели</span>
+    </div>
+
+    <div class="included-item">
+        <strong>Перечень материалов</strong>
+        <span>Основные материалы для строительства террасы</span>
+    </div>
+
+</div>
+        </section>
+
+
+        <!-- =========================
+             ПЛАНИРОВКА
+        ========================== -->
+
+        <section class="plan-preview">
+
+            <div class="section-label">ПРОЕКТ И КОНСТРУКЦИЯ</div>
+
+           <h2>Устройство террасы «Смерека»</h2>
+
+<p>
+    В полном проекте показаны основные размеры террасы,
+    конструкция деревянного навеса, расположение стоек,
+    устройство основания и настила, схема кровли,
+    а также основные строительные узлы и соединения.
+</p>
+
+
+            <div class="plan-image protected-plan">
+
+    <img
+        src="images/terrace-t01-plan-preview.png"
+        alt="Защищённое превью проекта террасы Смерека"
+    >
+
+    <div class="plan-lock">
+        <div class="lock-icon">🔒</div>
+
+        <h3>Полный комплект чертежей</h3>
+
+       <p>
+    Точные размеры, планировка, конструкция деревянного навеса,
+    устройство основания и настила, расположение стоек,
+    схема кровли и основные строительные узлы
+    доступны после покупки проекта.
+</p>
+        <a href="#order-form" class="order-button">
+            Получить проект за 490 грн →
+        </a>
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- =========================
+             ЗАКАЗ
+        ========================== -->
+
+        <section class="order-box" id="order">
+
+            <div>
+
+                <div class="project-number">
+                    ПРОЕКТ DD-T01
+                </div>
+
+                <h2>
+                   Хотите построить красивую террасу?
+                </h2>
+
+                <p>
+    Получите готовый проект Смерека с размерами,
+    схемой конструкции и перечнем основных материалов.
+</p>
+
+            </div>
+
+
+            <a href="#order-form" class="order-button">
+                Заказать за 490 грн →
+            </a>
+
+        </section>
+<section class="order-form-section" id="order-form">
+
+    <div class="section-label">
+        ЗАКАЗ ПРОЕКТА
+    </div>
+
+    <h2>Заказать Смерека</h2>
+
+    <p class="order-form-text">
+        Оставьте свои контакты, и мы свяжемся с вами
+        для подтверждения заказа.
+    </p>
+
+    <div class="selected-project">
+        <div>
+            <span>Проект</span>
+            <strong>DD-T01 — Смерека</strong>
+        </div>
+
+        <div>
+            <span>Стоимость</span>
+            <strong>490 грн</strong>
+        </div>
+    </div>
+
+    <form class="order-form">
+<div class="website-field" aria-hidden="true">
+    <label for="website">Ваш сайт</label>
+    <input
+        type="text"
+        id="website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+    >
+</div>
+        <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Например, Юрий"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Телефон или Telegram</label>
+            <input
+                type="text"
+                id="contact"
+                name="contact"
+                placeholder="+380... или @username"
+                required
+            >
+        </div>
+
+        <div class="form-group full-width">
+            <label for="message">Комментарий</label>
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Например: хочу изменить размеры коптильни..."
+            ></textarea>
+        </div>
+
+        <div class="full-width">
+            <button type="submit" class="submit-order">
+                Отправить заказ →
+            </button>
+            <div class="order-success" id="order-success">
+    ✓ Заказ отправлен! Мы свяжемся с вами в ближайшее время.
+</div>
+        </div>
+
+    </form>
+
+</section>
+    </main>
+
+
+    <!-- =========================
+         ПОДВАЛ
+    ========================== -->
+
+    <footer>
+
+        <strong>DachaDesign</strong>
+        · Проекты для дачи и загородного дома
+
+    </footer>
+
+<script>
+const orderForm = document.querySelector(".order-form");
+
+orderForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const button = orderForm.querySelector(".submit-order");
+
+    button.disabled = true;
+    button.textContent = "Отправляем...";
+
+    const orderData = {
+    project: "DD-T01 — Смерека",
+    price: "490 грн",
+    name: document.getElementById("name").value,
+    contact: document.getElementById("contact").value,
+    message: document.getElementById("message").value,
+    website: document.getElementById("website").value
+};
+
+    try {
+        const response = await fetch(
+            "https://dachadesign-orders.topala-cv.workers.dev/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(orderData)
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Ошибка отправки");
+        }
+
+        orderForm.reset();
+
+const successMessage = document.getElementById("order-success");
+successMessage.classList.add("show");
+
+    } catch (error) {
+
+        alert("Не удалось отправить заказ. Попробуйте ещё раз.");
+
+    } finally {
+
+        button.disabled = false;
+        button.textContent = "Отправить заказ →";
+    }
+});
+</script>
+</body>
+
+</html>

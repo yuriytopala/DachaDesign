@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Проекты навесов — DachaDesign</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5f1;
+            color: #20251f;
+        }
+
+        header {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: white;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #20251f;
+        }
+
+        .logo span {
+            color: #47764a;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #283128;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .order-button {
+            background: #47764a;
+            color: white !important;
+            padding: 13px 20px;
+            border-radius: 8px;
+        }
+
+        .page-hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            padding: 70px 7%;
+
+            background:
+    linear-gradient(
+        90deg,
+        rgba(8,20,12,0.88) 0%,
+        rgba(8,20,12,0.62) 48%,
+        rgba(8,20,12,0.18) 100%
+    ),
+    url("images/carport-hero.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            color: white;
+        }
+
+        .breadcrumb {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #d4e2cf;
+        }
+
+        .breadcrumb a {
+            color: #d4e2cf;
+            text-decoration: none;
+        }
+
+        .page-hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #edf2ea;
+        }
+
+        .catalog {
+            max-width: 1500px;
+            margin: auto;
+            padding: 75px 7% 100px;
+        }
+
+        .catalog-top {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .catalog-top span {
+            color: #557f50;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .catalog-top h2 {
+            font-size: 40px;
+            margin: 12px 0 15px;
+        }
+
+        .catalog-top p {
+            color: #687067;
+            font-size: 18px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+
+        .filter {
+            padding: 11px 19px;
+            border-radius: 30px;
+            border: 1px solid #d7ddd4;
+            background: white;
+            color: #445044;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .filter.active {
+            background: #47764a;
+            color: white;
+            border-color: #47764a;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(30,50,32,0.09);
+            transition: transform 0.25s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-image {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 27px;
+        }
+
+        .project-number {
+            color: #557f50;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .project h3 {
+            font-size: 25px;
+            margin: 9px 0 14px;
+        }
+
+        .specs {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            color: #687067;
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .project-description {
+            color: #687067;
+            line-height: 1.55;
+            margin-bottom: 23px;
+        }
+
+        .project-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 800;
+            color: #273529;
+        }
+
+        .details {
+            text-decoration: none;
+            background: #557f50;
+            color: white;
+            padding: 12px 17px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .custom {
+    margin-top: 65px;
+    width: 100%;
+    padding: 50px 60px;
+    border-radius: 20px;
+    background: #263c2b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+        .custom h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .custom p {
+            color: #d8e2d6;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .custom a {
+            flex-shrink: 0;
+            background: #b8dda5;
+            color: #203024;
+            padding: 16px 24px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        footer {
+            padding: 35px 7%;
+            background: #1d2b20;
+            color: #dce4da;
+            text-align: center;
+        }
+
+        @media (max-width: 950px) {
+            nav {
+                display: none;
+            }
+
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .custom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .custom {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">
+        Dacha<span>Design</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="index.html#projects">Проекты</a>
+        <a href="#">Как это работает</a>
+        <a href="#">Цены</a>
+        <a href="#" class="order-button">Создать свой проект</a>
+    </nav>
+
+</header>
+
+
+<section class="page-hero">
+
+    <div class="hero-content">
+
+        <div class="breadcrumb">
+            <a href="index.html">Главная</a>
+            &nbsp; / &nbsp;
+            Навесы
+        </div>
+
+       <h2>Навесы</h2>
+
+       <p>
+    Готовые проекты автомобильных навесов для загородного дома:
+    от компактного навеса на один автомобиль до просторных
+    конструкций на два и три автомобиля.
+</p>
+
+    </div>
+
+</section>
+
+
+<main class="catalog">
+
+    <div class="catalog-top">
+
+        <span>КАТАЛОГ DACHA DESIGN</span>
+
+        <h2>Найдите свой навес</h2>
+
+        <p>
+            Выберите размер или посмотрите все доступные проекты.
+        </p>
+
+    </div>
+
+
+    <div class="filters">
+    <button class="filter active" data-filter="all">Все</button>
+    <button class="filter" data-filter="one">На 1 авто</button>
+    <button class="filter" data-filter="two">На 2 авто</button>
+    <button class="filter" data-filter="three">На 3 авто</button>
+</div>
+
+
+    <div class="projects">
+
+        
+<!-- DD-N01 — БУКОВИНА -->
+<article class="project" data-type="one">
+    <div class="project-image">
+        <img src="images/carport-bukovyna-card.png"
+             alt="Автомобильный навес Буковина">
+    </div>
+
+    <div class="project-info">
+        <div class="project-number">ПРОЕКТ DD-N01</div>
+        <h3>Буковина</h3>
+
+        <div class="specs">
+            <span>📐 4 × 5 м</span>
+            <span>🚗 1 автомобиль</span>
+            <span>🪵 Дерево + камень</span>
+        </div>
+
+        <p class="project-description">
+            Компактный деревянный навес для одного автомобиля
+            с каменными основаниями и современной кровлей.
+        </p>
+
+        <div class="project-bottom">
+            <div class="price">490 грн</div>
+            <a href="project-n01.html" class="details">Подробнее</a>
+        </div>
+    </div>
+</article>
+
+
+<!-- DD-N02 — КАРПАТЫ -->
+<article class="project" data-type="two">
+    <div class="project-image">
+        <img src="images/carport-karpaty-card.png"
+             alt="Автомобильный навес Карпаты">
+    </div>
+
+    <div class="project-info">
+        <div class="project-number">ПРОЕКТ DD-N02</div>
+        <h3>Карпаты</h3>
+
+        <div class="specs">
+            <span>📐 5 × 8 м</span>
+            <span>🚙 2 автомобиля</span>
+            <span>🪵 Дерево + камень</span>
+        </div>
+
+        <p class="project-description">
+            Просторный навес на два автомобиля с усиленной
+            деревянной конструкцией и закрытой задней частью.
+        </p>
+
+        <div class="project-bottom">
+            <div class="price">690 грн</div>
+            <a href="project-n02.html" class="details">Подробнее</a>
+        </div>
+    </div>
+</article>
+
+
+<!-- DD-N03 — ГОВЕРЛА -->
+<article class="project" data-type="three">
+    <div class="project-image">
+        <img src="images/carport-hoverla-card.png"
+             alt="Большой автомобильный навес Говерла">
+    </div>
+
+    <div class="project-info">
+        <div class="project-number">ПРОЕКТ DD-N03</div>
+        <h3>Говерла</h3>
+
+        <div class="specs">
+            <span>📐 6 × 12 м</span>
+            <span>🚐 3 автомобиля</span>
+            <span>🪵 Дерево + камень</span>
+        </div>
+
+        <p class="project-description">
+            Большой трёхсекционный навес с закрытой задней стеной
+            для микроавтобуса, внедорожника и легкового автомобиля.
+        </p>
+
+        <div class="project-bottom">
+            <div class="price">990 грн</div>
+            <a href="project-n03.html" class="details">Подробнее</a>
+        </div>
+    </div>
+</article>
+
+</div>
+    <section class="custom">
+
+        <div>
+
+            <h2>Не нашли подходящий размер?</h2>
+
+            <p>
+                Отправьте размеры участка, фотографию и свои пожелания.
+                Мы адаптируем существующий проект или разработаем
+                индивидуальную беседку специально для вас.
+            </p>
+
+        </div>
+
+        <a href="#">
+            Создать свой проект →
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 DachaDesign — идеи для вашего участка
+</footer>
+<script>
+    const filterButtons = document.querySelectorAll('.filter');
+    const projects = document.querySelectorAll('.project');
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener('click', () => {
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+
+                if (filter === 'all' || project.dataset.type === filter) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+
+            });
+
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DachaDesign — проекты для вашей дачи</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5f1;
+            color: #20251f;
+        }
+
+        header {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #ffffff;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #47764a;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #283128;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            padding: 70px 7%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8, 20, 12, 0.88) 0%,
+                    rgba(8, 20, 12, 0.67) 38%,
+                    rgba(8, 20, 12, 0.18) 75%,
+                    rgba(8, 20, 12, 0.05) 100%
+                ),
+                url("images/hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-small {
+            color: #c9d8c7;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 68px;
+            line-height: 1.04;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #a8cf92;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #f1f3ef;
+            font-size: 21px;
+            line-height: 1.6;
+            margin-bottom: 36px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 17px 27px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #557f50;
+            color: white;
+        }
+
+        .secondary {
+            border: 2px solid white;
+            color: white;
+            background: rgba(0,0,0,0.15);
+        }
+
+.categories {
+    padding: 95px 7%;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.section-title {
+    max-width: 760px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-title span {
+    display: block;
+    color: #557f50;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    color: #1f2a20;
+}
+
+.section-title p {
+    color: #687067;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    min-height: 300px;
+    padding: 32px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(30, 50, 32, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 40px rgba(30, 50, 32, 0.15);
+}
+.project-image {
+    height: 175px;
+    margin: -32px -32px 25px;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.06);
+}
+.project-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3ea;
+    border-radius: 15px;
+    font-size: 31px;
+    margin-bottom: 25px;
+}
+
+.project-card h3 {
+    font-size: 23px;
+    margin-bottom: 13px;
+    color: #243026;
+}
+
+.project-card p {
+    color: #687067;
+    line-height: 1.55;
+    margin-bottom: 25px;
+}
+
+.project-card a {
+    margin-top: auto;
+    color: #47764a;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.special-card {
+    background: #263c2b;
+}
+
+.special-card h3 {
+    color: white;
+}
+
+.special-card p {
+    color: #d8e2d6;
+}
+
+.special-card a {
+    color: #b8dda5;
+}
+
+.special-card .project-icon {
+    background: rgba(255,255,255,0.12);
+}
+
+        footer {
+            padding: 35px 7%;
+            background: #1d2b20;
+            color: #dce4da;
+            text-align: center;
+        }
+
+        @media (max-width: 850px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 650px;
+                background-position: 60% center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+        }
+
+        @media (max-width: 500px) {
+        .project-grid {
+    grid-template-columns: 1fr;
+}
+
+.section-title h2 {
+    font-size: 32px;
+}
+
+            .hero h1 {
+                font-size: 39px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        Dacha<span>Design</span>
+    </div>
+
+    <nav>
+        <a href="#projects">Проекты</a>
+        <a href="#how">Как это работает</a>
+        <a href="#prices">Цены</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            ПРОЕКТЫ • ДИЗАЙН • 3D-ВИЗУАЛИЗАЦИЯ
+        </div>
+
+        <h1>
+            Создай дачу<br>
+            <span>своей мечты</span>
+        </h1>
+
+        <p>
+            Готовые проекты и индивидуальные 3D-эскизы
+            беседок, коптилен, мангальных зон,
+            летних кухонь и других сооружений
+            для вашего участка.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="button primary">
+                Смотреть проекты
+            </a>
+
+            <a href="#" class="button secondary">
+                Создать свой проект
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="categories" id="projects">
+
+    <div class="section-title">
+        <span>КАТАЛОГ DACHA DESIGN</span>
+        <h2>Выберите проект для своего участка</h2>
+        <p>
+            От небольшой беседки до полноценной зоны отдыха —
+            найдите идею, которую мы адаптируем под ваш участок.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/gazebo.png" alt="Деревянная беседка">
+</div>
+            <h3>Беседки</h3>
+            <p>Деревянные, современные и комбинированные беседки разных размеров.</p>
+            <a href="gazebos.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/smokehouse.png" alt="Кирпичная коптильня">
+</div>
+            <h3>Коптильни</h3>
+            <p>Холодное и горячее копчение, комплексы 2-в-1 и 3-в-1.</p>
+            <a href="smokehouses.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/bbq-hero.png" alt="Мангальная зона">
+</div>
+            <h3>Мангальные зоны</h3>
+            <p>Мангал, печь, казан и полноценные BBQ-комплексы для отдыха.</p>
+            <a href="bbq.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/summer-kitchen.png" alt="Летняя кухня">
+</div>
+            <h3>Летние кухни</h3>
+            <p>От компактной кухни под навесом до большой зоны для всей семьи.</p>
+            <a href="summer-kitchens.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/terrace.png" alt="Терраса">
+</div>
+            <h3>Террасы</h3>
+            <p>Открытые и крытые террасы для дома, сада и зоны отдыха.</p>
+            <a href="terraces.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/carport.png" alt="Навес для автомобиля">
+</div>
+            <h3>Навесы</h3>
+            <p>Практичные деревянные и комбинированные навесы для участка.</p>
+            <a href="carports.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+    <img src="images/garden-house.png" alt="Садовый домик">
+</div>
+            <h3>Садовые домики</h3>
+            <p>Компактные гостевые, хозяйственные и дачные постройки.</p>
+            <a href="garden-houses.html">Смотреть проекты →</a>
+        </div>
+
+        <div class="project-card special-card">
+            <div class="project-icon">✨</div>
+            <h3>Есть своя идея?</h3>
+            <p>Покажите нам фото участка и расскажите, что хотите построить.</p>
+            <a href="#">Создать свой проект →</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer id="contacts">
+    © 2026 DachaDesign — идеи для вашего участка
+</footer>
+
+</body>
+</html>
