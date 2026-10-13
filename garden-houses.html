@@ -1,12 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Проекты садовых домиков — DachaDesign</title>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Проекты садовых домиков — DachaDesign</title>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -367,236 +366,198 @@
             .custom a { width: 100%; text-align: center; }
         }
         </style>
+<style>
+/* Language switcher: additional styles only */
+.language-switcher{display:flex;align-items:center;gap:5px;margin-left:14px;flex-shrink:0}
+.language-switcher button{border:1px solid #d7ddd4;background:#fff;color:#283128;border-radius:7px;padding:8px 9px;font-weight:700;cursor:pointer;min-height:36px}
+.language-switcher button.active{background:#47764a;color:#fff;border-color:#47764a}
+@media(max-width:950px){header .language-switcher{margin-left:auto;margin-right:10px}.language-switcher button{padding:7px;min-height:34px}.menu-toggle{order:3}}
+@media(max-width:380px){.logo{font-size:21px}.language-switcher{gap:2px}.language-switcher button{padding:6px}}
+</style>
 </head>
-
 <body>
-
 <header>
-
-    <a href="index.html" class="logo">
+<a class="logo" href="index.html">
         Dacha<span>Design</span>
-    </a>
-
-    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="site-nav" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-    <nav id="site-nav" aria-label="Основное меню">
-        <a href="index.html">Главная</a>
-        <a href="index.html#projects">Все проекты</a>
-        <a href="#catalog">Садовые домики</a>
-        <a href="index.html#contacts">Контакты</a>
-    </nav>
-
-</header>
-
-
+</a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" data-i18n-attr="aria-label:menu.open" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Основное меню" data-i18n-attr="aria-label:nav.aria" id="site-nav">
+<a data-i18n="nav.home" href="index.html">Главная</a>
+<a data-i18n="nav.all" href="index.html#projects">Все проекты</a>
+<a data-i18n="category" href="#catalog">Садовые домики</a>
+<a data-i18n="nav.contacts" href="index.html#contacts">Контакты</a>
+</nav>
+<div aria-label="Language" class="language-switcher" role="group"><button aria-pressed="false" data-lang="ua" type="button">UA</button><button aria-pressed="false" data-lang="en" type="button">EN</button><button aria-pressed="false" data-lang="ru" type="button">RU</button></div></header>
 <section class="page-hero">
-
-    <div class="hero-content">
-
-        <div class="breadcrumb">
-            <a href="index.html">Главная</a>
-            &nbsp; / &nbsp;
-            Садовые домики
-        </div>
-
-       <h1>Садовые домики</h1>
-
-<p>
+<div class="hero-content">
+<div class="breadcrumb">
+<a data-i18n="nav.home" href="index.html">Главная</a> &nbsp; / &nbsp; <span data-i18n="category">Садовые домики</span></div>
+<h1 data-i18n="category">Садовые домики</h1>
+<p data-i18n="hero.desc">
     Готовые проекты садовых и гостевых домиков:
     от компактного домика для отдыха до просторного
     деревянного дома с кухней, спальней, санузлом и террасой.
 </p>
-
-    </div>
-
+</div>
 </section>
-
-
 <main class="catalog" id="catalog">
-
-    <div class="catalog-top">
-
-        <span>КАТАЛОГ DACHA DESIGN</span>
-
-        <h2>Найдите свой садовый домик</h2>
-
-        <p>
+<div class="catalog-top">
+<span data-i18n="catalog.label">КАТАЛОГ DACHA DESIGN</span>
+<h2 data-i18n="catalog.title">Найдите свой садовый домик</h2>
+<p data-i18n="catalog.desc">
             Выберите размер или посмотрите все доступные проекты.
         </p>
-
-    </div>
-
-
-    <div class="filters" role="group" aria-label="Фильтры: садовые домики">
-    <button class="filter active" data-filter="all">Все</button>
-    <button class="filter" data-filter="compact">Компактные</button>
-    <button class="filter" data-filter="family">Семейные</button>
-    <button class="filter" data-filter="premium">Премиум</button>
 </div>
-
-
-    <div class="projects">
-
-        
+<div aria-label="Фильтры: садовые домики" class="filters" data-i18n-attr="aria-label:filter.aria" role="group">
+<button class="filter active" data-filter="all" data-i18n="filter.all">Все</button>
+<button class="filter" data-filter="compact" data-i18n="filter.compact">Компактные</button>
+<button class="filter" data-filter="family" data-i18n="filter.family">Семейные</button>
+<button class="filter" data-filter="premium" data-i18n="filter.premium">Премиум</button>
+</div>
+<div class="projects">
 <!-- DD-H01 — ЛІСОВИЙ -->
 <article class="project" data-type="compact">
-    <div class="project-image">
-        <img src="images/garden-house-lisovyi-card.png"
-             alt="Садовый домик Лісовий">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-H01</div>
-        <h3>Лісовий</h3>
-
-        <div class="specs">
-            <span>📐 3 × 4 м</span>
-            <span>🏠 Компактный</span>
-            <span>🪵 Дерево + камень</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Садовый домик Лісовий" data-i18n-attr="alt:img.h01" src="images/garden-house-lisovyi-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="project.label">ПРОЕКТ DD-H01</div>
+<h3 data-i18n="house.h01.name">Лісовий</h3>
+<div class="specs">
+<span>📐 3 × 4 м</span>
+<span data-i18n="house.h01.type">🏠 Компактный</span>
+<span data-i18n="house.material">🪵 Дерево + камень</span>
+</div>
+<p class="project-description" data-i18n="house.h01.desc">
             Компактный садовый домик с уютной комнатой отдыха,
             большими окнами и небольшой крытой террасой.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">590 грн</div>
-            <a href="project-h01.html" class="details">Подробнее</a>
-        </div>
-    </div>
+<div class="project-bottom">
+<div class="price" data-i18n="currency">590 грн</div>
+<a class="details" data-i18n="details" href="project-h01.html">Подробнее</a>
+</div>
+</div>
 </article>
-
-
 <!-- DD-H02 — КАРПАТЫ -->
 <article class="project" data-type="family">
-    <div class="project-image">
-        <img src="images/garden-house-karpaty-card.png"
-             alt="Садовый домик Карпаты">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-H02</div>
-        <h3>Карпаты</h3>
-
-        <div class="specs">
-            <span>📐 4 × 6 м</span>
-            <span>🏡 Семейный</span>
-            <span>🪵 Дерево + камень</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Садовый домик Карпаты" data-i18n-attr="alt:img.h02" src="images/garden-house-karpaty-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="project.label">ПРОЕКТ DD-H02</div>
+<h3 data-i18n="house.h02.name">Карпаты</h3>
+<div class="specs">
+<span>📐 4 × 6 м</span>
+<span data-i18n="house.h02.type">🏡 Семейный</span>
+<span data-i18n="house.material">🪵 Дерево + камень</span>
+</div>
+<p class="project-description" data-i18n="house.h02.desc">
             Семейный садовый домик с комнатой отдыха,
             мини-кухней и просторной крытой террасой.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">790 грн</div>
-            <a href="project-h02.html" class="details">Подробнее</a>
-        </div>
-    </div>
+<div class="project-bottom">
+<div class="price" data-i18n="currency">790 грн</div>
+<a class="details" data-i18n="details" href="project-h02.html">Подробнее</a>
+</div>
+</div>
 </article>
-
-
 <!-- DD-H03 — ГОВЕРЛА -->
 <article class="project" data-type="premium">
-    <div class="project-image">
-        <img src="images/garden-house-hoverla-card.png"
-             alt="Садовый домик Говерла из кругляка">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-H03</div>
-        <h3>Говерла</h3>
-
-        <div class="specs">
-            <span>📐 6 × 8 м</span>
-            <span>🌲 Дом из кругляка</span>
-            <span>✨ Премиум</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Садовый домик Говерла из кругляка" data-i18n-attr="alt:img.h03" src="images/garden-house-hoverla-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="project.label">ПРОЕКТ DD-H03</div>
+<h3 data-i18n="house.h03.name">Говерла</h3>
+<div class="specs">
+<span>📐 6 × 8 м</span>
+<span data-i18n="house.h03.type">🌲 Дом из кругляка</span>
+<span data-i18n="house.premium">✨ Премиум</span>
+</div>
+<p class="project-description" data-i18n="house.h03.desc">
             Просторный гостевой дом из кругляка со спальней,
             кухней-гостиной, санузлом и большой крытой террасой.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">1190 грн</div>
-            <a href="project-h03.html" class="details">Подробнее</a>
-        </div>
-    </div>
-</article>
-
+<div class="project-bottom">
+<div class="price" data-i18n="currency">1190 грн</div>
+<a class="details" data-i18n="details" href="project-h03.html">Подробнее</a>
 </div>
-    <section class="custom">
-
-        <div>
-
-            <h2>Не нашли подходящий размер?</h2>
-
-            <p>
+</div>
+</article>
+</div>
+<section class="custom">
+<div>
+<h2 data-i18n="custom.title">Не нашли подходящий размер?</h2>
+<p data-i18n="custom.desc">
                 Отправьте размеры участка, фотографию и свои пожелания.
                 Мы адаптируем существующий проект или разработаем
                 индивидуальную беседку специально для вас.
             </p>
-
-        </div>
-
-        <a href="#">
+</div>
+<a data-i18n="custom.cta" href="index.html#contacts">
             Создать свой проект →
         </a>
-
-    </section>
-
+</section>
 </main>
-
-
-<footer>
+<footer data-i18n="footer">
     © 2026 DachaDesign — идеи для вашего участка
 </footer>
+
 <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteNav = document.querySelector('#site-nav');
-    menuToggle.addEventListener('click', () => {
-        const isOpen = siteNav.classList.toggle('is-open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    });
-    siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        siteNav.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Открыть меню');
-    }));
-
-    const filterButtons = document.querySelectorAll('.filter');
-    const projects = document.querySelectorAll('.project');
-
-    filterButtons.forEach(button => {
-
-        button.addEventListener('click', () => {
-
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            button.classList.add('active');
-
-            const filter = button.dataset.filter;
-
-            projects.forEach(project => {
-
-                if (filter === 'all' || project.dataset.type === filter) {
-                    project.style.display = 'block';
-                } else {
-                    project.style.display = 'none';
-                }
-
-            });
-
-        });
-
-    });
-</script>
-</body>
+(() => {
+ const translations = {"ru": {"nav.home": "Главная", "nav.all": "Все проекты", "category": "Садовые домики", "nav.contacts": "Контакты", "hero.desc": "Готовые проекты садовых и гостевых домиков: от компактного домика для отдыха до просторного деревянного дома с кухней, спальней, санузлом и террасой.", "catalog.label": "КАТАЛОГ DACHA DESIGN", "catalog.title": "Найдите свой садовый домик", "catalog.desc": "Выберите размер или посмотрите все доступные проекты.", "filter.all": "Все", "filter.compact": "Компактные", "filter.family": "Семейные", "filter.premium": "Премиум", "project.label": "ПРОЕКТ", "details": "Подробнее", "currency": "грн", "house.h01.name": "Лісовий", "house.h02.name": "Карпаты", "house.h03.name": "Говерла", "house.h01.type": "🏠 Компактный", "house.h02.type": "🏡 Семейный", "house.h03.type": "🌲 Дом из кругляка", "house.material": "🪵 Дерево + камень", "house.premium": "✨ Премиум", "house.h01.desc": "Компактный садовый домик с уютной комнатой отдыха, большими окнами и небольшой крытой террасой.", "house.h02.desc": "Семейный садовый домик с комнатой отдыха, мини-кухней и просторной крытой террасой.", "house.h03.desc": "Просторный гостевой дом из кругляка со спальней, кухней-гостиной, санузлом и большой крытой террасой.", "custom.title": "Не нашли подходящий размер?", "custom.desc": "Отправьте размеры участка, фотографию и свои пожелания. Мы адаптируем существующий проект или разработаем индивидуальный садовый домик специально для вас.", "custom.cta": "Создать свой проект →", "footer": "© 2026 DachaDesign — идеи для вашего участка", "menu.open": "Открыть меню", "menu.close": "Закрыть меню", "filter.aria": "Фильтры: садовые домики", "nav.aria": "Основное меню", "img.h01": "Садовый домик Лісовий", "img.h02": "Садовый домик Карпаты", "img.h03": "Садовый домик Говерла из кругляка", "page.title": "Проекты садовых домиков — DachaDesign"}, "ua": {"nav.home": "Головна", "nav.all": "Усі проєкти", "category": "Садові будиночки", "nav.contacts": "Контакти", "hero.desc": "Готові проєкти садових і гостьових будиночків: від компактного будиночка для відпочинку до просторого дерев’яного будинку з кухнею, спальнею, санвузлом і терасою.", "catalog.label": "КАТАЛОГ DACHA DESIGN", "catalog.title": "Знайдіть свій садовий будиночок", "catalog.desc": "Оберіть розмір або перегляньте всі доступні проєкти.", "filter.all": "Усі", "filter.compact": "Компактні", "filter.family": "Сімейні", "filter.premium": "Преміум", "project.label": "ПРОЄКТ", "details": "Детальніше", "currency": "грн", "house.h01.name": "Лісовий", "house.h02.name": "Карпати", "house.h03.name": "Говерла", "house.h01.type": "🏠 Компактний", "house.h02.type": "🏡 Сімейний", "house.h03.type": "🌲 Будинок із колод", "house.material": "🪵 Дерево + камінь", "house.premium": "✨ Преміум", "house.h01.desc": "Компактний садовий будиночок із затишною кімнатою відпочинку, великими вікнами та невеликою критою терасою.", "house.h02.desc": "Сімейний садовий будиночок із кімнатою відпочинку, мінікухнею та просторою критою терасою.", "house.h03.desc": "Просторий гостьовий будинок із колод зі спальнею, кухнею-вітальнею, санвузлом і великою критою терасою.", "custom.title": "Не знайшли відповідний розмір?", "custom.desc": "Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальний садовий будиночок спеціально для вас.", "custom.cta": "Створити свій проєкт →", "footer": "© 2026 DachaDesign — ідеї для вашої ділянки", "menu.open": "Відкрити меню", "menu.close": "Закрити меню", "filter.aria": "Фільтри: садові будиночки", "nav.aria": "Головне меню", "img.h01": "Садовий будиночок Лісовий", "img.h02": "Садовий будиночок Карпати", "img.h03": "Садовий будиночок Говерла з колод", "page.title": "Проєкти садових будиночків — DachaDesign"}, "en": {"nav.home": "Home", "nav.all": "All projects", "category": "Garden houses", "nav.contacts": "Contacts", "hero.desc": "Ready-made garden and guest house designs: from a compact retreat to a spacious wooden house with a kitchen, bedroom, bathroom and terrace.", "catalog.label": "DACHA DESIGN CATALOG", "catalog.title": "Find your garden house", "catalog.desc": "Choose a size or browse all available designs.", "filter.all": "All", "filter.compact": "Compact", "filter.family": "Family", "filter.premium": "Premium", "project.label": "PROJECT", "details": "View details", "currency": "UAH", "house.h01.name": "Lisovyi", "house.h02.name": "Carpathians", "house.h03.name": "Hoverla", "house.h01.type": "🏠 Compact", "house.h02.type": "🏡 Family", "house.h03.type": "🌲 Log house", "house.material": "🪵 Wood + stone", "house.premium": "✨ Premium", "house.h01.desc": "A compact garden house with a cozy lounge, large windows and a small covered terrace.", "house.h02.desc": "A family garden house with a lounge, kitchenette and spacious covered terrace.", "house.h03.desc": "A spacious log guest house with a bedroom, open-plan kitchen and living room, bathroom and large covered terrace.", "custom.title": "Need a different size?", "custom.desc": "Send us your plot dimensions, a photo and your preferences. We can adapt an existing design or create a custom garden house just for you.", "custom.cta": "Create your own design →", "footer": "© 2026 DachaDesign — ideas for your outdoor space", "menu.open": "Open menu", "menu.close": "Close menu", "filter.aria": "Filters: garden houses", "nav.aria": "Main navigation", "img.h01": "Lisovyi garden house", "img.h02": "Carpathians garden house", "img.h03": "Hoverla log garden house", "page.title": "Garden house designs — DachaDesign"}};
+ const storageKey = 'dachadesign-language';
+ const buttons = document.querySelectorAll('.language-switcher button');
+ function setLanguage(lang) {
+   if (!translations[lang]) lang = 'ua';
+   document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
+   document.querySelectorAll('[data-i18n]').forEach(el => {
+     const key = el.dataset.i18n;
+     if (key === 'project.label') { el.textContent = translations[lang][key] + ' ' + el.textContent.trim().split(' ').pop(); return; }
+     if (key === 'currency') { el.textContent = el.textContent.match(/\d+/)[0] + ' ' + translations[lang][key]; return; }
+     if (translations[lang][key]) el.textContent = translations[lang][key];
+   });
+   document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+     const [attr,key] = el.dataset.i18nAttr.split(':');
+     if (translations[lang][key]) el.setAttribute(attr, translations[lang][key]);
+   });
+   document.title = translations[lang]['page.title'];
+   buttons.forEach(btn => {
+     const active = btn.dataset.lang === lang;
+     btn.classList.toggle('active',active);
+     btn.setAttribute('aria-pressed',String(active));
+   });
+   try { localStorage.setItem(storageKey,lang); } catch(e) {}
+ }
+ buttons.forEach(btn => btn.addEventListener('click',() => setLanguage(btn.dataset.lang)));
+ let saved = 'ua';
+ try { saved = localStorage.getItem(storageKey) || 'ua'; } catch(e) {}
+ setLanguage(saved);
+ const menuToggle = document.querySelector('.menu-toggle');
+ const siteNav = document.querySelector('#site-nav');
+ function closeMenu() {
+   siteNav.classList.remove('is-open');
+   menuToggle.setAttribute('aria-expanded','false');
+   menuToggle.setAttribute('aria-label',translations[document.documentElement.lang === 'uk' ? 'ua' : document.documentElement.lang]['menu.open']);
+ }
+ menuToggle.addEventListener('click',() => {
+   const isOpen = siteNav.classList.toggle('is-open');
+   menuToggle.setAttribute('aria-expanded',String(isOpen));
+   const lang = document.documentElement.lang === 'uk' ? 'ua' : document.documentElement.lang;
+   menuToggle.setAttribute('aria-label',translations[lang][isOpen ? 'menu.close' : 'menu.open']);
+ });
+ siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
+ const filterButtons = document.querySelectorAll('.filter');
+ const projects = document.querySelectorAll('.project');
+ filterButtons.forEach(button => button.addEventListener('click',() => {
+   filterButtons.forEach(btn => btn.classList.remove('active'));
+   button.classList.add('active');
+   projects.forEach(project => {
+     project.style.display = button.dataset.filter === 'all' || project.dataset.type === button.dataset.filter ? 'block' : 'none';
+   });
+ }));
+})();
+</script></body>
 </html>

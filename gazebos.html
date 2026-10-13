@@ -1,750 +1,1507 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Проекты беседок — DachaDesign</title>
+<html lang="uk">
+<head>
+
+    <meta charset="utf-8"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+
+
+    <title data-i18n="pageTitle">Проєкти альтанок — DachaDesign</title>
+
+
 
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
+
+
 
         body {
+
             font-family: Arial, sans-serif;
+
             background: #f4f5f1;
+
             color: #20251f;
+
         }
+
+
 
         header {
+
             height: 82px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 0 7%;
+
             background: white;
+
         }
+
+
 
         .logo {
+
             font-size: 30px;
+
             font-weight: 800;
+
             text-decoration: none;
+
             color: #20251f;
+
         }
+
+
 
         .logo span {
+
             color: #47764a;
+
         }
+
+
 
         nav {
+
             display: flex;
+
             align-items: center;
+
             gap: 30px;
+
         }
+
+
 
         nav a {
+
             color: #283128;
+
             text-decoration: none;
+
             font-weight: 600;
+
         }
+
+
 
         .order-button {
+
             background: #47764a;
+
             color: white !important;
+
             padding: 13px 20px;
+
             border-radius: 8px;
+
         }
+
+
 
         .page-hero {
+
             min-height: 430px;
+
             display: flex;
+
             align-items: center;
+
             padding: 70px 7%;
 
+
+
             background:
+
                 linear-gradient(
+
                     90deg,
+
                     rgba(8,20,12,0.88) 0%,
+
                     rgba(8,20,12,0.62) 48%,
+
                     rgba(8,20,12,0.18) 100%
+
                 ),
+
                 url("images/gazebo.png");
 
+
+
             background-size: cover;
+
             background-position: center;
+
         }
+
+
 
         .hero-content {
+
             max-width: 750px;
+
             color: white;
+
         }
+
+
 
         .breadcrumb {
+
             font-size: 15px;
+
             margin-bottom: 20px;
+
             color: #d4e2cf;
+
         }
+
+
 
         .breadcrumb a {
+
             color: #d4e2cf;
+
             text-decoration: none;
+
         }
+
+
 
         .page-hero h1 {
+
             font-size: 58px;
+
             line-height: 1.05;
+
             margin-bottom: 20px;
+
         }
+
+
 
         .page-hero p {
+
             max-width: 650px;
+
             font-size: 20px;
+
             line-height: 1.6;
+
             color: #edf2ea;
+
         }
+
+
 
         .catalog {
+
             max-width: 1500px;
+
             margin: auto;
+
             padding: 75px 7% 100px;
+
         }
+
+
 
         .catalog-top {
+
             text-align: center;
+
             margin-bottom: 38px;
+
         }
+
+
 
         .catalog-top span {
+
             color: #557f50;
+
             font-size: 14px;
+
             font-weight: 800;
+
             letter-spacing: 2px;
+
         }
+
+
 
         .catalog-top h2 {
+
             font-size: 40px;
+
             margin: 12px 0 15px;
+
         }
+
+
 
         .catalog-top p {
+
             color: #687067;
+
             font-size: 18px;
+
         }
+
+
 
         .filters {
+
             display: flex;
+
             justify-content: center;
+
             gap: 10px;
+
             flex-wrap: wrap;
+
             margin-bottom: 45px;
+
         }
+
+
 
         .filter {
+
             padding: 11px 19px;
+
             border-radius: 30px;
+
             border: 1px solid #d7ddd4;
+
             background: white;
+
             color: #445044;
+
             font-weight: bold;
+
             cursor: pointer;
+
         }
+
+
 
         .filter.active {
+
             background: #47764a;
+
             color: white;
+
             border-color: #47764a;
+
         }
+
+
 
         .projects {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
+
         }
+
+
 
         .project {
+
             background: white;
+
             border-radius: 18px;
+
             overflow: hidden;
+
             box-shadow: 0 8px 30px rgba(30,50,32,0.09);
+
             transition: transform 0.25s ease;
+
         }
+
+
 
         .project:hover {
+
             transform: translateY(-7px);
+
         }
+
+
 
         .project-image {
+
             height: 260px;
+
             overflow: hidden;
+
         }
+
+
 
         .project-image img {
+
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
+
             transition: transform 0.4s ease;
+
         }
+
+
 
         .project:hover img {
+
             transform: scale(1.05);
+
         }
+
+
 
         .project-info {
+
             padding: 27px;
+
         }
+
+
 
         .project-number {
+
             color: #557f50;
+
             font-size: 13px;
+
             font-weight: 800;
+
             letter-spacing: 1px;
+
         }
+
+
 
         .project h3 {
+
             font-size: 25px;
+
             margin: 9px 0 14px;
+
         }
+
+
 
         .specs {
+
             display: flex;
+
             gap: 16px;
+
             flex-wrap: wrap;
+
             color: #687067;
+
             font-size: 14px;
+
             margin-bottom: 17px;
+
         }
+
+
 
         .project-description {
+
             color: #687067;
+
             line-height: 1.55;
+
             margin-bottom: 23px;
+
         }
+
+
 
         .project-bottom {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 15px;
+
         }
+
+
 
         .price {
+
             font-size: 22px;
+
             font-weight: 800;
+
             color: #273529;
+
         }
+
+
 
         .details {
+
             text-decoration: none;
+
             background: #557f50;
+
             color: white;
+
             padding: 12px 17px;
+
             border-radius: 8px;
+
             font-weight: bold;
+
         }
+
+
 
         .custom {
+
     margin-top: 65px;
+
     width: 100%;
+
     padding: 50px 60px;
+
     border-radius: 20px;
+
     background: #263c2b;
+
     color: white;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 40px;
+
 }
 
+
+
         .custom h2 {
+
             font-size: 34px;
+
             margin-bottom: 12px;
+
         }
+
+
 
         .custom p {
+
             color: #d8e2d6;
+
             line-height: 1.6;
+
             max-width: 700px;
+
         }
+
+
 
         .custom a {
+
             flex-shrink: 0;
+
             background: #b8dda5;
+
             color: #203024;
+
             padding: 16px 24px;
+
             border-radius: 9px;
+
             text-decoration: none;
+
             font-weight: 800;
+
         }
+
+
 
         footer {
+
             padding: 35px 7%;
+
             background: #1d2b20;
+
             color: #dce4da;
+
             text-align: center;
+
         }
+
+
 
         @media (max-width: 950px) {
+
             nav {
+
                 display: none;
+
             }
 
+
+
             .projects {
+
                 grid-template-columns: repeat(2, 1fr);
+
             }
+
+
 
             .custom {
+
                 flex-direction: column;
+
                 align-items: flex-start;
+
             }
+
         }
 
+
+
         @media (max-width: 600px) {
+
             .page-hero h1 {
+
                 font-size: 42px;
+
             }
 
+
+
             .projects {
+
                 grid-template-columns: 1fr;
+
             }
+
+
 
             .catalog {
+
                 padding-left: 5%;
+
                 padding-right: 5%;
+
             }
+
+
 
             .custom {
+
                 padding: 35px 25px;
+
             }
+
         }
+
+
 
         /* Мобильная навигация и адаптивный каталог */
+
         .menu-toggle { display: none; }
+
         .filter { min-height: 44px; font-size: 14px; white-space: nowrap; }
+
         .details { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+
         .project-image img { display: block; }
+
         @media (max-width: 950px) {
+
             header { position: relative; z-index: 20; height: 72px; padding: 0 5%; }
+
             .logo { font-size: 25px; }
+
             .menu-toggle {
+
                 display: flex; flex-direction: column; justify-content: center;
+
                 align-items: center; gap: 5px; width: 44px; height: 44px;
+
                 border: 1px solid #dce4d9; border-radius: 10px;
+
                 background: #f6f8f4; cursor: pointer;
+
             }
+
             .menu-toggle span { width: 21px; height: 2px; background: #273b2b; border-radius: 2px; }
+
             header nav {
+
                 display: none; position: absolute; top: 100%; left: 0; right: 0;
+
                 background: #fff; padding: 8px 5% 14px; box-shadow: 0 12px 24px rgba(0,0,0,.12);
+
                 flex-direction: column; align-items: stretch; gap: 0;
+
             }
+
             header nav.is-open { display: flex; }
+
             header nav a { padding: 14px 5px; border-bottom: 1px solid #edf0eb; min-height: 46px; }
+
             header nav a:last-child { border-bottom: 0; }
+
             .filters {
+
                 justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto;
+
                 padding: 2px 2px 12px; margin-bottom: 26px;
+
                 -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+
             }
+
             .filter { flex: 0 0 auto; }
+
         }
+
         @media (max-width: 600px) {
+
             .page-hero { min-height: 380px; padding: 55px 6%; }
+
             .page-hero h1 { font-size: clamp(32px, 9vw, 42px); }
+
             .page-hero p { font-size: 16px; line-height: 1.55; }
+
             .catalog { padding: 48px 5% 65px; }
+
             .catalog-top { margin-bottom: 25px; }
+
             .catalog-top h2 { font-size: 30px; line-height: 1.15; }
+
             .catalog-top p { font-size: 16px; line-height: 1.5; }
+
             .projects { gap: 20px; }
+
             .project-image { height: 225px; }
+
             .project-info { padding: 22px; }
+
             .project h3 { font-size: 23px; }
+
             .project-bottom { flex-wrap: wrap; }
+
             .custom { margin-top: 40px; padding: 30px 22px; gap: 22px; }
+
             .custom h2 { font-size: 27px; }
+
             .custom a { width: 100%; text-align: center; }
+
         }
-    </style>
+
+    
+/* Three-language switcher: desktop and mobile */
+header { gap: 16px; }
+.language-switcher { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.language-switcher button { min-width: 43px; min-height: 38px; padding: 7px 9px; border: 1px solid #d7ddd4; border-radius: 8px; background: #f6f8f4; color: #253b29; font-weight: 700; cursor: pointer; }
+.language-switcher button.active { background: #315c3b; color: white; border-color: #315c3b; }
+@media (max-width: 950px) { header .language-switcher { margin-left: auto; } header .menu-toggle { flex-shrink: 0; } }
+@media (max-width: 420px) { header { gap: 8px; } header .logo { font-size: 22px; } .language-switcher { gap: 3px; } .language-switcher button { min-width: 37px; padding: 5px; font-size: 12px; } }
+</style>
 </head>
-
 <body>
-
 <header>
 
-    <a href="index.html" class="logo">
+
+
+    <a class="logo" href="index.html">
+
         Dacha<span>Design</span>
-    </a>
 
-    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="site-nav" aria-expanded="false">
+    </a><div aria-label="Language / Мова / Язык" class="language-switcher" role="group"><button aria-pressed="false" data-lang="uk" type="button">UA</button><button aria-pressed="false" data-lang="en" type="button">EN</button><button aria-pressed="false" data-lang="ru" type="button">RU</button></div>
+
+
+
+    <button aria-controls="site-nav" aria-expanded="false" aria-label="Відкрити меню" class="menu-toggle" data-i18n-attr="aria-label:menuOpen" type="button">
+
         <span></span><span></span><span></span>
+
     </button>
-    <nav id="site-nav" aria-label="Основное меню">
-        <a href="index.html">Главная</a>
-        <a href="index.html#projects">Все проекты</a>
-        <a href="#catalog">Беседки</a>
-        <a href="index.html#contacts">Контакты</a>
+
+    <nav aria-label="Головне меню" data-i18n-attr="aria-label:menuLabel" id="site-nav">
+
+        <a data-i18n="navHome" href="index.html">Головна</a>
+
+        <a data-i18n="navAll" href="index.html#projects">Усі проєкти</a>
+
+        <a data-i18n="navGaz" href="#catalog">Альтанки</a>
+
+        <a data-i18n="navContacts" href="index.html#contacts">Контакти</a>
+
     </nav>
-
 </header>
-
-
 <section class="page-hero">
+
+
 
     <div class="hero-content">
 
+
+
         <div class="breadcrumb">
-            <a href="index.html">Главная</a>
-            &nbsp; / &nbsp;
-            Беседки
-        </div>
 
-        <h1>Проекты беседок</h1>
+            <a data-i18n="navHome" href="index.html">Головна</a> <span data-i18n="navGaz">Альтанки</span></div>
 
-        <p>
-            От компактных беседок для небольшого участка
-            до просторных зон отдыха для всей семьи.
-            Выберите готовую идею или адаптируйте проект под свои размеры.
-        </p>
+
+
+        <h1 data-i18n="heroTitle">Проєкти альтанок</h1>
+
+
+
+        <p data-i18n="heroDescription">Від компактних альтанок для невеликої ділянки до просторих зон відпочинку для всієї родини. Оберіть готову ідею або адаптуйте проєкт під свої розміри.</p>
+
+
 
     </div>
-
 </section>
-
-
 <main class="catalog" id="catalog">
+
+
 
     <div class="catalog-top">
 
-        <span>КАТАЛОГ DACHA DESIGN</span>
 
-        <h2>Найдите свою беседку</h2>
 
-        <p>
-            Выберите размер или посмотрите все доступные проекты.
-        </p>
+        <span data-i18n="catalogLabel">КАТАЛОГ DACHA DESIGN</span>
+
+
+
+        <h2 data-i18n="catalogTitle">Знайдіть свою альтанку</h2>
+
+
+
+        <p data-i18n="catalogDescription">Оберіть розмір або перегляньте всі доступні проєкти.</p>
+
+
 
     </div>
 
 
-    <div class="filters" role="group" aria-label="Фильтр по размеру беседки">
 
-    <button class="filter active" data-filter="all">Все</button>
+
+
+    <div aria-label="Фільтр за розміром альтанки" class="filters" data-i18n-attr="aria-label:filterLabel" role="group">
+
+
+
+    <button class="filter active" data-filter="all" data-i18n="filterAll">Усі</button>
+
     <button class="filter" data-filter="2x3">2 × 3 м</button>
-    <button class="filter" data-filter="3x3">3 × 3 м</button>
-    <button class="filter" data-filter="3x4">3 × 4 м</button>
-    <button class="filter" data-filter="4x4">4 × 4 м</button>
 
+    <button class="filter" data-filter="3x3">3 × 3 м</button>
+
+    <button class="filter" data-filter="3x4">3 × 4 м</button>
+
+    <button class="filter" data-filter="4x4">4 × 4 м</button>
 </div>
+
+
+
 
 
     <div class="projects">
 
+
+
         <article class="project" data-size="2x3">
 
+
+
             <div class="project-image">
-                <img src="images/gazebo-2x3-card.png" alt="Беседка Карпаты 2 на 3 метра">
+
+                <img alt="Беседка Карпаты 2 на 3 метра" data-project-image="1" src="images/gazebo-2x3-card.png"/>
+
             </div>
+
+
 
             <div class="project-info">
 
-                <div class="project-number">
-                    ПРОЕКТ DD-G01
-                </div>
 
-                <h3>Карпаты 2 × 3</h3>
+
+                <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G01</div>
+
+
+
+                <h3 data-i18n="n1">Карпати 2 × 3</h3>
+
+
 
                 <div class="specs">
+
                     <span>📐 2 × 3 м</span>
-                    <span>🌲 Дерево</span>
-                    <span>👥 6 человек</span>
+
+                    <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+                    <span>👥 6 <span data-i18n="people">осіб</span></span>
+
                 </div>
 
-                <p class="project-description">
-                    Компактная деревянная беседка для небольшого участка
-                    с уютной зоной отдыха.
-                </p>
+
+
+                <p class="project-description" data-i18n="d1">Компактна дерев’яна альтанка для невеликої ділянки із затишною зоною відпочинку.</p>
+
+
 
                 <div class="project-bottom">
 
+
+
                     <div class="price">
+
                         490 грн
+
                     </div>
 
-                    <a href="project-g01.html" class="details">Подробнее</a>
+
+
+                    <a class="details" data-i18n="details" href="project-g01.html">Детальніше</a>
+
+
 
                 </div>
 
+
+
             </div>
 
+
+
         </article>
+
+
+
 
 
         <article class="project" data-size="3x3">
 
+
+
             <div class="project-image">
-                <img src="images/gazebo-3x3-card.png" alt="Беседка Лесная 3 на 3 метра">
+
+                <img alt="Беседка Лесная 3 на 3 метра" data-project-image="2" src="images/gazebo-3x3-card.png"/>
+
             </div>
+
+
 
             <div class="project-info">
 
-                <div class="project-number">
-                    ПРОЕКТ DD-G02
-                </div>
 
-                <h3>Лесная 3 × 3</h3>
+
+                <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G02</div>
+
+
+
+                <h3 data-i18n="n2">Лісова 3 × 3</h3>
+
+
 
                 <div class="specs">
+
                     <span>📐 3 × 3 м</span>
-                    <span>🌲 Дерево</span>
-                    <span>👥 8 человек</span>
+
+                    <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+                    <span>👥 8 <span data-i18n="people">осіб</span></span>
+
                 </div>
 
-                <p class="project-description">
-                    Универсальная беседка для семейных ужинов,
-                    отдыха и встреч с друзьями.
-                </p>
+
+
+                <p class="project-description" data-i18n="d2">Універсальна альтанка для сімейних вечерь, відпочинку та зустрічей із друзями.</p>
+
+
 
                 <div class="project-bottom">
 
+
+
                     <div class="price">
+
                         590 грн
+
                     </div>
 
-                    <a href="project-g02.html" class="details">Подробнее</a>
-                  
-                    
+
+
+                    <a class="details" data-i18n="details" href="project-g02.html">Детальніше</a>
+
+
+
+
+
+
 
                 </div>
 
+
+
             </div>
 
+
+
         </article>
+
+
+
 
 
         <article class="project" data-size="3x4">
 
+
+
             <div class="project-image">
-                <img src="images/gazebo-3x4-card.png" alt="Беседка Верховина 3 на 4 метра">
+
+                <img alt="Беседка Верховина 3 на 4 метра" data-project-image="3" src="images/gazebo-3x4-card.png"/>
+
             </div>
+
+
 
             <div class="project-info">
 
-                <div class="project-number">
-                    ПРОЕКТ DD-G03
-                </div>
 
-                <h3>Верховина 3 × 4</h3>
+
+                <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G03</div>
+
+
+
+                <h3 data-i18n="n3">Верховина 3 × 4</h3>
+
+
 
                 <div class="specs">
+
                     <span>📐 3 × 4 м</span>
-                    <span>🌲 Дерево</span>
-                    <span>👥 10 человек</span>
+
+                    <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+                    <span>👥 10 <span data-i18n="people">осіб</span></span>
+
                 </div>
 
-                <p class="project-description">
-                    Просторная беседка с местом для большого стола
-                    и полноценной зоны отдыха.
-                </p>
+
+
+                <p class="project-description" data-i18n="d3">Простора альтанка з місцем для великого столу та повноцінної зони відпочинку.</p>
+
+
 
                 <div class="project-bottom">
 
+
+
                     <div class="price">
+
                         690 грн
+
                     </div>
 
-                    <a href="project-g03.html" class="details">Подробнее</a>
-                   
+
+
+                    <a class="details" data-i18n="details" href="project-g03.html">Детальніше</a>
+
+
+
+
 
                 </div>
 
+
+
             </div>
+
+
 
         </article>
 <article class="project" data-size="4x4">
 
+
+
     <div class="project-image">
-        <img src="images/gazebo-4x4-card.png" alt="Беседка Смерека 4 на 4 метра">
+
+        <img alt="Беседка Смерека 4 на 4 метра" data-project-image="4" src="images/gazebo-4x4-card.png"/>
+
     </div>
+
+
 
     <div class="project-info">
 
-        <div class="project-number">
-            ПРОЕКТ DD-G04
-        </div>
 
-        <h3>Смерека 4 × 4</h3>
+
+        <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G04</div>
+
+
+
+        <h3 data-i18n="n4">Смерека 4 × 4</h3>
+
+
 
         <div class="specs">
+
             <span>📐 4 × 4 м</span>
-            <span>🌲 Дерево</span>
-            <span>👥 10 человек</span>
+
+            <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+            <span>👥 10 <span data-i18n="people">осіб</span></span>
+
         </div>
 
-        <p class="project-description">
-            Большая квадратная беседка для компании
-            с просторной обеденной зоной и местом для отдыха.
-        </p>
+
+
+        <p class="project-description" data-i18n="d4">Велика квадратна альтанка для компанії з просторою обідньою зоною та місцем для відпочинку.</p>
+
+
 
         <div class="project-bottom">
 
+
+
             <div class="price">
+
                 790 грн
+
             </div>
 
-            <a href="project-g04.html" class="details">Подробнее</a>
-          
+
+
+            <a class="details" data-i18n="details" href="project-g04.html">Детальніше</a>
+
+
+
+
 
         </div>
 
-    </div>
 
+
+    </div>
 </article>
 <article class="project" data-size="3x4">
 
+
+
     <div class="project-image">
-        <img src="images/gazebo-polonyna-3x4-card.png" alt="Беседка Полонина 3 на 4 метра">
+
+        <img alt="Беседка Полонина 3 на 4 метра" data-project-image="5" src="images/gazebo-polonyna-3x4-card.png"/>
+
     </div>
+
+
 
     <div class="project-info">
 
-        <div class="project-number">
-            ПРОЕКТ DD-G05
-        </div>
 
-        <h3>Полонина 3 × 4</h3>
+
+        <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G05</div>
+
+
+
+        <h3 data-i18n="n5">Полонина 3 × 4</h3>
+
+
 
         <div class="specs">
+
             <span>📐 3 × 4 м</span>
-            <span>🌲 Дерево</span>
-            <span>👥 8 человек</span>
+
+            <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+            <span>👥 8 <span data-i18n="people">осіб</span></span>
+
         </div>
 
-        <p class="project-description">
-            Современная беседка с прямыми линиями,
-            обеденной зоной и комфортным местом для отдыха.
-        </p>
+
+
+        <p class="project-description" data-i18n="d5">Сучасна альтанка з прямими лініями, обідньою зоною та комфортним місцем для відпочинку.</p>
+
+
 
         <div class="project-bottom">
 
+
+
             <div class="price">
+
                 690 грн
+
             </div>
 
-            <a href="project-g05.html" class="details">Подробнее</a>
-           
+
+
+            <a class="details" data-i18n="details" href="project-g05.html">Детальніше</a>
+
+
+
+
 
         </div>
 
-    </div>
 
+
+    </div>
 </article>
 <article class="project" data-size="4x4">
 
+
+
     <div class="project-image">
-        <img src="images/gazebo-hoverla-4x4-card.png" alt="Беседка Говерла 4 на 4 метра">
+
+        <img alt="Беседка Говерла 4 на 4 метра" data-project-image="6" src="images/gazebo-hoverla-4x4-card.png"/>
+
     </div>
+
+
 
     <div class="project-info">
 
-        <div class="project-number">
-            ПРОЕКТ DD-G06
-        </div>
 
-        <h3>Говерла 4 × 4</h3>
+
+        <div class="project-number"><span data-i18n="projectLabel">ПРОЄКТ</span> DD-G06</div>
+
+
+
+        <h3 data-i18n="n6">Говерла 4 × 4</h3>
+
+
 
         <div class="specs">
+
             <span>📐 4 × 4 м</span>
-            <span>🌲 Дерево</span>
-            <span>👥 10 человек</span>
+
+            <span>🌲 <span data-i18n="wood">Дерево</span></span>
+
+            <span>👥 10 <span data-i18n="people">осіб</span></span>
+
         </div>
 
-        <p class="project-description">
-            Премиальная просторная беседка с открытыми сторонами,
-            мягкой зоной отдыха и декоративными шторами.
-        </p>
+
+
+        <p class="project-description" data-i18n="d6">Простора альтанка преміумкласу з відкритими сторонами, м’якою зоною відпочинку та декоративними шторами.</p>
+
+
 
         <div class="project-bottom">
 
+
+
             <div class="price">
+
                 790 грн
+
             </div>
 
-            <a href="project-g06.html" class="details">Подробнее</a>
+
+
+            <a class="details" data-i18n="details" href="project-g06.html">Детальніше</a>
+
         </div>
+
     </div>
 </article>
-
 </div>
+
     <section class="custom">
+
+
 
         <div>
 
-            <h2>Не нашли подходящий размер?</h2>
 
-            <p>
-                Отправьте размеры участка, фотографию и свои пожелания.
-                Мы адаптируем существующий проект или разработаем
-                индивидуальную беседку специально для вас.
-            </p>
+
+            <h2 data-i18n="customTitle">Не знайшли відповідний розмір?</h2>
+
+
+
+            <p data-i18n="customDescription">Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальну альтанку спеціально для вас.</p>
+
+
 
         </div>
 
-        <a href="#">
-            Создать свой проект →
-        </a>
+
+
+        <a data-i18n="customLink" href="#">Створити свій проєкт →</a>
+
+
 
     </section>
-
 </main>
-
-
-<footer>
-    © 2026 DachaDesign — идеи для вашего участка
-</footer>
+<footer data-i18n="footer">© 2026 DachaDesign — ідеї для вашої ділянки</footer>
 <script>
+
     const menuToggle = document.querySelector('.menu-toggle');
+
     const siteNav = document.querySelector('#site-nav');
+
     menuToggle.addEventListener('click', () => {
+
         const isOpen = siteNav.classList.toggle('is-open');
+
         menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+
+        menuToggle.setAttribute('aria-label', isOpen ? gazeboTranslations[document.documentElement.lang].menuClose : gazeboTranslations[document.documentElement.lang].menuOpen);
+
     });
+
     siteNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+
         siteNav.classList.remove('is-open');
+
         menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Открыть меню');
+
+        menuToggle.setAttribute('aria-label', gazeboTranslations[document.documentElement.lang].menuOpen);
+
     }));
+
     const filterButtons = document.querySelectorAll('.filter');
+
     const projects = document.querySelectorAll('.project');
+
+
 
     filterButtons.forEach(button => {
 
+
+
         button.addEventListener('click', () => {
 
+
+
             filterButtons.forEach(btn => {
+
                 btn.classList.remove('active');
+
             });
+
+
 
             button.classList.add('active');
 
+
+
             const filter = button.dataset.filter;
+
+
 
             projects.forEach(project => {
 
+
+
                 if (filter === 'all' || project.dataset.size === filter) {
+
                     project.style.display = 'block';
+
                 } else {
+
                     project.style.display = 'none';
+
                 }
+
+
 
             });
 
+
+
         });
 
+
+
     });
+
 </script>
-</body>
+<script>
+const gazeboTranslations = {
+  "uk": {
+    "pageTitle": "Проєкти альтанок — DachaDesign",
+    "menuOpen": "Відкрити меню",
+    "menuClose": "Закрити меню",
+    "menuLabel": "Головне меню",
+    "navHome": "Головна",
+    "navAll": "Усі проєкти",
+    "navGaz": "Альтанки",
+    "navContacts": "Контакти",
+    "heroTitle": "Проєкти альтанок",
+    "heroDescription": "Від компактних альтанок для невеликої ділянки до просторих зон відпочинку для всієї родини. Оберіть готову ідею або адаптуйте проєкт під свої розміри.",
+    "catalogLabel": "КАТАЛОГ DACHA DESIGN",
+    "catalogTitle": "Знайдіть свою альтанку",
+    "catalogDescription": "Оберіть розмір або перегляньте всі доступні проєкти.",
+    "filterLabel": "Фільтр за розміром альтанки",
+    "filterAll": "Усі",
+    "projectLabel": "ПРОЄКТ",
+    "wood": "Дерево",
+    "people": "осіб",
+    "details": "Детальніше",
+    "customTitle": "Не знайшли відповідний розмір?",
+    "customDescription": "Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальну альтанку спеціально для вас.",
+    "customLink": "Створити свій проєкт →",
+    "footer": "© 2026 DachaDesign — ідеї для вашої ділянки",
+    "n1": "Карпати 2 × 3",
+    "n2": "Лісова 3 × 3",
+    "n3": "Верховина 3 × 4",
+    "n4": "Смерека 4 × 4",
+    "n5": "Полонина 3 × 4",
+    "n6": "Говерла 4 × 4",
+    "d1": "Компактна дерев’яна альтанка для невеликої ділянки із затишною зоною відпочинку.",
+    "d2": "Універсальна альтанка для сімейних вечерь, відпочинку та зустрічей із друзями.",
+    "d3": "Простора альтанка з місцем для великого столу та повноцінної зони відпочинку.",
+    "d4": "Велика квадратна альтанка для компанії з просторою обідньою зоною та місцем для відпочинку.",
+    "d5": "Сучасна альтанка з прямими лініями, обідньою зоною та комфортним місцем для відпочинку.",
+    "d6": "Простора альтанка преміумкласу з відкритими сторонами, м’якою зоною відпочинку та декоративними шторами."
+  },
+  "en": {
+    "pageTitle": "Gazebo Projects — DachaDesign",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuLabel": "Main navigation",
+    "navHome": "Home",
+    "navAll": "All Projects",
+    "navGaz": "Gazebos",
+    "navContacts": "Contacts",
+    "heroTitle": "Gazebo Projects",
+    "heroDescription": "From compact gazebos for smaller properties to spacious outdoor areas for the whole family. Choose a ready-made design or adapt a project to your dimensions.",
+    "catalogLabel": "DACHA DESIGN CATALOG",
+    "catalogTitle": "Find Your Gazebo",
+    "catalogDescription": "Choose a size or browse all available projects.",
+    "filterLabel": "Filter gazebos by size",
+    "filterAll": "All",
+    "projectLabel": "PROJECT",
+    "wood": "Wood",
+    "people": "people",
+    "details": "View Details",
+    "customTitle": "Can’t find the right size?",
+    "customDescription": "Send us your property dimensions, a photo and your preferences. We can adapt an existing project or create a custom gazebo for you.",
+    "customLink": "Create Your Project →",
+    "footer": "© 2026 DachaDesign — ideas for your property",
+    "n1": "Carpathians 2 × 3",
+    "n2": "Forest 3 × 3",
+    "n3": "Verkhovyna 3 × 4",
+    "n4": "Smereka 4 × 4",
+    "n5": "Polonyna 3 × 4",
+    "n6": "Hoverla 4 × 4",
+    "d1": "A compact wooden gazebo with a cozy seating area for a small property.",
+    "d2": "A versatile gazebo for family dinners, relaxing and meeting friends.",
+    "d3": "A spacious gazebo with room for a large table and a comfortable lounge area.",
+    "d4": "A large square gazebo with a generous dining area and space to relax.",
+    "d5": "A modern gazebo with clean lines, a dining area and comfortable seating.",
+    "d6": "A premium spacious gazebo with open sides, a soft lounge area and decorative curtains."
+  },
+  "ru": {
+    "pageTitle": "Проекты беседок — DachaDesign",
+    "menuOpen": "Открыть меню",
+    "menuClose": "Закрыть меню",
+    "menuLabel": "Основное меню",
+    "navHome": "Главная",
+    "navAll": "Все проекты",
+    "navGaz": "Беседки",
+    "navContacts": "Контакты",
+    "heroTitle": "Проекты беседок",
+    "heroDescription": "От компактных беседок для небольшого участка до просторных зон отдыха для всей семьи. Выберите готовую идею или адаптируйте проект под свои размеры.",
+    "catalogLabel": "КАТАЛОГ DACHA DESIGN",
+    "catalogTitle": "Найдите свою беседку",
+    "catalogDescription": "Выберите размер или посмотрите все доступные проекты.",
+    "filterLabel": "Фильтр по размеру беседки",
+    "filterAll": "Все",
+    "projectLabel": "ПРОЕКТ",
+    "wood": "Дерево",
+    "people": "человек",
+    "details": "Подробнее",
+    "customTitle": "Не нашли подходящий размер?",
+    "customDescription": "Отправьте размеры участка, фотографию и свои пожелания. Мы адаптируем существующий проект или разработаем индивидуальную беседку специально для вас.",
+    "customLink": "Создать свой проект →",
+    "footer": "© 2026 DachaDesign — идеи для вашего участка",
+    "n1": "Карпаты 2 × 3",
+    "n2": "Лесная 3 × 3",
+    "n3": "Верховина 3 × 4",
+    "n4": "Смерека 4 × 4",
+    "n5": "Полонина 3 × 4",
+    "n6": "Говерла 4 × 4",
+    "d1": "Компактная деревянная беседка для небольшого участка с уютной зоной отдыха.",
+    "d2": "Универсальная беседка для семейных ужинов, отдыха и встреч с друзьями.",
+    "d3": "Просторная беседка с местом для большого стола и полноценной зоны отдыха.",
+    "d4": "Большая квадратная беседка для компании с просторной обеденной зоной и местом для отдыха.",
+    "d5": "Современная беседка с прямыми линиями, обеденной зоной и комфортным местом для отдыха.",
+    "d6": "Премиальная просторная беседка с открытыми сторонами, мягкой зоной отдыха и декоративными шторами."
+  }
+};
+function setGazeboLanguage(lang) {
+  if (!gazeboTranslations[lang]) lang = 'uk';
+  const dict = gazeboTranslations[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (Object.prototype.hasOwnProperty.call(dict, key)) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    el.getAttribute('data-i18n-attr').split(',').forEach(item => {
+      const [name, key] = item.trim().split(':');
+      if (name && Object.prototype.hasOwnProperty.call(dict, key)) el.setAttribute(name, dict[key]);
+    });
+  });
+  document.querySelectorAll('[data-project-image]').forEach(el => {
+    const n = Number(el.dataset.projectImage);
+    el.alt = (lang === 'en' ? 'Gazebo ' : lang === 'ru' ? 'Беседка ' : 'Альтанка ') + dict['n' + n];
+  });
+  document.querySelectorAll('.language-switcher button').forEach(button => {
+    const active = button.dataset.lang === lang;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  try { localStorage.setItem('dachadesign-language', lang); } catch (e) {}
+}
+document.querySelectorAll('.language-switcher button').forEach(button => {
+  button.addEventListener('click', () => setGazeboLanguage(button.dataset.lang));
+});
+let gazeboSavedLanguage = 'uk';
+try { gazeboSavedLanguage = localStorage.getItem('dachadesign-language') || 'uk'; } catch (e) {}
+setGazeboLanguage(gazeboSavedLanguage);
+</script></body>
 </html>

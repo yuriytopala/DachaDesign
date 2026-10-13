@@ -1,12 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Проекты навесов — DachaDesign</title>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Проекты навесов — DachaDesign</title>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -366,193 +365,145 @@
             .custom h2 { font-size: 27px; }
             .custom a { width: 100%; text-align: center; }
         }
-        </style>
+        
+/* Переключатель языка: не меняет исходные стили страницы */
+.carport-languages { display: flex; gap: 5px; align-items: center; margin-left: 12px; }
+.carport-languages button { border: 1px solid #d7ddd4; background: white; color: #283128; border-radius: 7px; padding: 8px 9px; font: 700 12px Arial, sans-serif; cursor: pointer; }
+.carport-languages button.active { background: #47764a; color: white; border-color: #47764a; }
+@media (max-width: 950px) { .carport-languages { margin-left: auto; margin-right: 10px; } .carport-languages button { padding: 8px 7px; } }
+@media (max-width: 380px) { .carport-languages { gap: 2px; margin-right: 5px; } .carport-languages button { padding: 7px 5px; font-size: 11px; } }
+</style>
 </head>
-
 <body>
-
 <header>
-
-    <a href="index.html" class="logo">
+<a class="logo" href="index.html">
         Dacha<span>Design</span>
-    </a>
-
-    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="site-nav" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-    <nav id="site-nav" aria-label="Основное меню">
-        <a href="index.html">Главная</a>
-        <a href="index.html#projects">Все проекты</a>
-        <a href="#catalog">Навесы</a>
-        <a href="index.html#contacts">Контакты</a>
-    </nav>
-
+</a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Основное меню" id="site-nav">
+<a data-carport-i18n="navHome" href="index.html">Главная</a>
+<a data-carport-i18n="navAll" href="index.html#projects">Все проекты</a>
+<a data-carport-i18n="navCarports" href="#catalog">Навесы</a>
+<a data-carport-i18n="navContacts" href="index.html#contacts">Контакты</a>
+</nav><div aria-label="Language / Мова / Язык" class="carport-languages" role="group"><button data-carport-lang="uk" type="button">UA</button><button data-carport-lang="en" type="button">EN</button><button data-carport-lang="ru" type="button">RU</button></div>
 </header>
-
-
 <section class="page-hero">
-
-    <div class="hero-content">
-
-        <div class="breadcrumb">
-            <a href="index.html">Главная</a>
-            &nbsp; / &nbsp;
+<div class="hero-content">
+<div class="breadcrumb">
+<a data-carport-i18n="navHome" href="index.html">Главная</a>
+              /  
             Навесы
         </div>
-
-       <h1>Навесы</h1>
-
-       <p>
+<h1 data-carport-i18n="heroTitle">Навесы</h1>
+<p data-carport-i18n="heroDesc">
     Готовые проекты автомобильных навесов для загородного дома:
     от компактного навеса на один автомобиль до просторных
     конструкций на два и три автомобиля.
 </p>
-
-    </div>
-
+</div>
 </section>
-
-
 <main class="catalog" id="catalog">
-
-    <div class="catalog-top">
-
-        <span>КАТАЛОГ DACHA DESIGN</span>
-
-        <h2>Найдите свой навес</h2>
-
-        <p>
+<div class="catalog-top">
+<span data-carport-i18n="catalogLabel">КАТАЛОГ DACHA DESIGN</span>
+<h2 data-carport-i18n="catalogTitle">Найдите свой навес</h2>
+<p data-carport-i18n="catalogDesc">
             Выберите размер или посмотрите все доступные проекты.
         </p>
-
-    </div>
-
-
-    <div class="filters" role="group" aria-label="Фильтры: навесы">
-    <button class="filter active" data-filter="all">Все</button>
-    <button class="filter" data-filter="one">На 1 авто</button>
-    <button class="filter" data-filter="two">На 2 авто</button>
-    <button class="filter" data-filter="three">На 3 авто</button>
 </div>
-
-
-    <div class="projects">
-
-        
+<div aria-label="Фильтры: навесы" class="filters" role="group">
+<button class="filter active" data-carport-i18n="filterAll" data-filter="all">Все</button>
+<button class="filter" data-carport-i18n="filterOne" data-filter="one">На 1 авто</button>
+<button class="filter" data-carport-i18n="filterTwo" data-filter="two">На 2 авто</button>
+<button class="filter" data-carport-i18n="filterThree" data-filter="three">На 3 авто</button>
+</div>
+<div class="projects">
 <!-- DD-N01 — БУКОВИНА -->
 <article class="project" data-type="one">
-    <div class="project-image">
-        <img src="images/carport-bukovyna-card.png"
-             alt="Автомобильный навес Буковина">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-N01</div>
-        <h3>Буковина</h3>
-
-        <div class="specs">
-            <span>📐 4 × 5 м</span>
-            <span>🚗 1 автомобиль</span>
-            <span>🪵 Дерево + камень</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Автомобильный навес Буковина" src="images/carport-bukovyna-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-carport-i18n="projectOne">ПРОЕКТ DD-N01</div>
+<h3 data-carport-i18n="nameOne">Буковина</h3>
+<div class="specs">
+<span data-carport-i18n="sizeOne">📐 4 × 5 м</span>
+<span data-carport-i18n="carsOne">🚗 1 автомобиль</span>
+<span data-carport-i18n="materialOne">🪵 Дерево + камень</span>
+</div>
+<p class="project-description" data-carport-i18n="descOne">
             Компактный деревянный навес для одного автомобиля
             с каменными основаниями и современной кровлей.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">490 грн</div>
-            <a href="project-n01.html" class="details">Подробнее</a>
-        </div>
-    </div>
+<div class="project-bottom">
+<div class="price" data-carport-i18n="priceOne">490 грн</div>
+<a class="details" data-carport-i18n="details" href="project-n01.html">Подробнее</a>
+</div>
+</div>
 </article>
-
-
 <!-- DD-N02 — КАРПАТЫ -->
 <article class="project" data-type="two">
-    <div class="project-image">
-        <img src="images/carport-karpaty-card.png"
-             alt="Автомобильный навес Карпаты">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-N02</div>
-        <h3>Карпаты</h3>
-
-        <div class="specs">
-            <span>📐 5 × 8 м</span>
-            <span>🚙 2 автомобиля</span>
-            <span>🪵 Дерево + камень</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Автомобильный навес Карпаты" src="images/carport-karpaty-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-carport-i18n="projectTwo">ПРОЕКТ DD-N02</div>
+<h3 data-carport-i18n="nameTwo">Карпаты</h3>
+<div class="specs">
+<span data-carport-i18n="sizeTwo">📐 5 × 8 м</span>
+<span data-carport-i18n="carsTwo">🚙 2 автомобиля</span>
+<span data-carport-i18n="materialTwo">🪵 Дерево + камень</span>
+</div>
+<p class="project-description" data-carport-i18n="descTwo">
             Просторный навес на два автомобиля с усиленной
             деревянной конструкцией и закрытой задней частью.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">690 грн</div>
-            <a href="project-n02.html" class="details">Подробнее</a>
-        </div>
-    </div>
+<div class="project-bottom">
+<div class="price" data-carport-i18n="priceTwo">690 грн</div>
+<a class="details" data-carport-i18n="details" href="project-n02.html">Подробнее</a>
+</div>
+</div>
 </article>
-
-
 <!-- DD-N03 — ГОВЕРЛА -->
 <article class="project" data-type="three">
-    <div class="project-image">
-        <img src="images/carport-hoverla-card.png"
-             alt="Большой автомобильный навес Говерла">
-    </div>
-
-    <div class="project-info">
-        <div class="project-number">ПРОЕКТ DD-N03</div>
-        <h3>Говерла</h3>
-
-        <div class="specs">
-            <span>📐 6 × 12 м</span>
-            <span>🚐 3 автомобиля</span>
-            <span>🪵 Дерево + камень</span>
-        </div>
-
-        <p class="project-description">
+<div class="project-image">
+<img alt="Большой автомобильный навес Говерла" src="images/carport-hoverla-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-carport-i18n="projectThree">ПРОЕКТ DD-N03</div>
+<h3 data-carport-i18n="nameThree">Говерла</h3>
+<div class="specs">
+<span data-carport-i18n="sizeThree">📐 6 × 12 м</span>
+<span data-carport-i18n="carsThree">🚐 3 автомобиля</span>
+<span data-carport-i18n="materialThree">🪵 Дерево + камень</span>
+</div>
+<p class="project-description" data-carport-i18n="descThree">
             Большой трёхсекционный навес с закрытой задней стеной
             для микроавтобуса, внедорожника и легкового автомобиля.
         </p>
-
-        <div class="project-bottom">
-            <div class="price">990 грн</div>
-            <a href="project-n03.html" class="details">Подробнее</a>
-        </div>
-    </div>
-</article>
-
+<div class="project-bottom">
+<div class="price" data-carport-i18n="priceThree">990 грн</div>
+<a class="details" data-carport-i18n="details" href="project-n03.html">Подробнее</a>
 </div>
-    <section class="custom">
-
-        <div>
-
-            <h2>Не нашли подходящий размер?</h2>
-
-            <p>
+</div>
+</article>
+</div>
+<section class="custom">
+<div>
+<h2 data-carport-i18n="customTitle">Не нашли подходящий размер?</h2>
+<p data-carport-i18n="customDesc">
                 Отправьте размеры участка, фотографию и свои пожелания.
                 Мы адаптируем существующий проект или разработаем
                 индивидуальную беседку специально для вас.
             </p>
-
-        </div>
-
-        <a href="#">
+</div>
+<a data-carport-i18n="customAction" href="index.html#contacts">
             Создать свой проект →
         </a>
-
-    </section>
-
+</section>
 </main>
-
-
-<footer>
+<footer data-carport-i18n="footer">
     © 2026 DachaDesign — идеи для вашего участка
 </footer>
 <script>
@@ -597,6 +548,53 @@
         });
 
     });
+</script>
+
+<script>
+(function () {
+  'use strict';
+  const translations = {"ru": {"navHome": "Главная", "navAll": "Все проекты", "navCarports": "Навесы", "navContacts": "Контакты", "heroTitle": "Навесы", "heroDesc": "Готовые проекты автомобильных навесов для загородного дома:\n    от компактного навеса на один автомобиль до просторных\n    конструкций на два и три автомобиля.", "catalogLabel": "КАТАЛОГ DACHA DESIGN", "catalogTitle": "Найдите свой навес", "catalogDesc": "Выберите размер или посмотрите все доступные проекты.", "filterAll": "Все", "filterOne": "На 1 авто", "filterTwo": "На 2 авто", "filterThree": "На 3 авто", "projectOne": "ПРОЕКТ DD-N01", "projectTwo": "ПРОЕКТ DD-N02", "projectThree": "ПРОЕКТ DD-N03", "nameOne": "Буковина", "nameTwo": "Карпаты", "nameThree": "Говерла", "sizeOne": "📐 4 × 5 м", "carsOne": "🚗 1 автомобиль", "materialOne": "🪵 Дерево + камень", "sizeTwo": "📐 5 × 8 м", "carsTwo": "🚙 2 автомобиля", "materialTwo": "🪵 Дерево + камень", "sizeThree": "📐 6 × 12 м", "carsThree": "🚐 3 автомобиля", "materialThree": "🪵 Дерево + камень", "descOne": "Компактный деревянный навес для одного автомобиля\n            с каменными основаниями и современной кровлей.", "descTwo": "Просторный навес на два автомобиля с усиленной\n            деревянной конструкцией и закрытой задней частью.", "descThree": "Большой трёхсекционный навес с закрытой задней стеной\n            для микроавтобуса, внедорожника и легкового автомобиля.", "priceOne": "490 грн", "priceTwo": "690 грн", "priceThree": "990 грн", "details": "Подробнее", "customTitle": "Не нашли подходящий размер?", "customDesc": "Отправьте размеры участка, фотографию и свои пожелания. Мы адаптируем существующий проект или разработаем индивидуальный навес специально для вас.", "customAction": "Создать свой проект →", "footer": "© 2026 DachaDesign — идеи для вашего участка", "menuOpen": "Открыть меню", "menuClose": "Закрыть меню", "filtersAria": "Фильтры: навесы", "navAria": "Основное меню", "pageTitle": "Проекты навесов — DachaDesign"}, "uk": {"navHome": "Головна", "navAll": "Усі проєкти", "navCarports": "Навіси", "navContacts": "Контакти", "heroTitle": "Навіси", "heroDesc": "Готові проєкти автомобільних навісів для заміського будинку: від компактного навісу на одне авто до просторих конструкцій на два й три автомобілі.", "catalogLabel": "КАТАЛОГ DACHA DESIGN", "catalogTitle": "Знайдіть свій навіс", "catalogDesc": "Оберіть розмір або перегляньте всі доступні проєкти.", "filterAll": "Усі", "filterOne": "На 1 авто", "filterTwo": "На 2 авто", "filterThree": "На 3 авто", "projectOne": "ПРОЄКТ DD-N01", "projectTwo": "ПРОЄКТ DD-N02", "projectThree": "ПРОЄКТ DD-N03", "nameOne": "Буковина", "nameTwo": "Карпати", "nameThree": "Говерла", "sizeOne": "📐 4 × 5 м", "sizeTwo": "📐 5 × 8 м", "sizeThree": "📐 6 × 12 м", "carsOne": "🚗 1 автомобіль", "carsTwo": "🚙 2 автомобілі", "carsThree": "🚐 3 автомобілі", "materialOne": "🪵 Дерево + камінь", "materialTwo": "🪵 Дерево + камінь", "materialThree": "🪵 Дерево + камінь", "descOne": "Компактний дерев’яний навіс для одного автомобіля з кам’яними основами та сучасною покрівлею.", "descTwo": "Просторий навіс для двох автомобілів із посиленою дерев’яною конструкцією та закритою задньою частиною.", "descThree": "Великий трисекційний навіс із закритою задньою стіною для мікроавтобуса, позашляховика та легкового автомобіля.", "priceOne": "490 грн", "priceTwo": "690 грн", "priceThree": "990 грн", "details": "Детальніше", "customTitle": "Не знайшли потрібний розмір?", "customDesc": "Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальний навіс спеціально для вас.", "customAction": "Створити свій проєкт →", "footer": "© 2026 DachaDesign — ідеї для вашої ділянки", "menuOpen": "Відкрити меню", "menuClose": "Закрити меню", "filtersAria": "Фільтри: навіси", "navAria": "Головне меню", "pageTitle": "Проєкти навісів — DachaDesign"}, "en": {"navHome": "Home", "navAll": "All projects", "navCarports": "Carports", "navContacts": "Contacts", "heroTitle": "Carports", "heroDesc": "Ready-made carport designs for country homes: from a compact single-car shelter to spacious structures for two or three vehicles.", "catalogLabel": "DACHA DESIGN CATALOG", "catalogTitle": "Find your carport", "catalogDesc": "Choose a size or browse all available designs.", "filterAll": "All", "filterOne": "1 car", "filterTwo": "2 cars", "filterThree": "3 cars", "projectOne": "PROJECT DD-N01", "projectTwo": "PROJECT DD-N02", "projectThree": "PROJECT DD-N03", "nameOne": "Bukovyna", "nameTwo": "Carpathians", "nameThree": "Hoverla", "sizeOne": "📐 4 × 5 m", "sizeTwo": "📐 5 × 8 m", "sizeThree": "📐 6 × 12 m", "carsOne": "🚗 1 car", "carsTwo": "🚙 2 cars", "carsThree": "🚐 3 cars", "materialOne": "🪵 Wood + stone", "materialTwo": "🪵 Wood + stone", "materialThree": "🪵 Wood + stone", "descOne": "A compact wooden carport for one vehicle, with stone bases and modern roofing.", "descTwo": "A spacious two-car shelter with a reinforced timber structure and an enclosed rear section.", "descThree": "A large three-bay carport with an enclosed rear wall, designed for a minibus, an SUV and a passenger car.", "priceOne": "490 UAH", "priceTwo": "690 UAH", "priceThree": "990 UAH", "details": "View details", "customTitle": "Need a different size?", "customDesc": "Send us your plot dimensions, a photo and your requirements. We can adapt an existing design or create a custom carport just for you.", "customAction": "Request a custom design →", "footer": "© 2026 DachaDesign — ideas for your outdoor space", "menuOpen": "Open menu", "menuClose": "Close menu", "filtersAria": "Carport filters", "navAria": "Main menu", "pageTitle": "Carport designs — DachaDesign"}};
+  const storageKey = 'dachadesign-language';
+  function savedLanguage() {
+    try { return localStorage.getItem(storageKey); } catch (_) { return null; }
+  }
+  function setLanguage(lang) {
+    if (!translations[lang]) lang = 'ru';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-carport-i18n]').forEach(function (element) {
+      const key = element.getAttribute('data-carport-i18n');
+      if (Object.prototype.hasOwnProperty.call(translations[lang], key)) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    document.querySelectorAll('[data-carport-lang]').forEach(function (button) {
+      const active = button.getAttribute('data-carport-lang') === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    document.title = translations[lang].pageTitle;
+    document.querySelector('.filters').setAttribute('aria-label', translations[lang].filtersAria);
+    document.querySelector('#site-nav').setAttribute('aria-label', translations[lang].navAria);
+    const menu = document.querySelector('.menu-toggle');
+    menu.setAttribute('aria-label', document.querySelector('#site-nav').classList.contains('is-open') ? translations[lang].menuClose : translations[lang].menuOpen);
+    try { localStorage.setItem(storageKey, lang); } catch (_) {}
+  }
+  document.querySelectorAll('[data-carport-lang]').forEach(function (button) {
+    button.addEventListener('click', function () { setLanguage(button.getAttribute('data-carport-lang')); });
+  });
+  const menuButton = document.querySelector('.menu-toggle');
+  menuButton.addEventListener('click', function () {
+    const lang = document.documentElement.lang;
+    menuButton.setAttribute('aria-label', document.querySelector('#site-nav').classList.contains('is-open') ? translations[lang].menuClose : translations[lang].menuOpen);
+  });
+  document.querySelectorAll('#site-nav a').forEach(function (link) {
+    link.addEventListener('click', function () { menuButton.setAttribute('aria-label', translations[document.documentElement.lang].menuOpen); });
+  });
+  setLanguage(savedLanguage() || 'ru');
+  window.addEventListener('storage', function (event) {
+    if (event.key === storageKey && translations[event.newValue]) setLanguage(event.newValue);
+  });
+})();
 </script>
 </body>
 </html>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Проекты коптилен — DachaDesign</title>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="pageTitle">Проєкти коптилень — DachaDesign</title>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -381,354 +380,190 @@
             .custom h2 { font-size: 26px; }
             .custom a { display: block; width: 100%; text-align: center; }
         }
-    </style>
+    
+/* Language switcher — additive styles; original design retained */
+header { gap: 14px; }
+header nav { margin-left: auto; }
+.language-switcher { display: flex; gap: 5px; flex-shrink: 0; }
+.language-switcher button { border: 1px solid #d7ddd4; background: #f7f9f5; color: #263c2b; border-radius: 8px; padding: 9px 11px; cursor: pointer; font-weight: 700; min-height: 40px; }
+.language-switcher button.active { background: #47764a; color: white; border-color: #47764a; }
+@media (max-width: 1100px) { header { padding-left: 4%; padding-right: 4%; } header nav { gap: 14px; } }
+@media (max-width: 950px) { header nav { margin-left: 0; } .language-switcher { margin-left: auto; } }
+@media (max-width: 400px) { .logo { font-size: 21px; } .language-switcher button { padding: 7px; } }
+</style>
 </head>
-
 <body>
-
 <header>
-
-    <a href="index.html" class="logo">
+<a class="logo" href="index.html">
         Dacha<span>Design</span>
-    </a>
-
-    <nav id="site-nav">
-        <a href="index.html">Главная</a>
-        <a href="index.html#projects">Проекты</a>
-        <a href="index.html#projects">Все проекты</a>
-        <a href="#catalog">Каталог</a>
-        <a href="#custom-order" class="order-button">Создать свой проект</a>
-    </nav>
-    <button type="button" class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">☰</button>
-
+</a>
+<nav id="site-nav">
+<a data-i18n="navHome" href="index.html">Головна</a>
+<a data-i18n="navProjects" href="index.html#projects">Проєкти</a>
+<a data-i18n="navAll" href="index.html#projects">Усі проєкти</a>
+<a data-i18n="navCatalog" href="#catalog">Каталог</a>
+<a class="order-button" data-i18n="navCustom" href="#custom-order">Створити свій проєкт</a>
+</nav>
+<div aria-label="Вибір мови" class="language-switcher"><button aria-label="Switch to UA" data-lang="uk" type="button">UA</button><button aria-label="Switch to EN" data-lang="en" type="button">EN</button><button aria-label="Switch to RU" data-lang="ru" type="button">RU</button></div><button aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" type="button">☰</button>
 </header>
-
-
 <section class="page-hero">
-
-    <div class="hero-content">
-
-        <div class="breadcrumb">
-            <a href="index.html">Главная</a>
-            &nbsp; / &nbsp;
-            Коптильни
-        </div>
-
-        <h1>Проекты коптилен</h1>
-
-        <p>
-    Готовые проекты коптилен для дачи и загородного дома:
-    от компактных моделей до комплексов холодного и горячего копчения.
-</p>
-
-    </div>
-
-</section>
-
-
-<main class="catalog" id="catalog">
-
-    <div class="catalog-top">
-
-        <span>КАТАЛОГ DACHA DESIGN</span>
-
-        <h2>Найдите свою коптильню</h2>
-
-        <p>
-            Выберите размер или посмотрите все доступные проекты.
-        </p>
-
-    </div>
-
-
-    <div class="filters">
-
-    <button class="filter active" data-filter="all">Все</button>
-    <button class="filter" data-filter="hot">Горячее копчение</button>
-    <button class="filter" data-filter="cold">Холодное копчение</button>
-    <button class="filter" data-filter="2in1">2 в 1</button>
-    <button class="filter" data-filter="complex">Комплексы</button>
-
+<div class="hero-content">
+<div class="breadcrumb">
+<a data-i18n="crumbHome" href="index.html">Головна</a> <span data-i18n="crumbSmoke">Коптильні</span></div>
+<h1 data-i18n="heroTitle">Проєкти коптилень</h1>
+<p data-i18n="heroDesc">Готові проєкти коптилень для дачі та заміського будинку: від компактних моделей до комплексів холодного й гарячого копчення.</p>
 </div>
-
-
-    <div class="projects">
-
-        
+</section>
+<main class="catalog" id="catalog">
+<div class="catalog-top">
+<span data-i18n="catalogLabel">КАТАЛОГ DACHA DESIGN</span>
+<h2 data-i18n="catalogTitle">Знайдіть свою коптильню</h2>
+<p data-i18n="catalogDesc">Оберіть тип копчення або перегляньте всі доступні проєкти.</p>
+</div>
+<div class="filters">
+<button class="filter active" data-filter="all" data-i18n="filterAll">Усі</button>
+<button class="filter" data-filter="hot" data-i18n="filterHot">Гаряче копчення</button>
+<button class="filter" data-filter="cold" data-i18n="filterCold">Холодне копчення</button>
+<button class="filter" data-filter="2in1" data-i18n="filter2in1">2 в 1</button>
+<button class="filter" data-filter="complex" data-i18n="filterComplex">Комплекси</button>
+</div>
+<div class="projects">
 <article class="project" data-type="hot">
-
-    <div class="project-image">
-        <img src="images/smokehouse-dymok-card.png" alt="Коптильня Дымок горячего копчения">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S01
-        </div>
-
-        <h3>Дымок</h3>
-
-        <div class="specs">
-            <span>📐 1,2 × 0,8 м</span>
-            <span>🧱 Кирпич</span>
-            <span>🔥 Горячее копчение</span>
-        </div>
-
-        <p class="project-description">
-            Компактная кирпичная коптильня для горячего копчения
-            мяса, рыбы и птицы на даче или загородном участке.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<div class="project-image">
+<img alt="Коптильня «Димок»" data-i18n-alt="s1alt" src="images/smokehouse-dymok-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s1number">ПРОЄКТ DD-S01</div>
+<h3 data-i18n="s1title">Димок</h3>
+<div class="specs">
+<span>📐 1,2 × 0,8 м</span>
+<span data-i18n="s1material">🧱 Цегла</span>
+<span data-i18n="s1mode">🔥 Гаряче копчення</span>
+</div>
+<p class="project-description" data-i18n="s1desc">Компактна цегляна коптильня для гарячого копчення м’яса, риби та птиці на дачі або заміській ділянці.</p>
+<div class="project-bottom">
+<div class="price">
                 490 грн
             </div>
-
-            <a href="project-s01.html" class="details">Подробнее</a>
-
-        </div>
-
-    </div>
-
+<a class="details" data-i18n="s1details" href="project-s01.html">Детальніше</a>
+</div>
+</div>
 </article>
-
-
-        
-       <article class="project" data-type="cold">
-
-    <div class="project-image">
-        <img src="images/smokehouse-bukovyna-card.png" alt="Коптильня Буковина холодного копчения">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S02
-        </div>
-
-        <h3>Буковина</h3>
-
-        <div class="specs">
-            <span>📐 1 × 1 м</span>
-            <span>🌲 Дерево + кирпич</span>
-            <span>❄️ Холодное копчение</span>
-        </div>
-
-        <p class="project-description">
-            Коптильня холодного копчения с отдельной топкой
-            и подземным дымовым каналом для охлаждения дыма.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<article class="project" data-type="cold">
+<div class="project-image">
+<img alt="Коптильня «Буковина»" data-i18n-alt="s2alt" src="images/smokehouse-bukovyna-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s2number">ПРОЄКТ DD-S02</div>
+<h3 data-i18n="s2title">Буковина</h3>
+<div class="specs">
+<span>📐 1 × 1 м</span>
+<span data-i18n="s2material">🌲 Дерево + цегла</span>
+<span data-i18n="s2mode">❄️ Холодне копчення</span>
+</div>
+<p class="project-description" data-i18n="s2desc">Коптильня холодного копчення з окремою топкою та підземним димовим каналом для охолодження диму.</p>
+<div class="project-bottom">
+<div class="price">
                 590 грн
             </div>
-
-            <a href="project-s02.html" class="details">Подробнее</a>
-
-        </div>
-
-    </div>
-
+<a class="details" data-i18n="s2details" href="project-s02.html">Детальніше</a>
+</div>
+</div>
 </article>
-
-
-        <article class="project" data-type="2in1">
-
-    <div class="project-image">
-        <img src="images/smokehouse-karpatska-2in1-card.png"
-             alt="Коптильня Карпатская 2 в 1 горячего и холодного копчения">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S03
-        </div>
-
-        <h3>Карпатская 2 в 1</h3>
-
-        <div class="specs">
-            <span>📐 1,2 × 1,0 м</span>
-            <span>🧱 Кирпич + дерево</span>
-            <span>🔥❄️ Горячее + холодное</span>
-        </div>
-
-        <p class="project-description">
-            Универсальная коптильня с двумя независимыми топками:
-            прямой подачей дыма для горячего копчения и отдельным
-            дымовым каналом для холодного режима.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<article class="project" data-type="2in1">
+<div class="project-image">
+<img alt="Коптильня «Карпатська 2 в 1»" data-i18n-alt="s3alt" src="images/smokehouse-karpatska-2in1-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s3number">ПРОЄКТ DD-S03</div>
+<h3 data-i18n="s3title">Карпатська 2 в 1</h3>
+<div class="specs">
+<span>📐 1,2 × 1,0 м</span>
+<span data-i18n="s3material">🧱 Цегла + дерево</span>
+<span data-i18n="s3mode">🔥❄️ Гаряче + холодне</span>
+</div>
+<p class="project-description" data-i18n="s3desc">Універсальна коптильня з двома незалежними топками: прямою подачею диму для гарячого копчення та окремим димовим каналом для холодного режиму.</p>
+<div class="project-bottom">
+<div class="price">
                 690 грн
             </div>
-
-            <a href="project-s03.html" class="details">
-    Подробнее
-</a>
-
-        </div>
-
-    </div>
-
+<a class="details" data-i18n="s3details" href="project-s03.html">Детальніше</a>
+</div>
+</div>
 </article>
 <article class="project" data-type="hot">
-
-    <div class="project-image">
-        <img src="images/smokehouse-hutsulska-card.png"
-             alt="Кирпичная коптильня Гуцульская с печью">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S04
-        </div>
-
-        <h3>Гуцульская</h3>
-
-        <div class="specs">
-            <span>📐 1,3 × 1,0 м</span>
-            <span>🧱 Кирпич</span>
-            <span>🔥 Коптильня + печь</span>
-        </div>
-
-        <p class="project-description">
-            Капитальная кирпичная коптильня с отдельной топкой,
-            многоуровневыми решётками и камерой горячего копчения.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<div class="project-image">
+<img alt="Коптильня «Гуцульська»" data-i18n-alt="s4alt" src="images/smokehouse-hutsulska-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s4number">ПРОЄКТ DD-S04</div>
+<h3 data-i18n="s4title">Гуцульська</h3>
+<div class="specs">
+<span>📐 1,3 × 1,0 м</span>
+<span data-i18n="s4material">🧱 Цегла</span>
+<span data-i18n="s4mode">🔥 Коптильня + піч</span>
+</div>
+<p class="project-description" data-i18n="s4desc">Капітальна цегляна коптильня з окремою топкою, багаторівневими решітками та камерою гарячого копчення.</p>
+<div class="project-bottom">
+<div class="price">
                 790 грн
             </div>
-
-            <a href="project-s04.html" class="details">
-    Подробнее
-</a>
-
-        </div>
-
-    </div>
-
+<a class="details" data-i18n="s4details" href="project-s04.html">Детальніше</a>
+</div>
+</div>
 </article>
 <article class="project" data-type="complex">
-
-    <div class="project-image">
-        <img src="images/smokehouse-vatra-card.png"
-             alt="Комплекс Ватра с коптильней, мангалом и казаном">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S05
-        </div>
-
-        <h3>Ватра</h3>
-
-        <div class="specs">
-            <span>📐 3,2 × 0,9 м</span>
-            <span>🧱 Кирпич + металл</span>
-            <span>🔥 Коптильня + мангал + казан</span>
-        </div>
-
-        <p class="project-description">
-            Многофункциональный кирпичный комплекс с коптильней,
-            мангалом, печью под казан и удобными нишами для дров.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<div class="project-image">
+<img alt="Коптильня «Ватра»" data-i18n-alt="s5alt" src="images/smokehouse-vatra-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s5number">ПРОЄКТ DD-S05</div>
+<h3 data-i18n="s5title">Ватра</h3>
+<div class="specs">
+<span>📐 3,2 × 0,9 м</span>
+<span data-i18n="s5material">🧱 Цегла + метал</span>
+<span data-i18n="s5mode">🔥 Коптильня + мангал + казан</span>
+</div>
+<p class="project-description" data-i18n="s5desc">Багатофункціональний цегляний комплекс із коптильнею, мангалом, піччю під казан та зручними нішами для дров.</p>
+<div class="project-bottom">
+<div class="price">
                 890 грн
             </div>
-
-            <a href="project-s05.html" class="details">
-    Подробнее
-</a>
-
-        </div>
-
-    </div>
-
+<a class="details" data-i18n="s5details" href="project-s05.html">Детальніше</a>
+</div>
+</div>
 </article>
 <article class="project" data-type="complex">
-
-    <div class="project-image">
-        <img src="images/smokehouse-chornohora-3in1-card.png"
-             alt="Комплекс Черногора 3 в 1">
-    </div>
-
-    <div class="project-info">
-
-        <div class="project-number">
-            ПРОЕКТ DD-S06
-        </div>
-
-        <h3>Черногора 3 в 1</h3>
-
-        <div class="specs">
-            <span>📐 3,8 × 1,0 м</span>
-            <span>🧱 Кирпич + дерево</span>
-            <span>🔥❄️ Копчение + гриль</span>
-        </div>
-
-        <p class="project-description">
-            Флагманский комплекс с горячим и холодным копчением,
-            двумя независимыми топками и полноценной печью-грилем.
-        </p>
-
-        <div class="project-bottom">
-
-            <div class="price">
+<div class="project-image">
+<img alt="Коптильня «Чорногора 3 в 1»" data-i18n-alt="s6alt" src="images/smokehouse-chornohora-3in1-card.png"/>
+</div>
+<div class="project-info">
+<div class="project-number" data-i18n="s6number">ПРОЄКТ DD-S06</div>
+<h3 data-i18n="s6title">Чорногора 3 в 1</h3>
+<div class="specs">
+<span>📐 3,8 × 1,0 м</span>
+<span data-i18n="s6material">🧱 Цегла + дерево</span>
+<span data-i18n="s6mode">🔥❄️ Копчення + гриль</span>
+</div>
+<p class="project-description" data-i18n="s6desc">Флагманський комплекс із гарячим і холодним копченням, двома незалежними топками та повноцінною піччю-грилем.</p>
+<div class="project-bottom">
+<div class="price">
                 990 грн
             </div>
-
-            <a href="project-s06.html" class="details">
-    Подробнее
-</a>
-
-        </div>
-
-    </div>
-
-</article>
-
+<a class="details" data-i18n="s6details" href="project-s06.html">Детальніше</a>
 </div>
-    <section class="custom" id="custom-order">
-
-        <div>
-
-            <h2>Не нашли подходящий размер?</h2>
-
-            <p>
-                Отправьте размеры участка, фотографию и свои пожелания.
-                Мы адаптируем существующий проект или разработаем
-                индивидуальную коптильню специально для вас.
-            </p>
-
-        </div>
-
-        <a href="index.html#contacts">
-            Связаться с нами →
-        </a>
-
-    </section>
-
+</div>
+</article>
+</div>
+<section class="custom" id="custom-order">
+<div>
+<h2 data-i18n="customTitle">Не знайшли відповідний розмір?</h2>
+<p data-i18n="customDesc">Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальну коптильню спеціально для вас.</p>
+</div>
+<a data-i18n="customLink" href="index.html#contacts">Зв’язатися з нами →</a>
+</section>
 </main>
-
-
-<footer>
-    © 2026 DachaDesign — идеи для вашего участка
-</footer>
+<footer data-i18n="footer">© 2026 DachaDesign — ідеї для вашої ділянки</footer>
 <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('#site-nav');
@@ -771,5 +606,230 @@
 
     });
 </script>
-</body>
+<script>
+const translations = {
+  "uk": {
+    "pageTitle": "Проєкти коптилень — DachaDesign",
+    "navHome": "Головна",
+    "navProjects": "Проєкти",
+    "navAll": "Усі проєкти",
+    "navCatalog": "Каталог",
+    "navCustom": "Створити свій проєкт",
+    "crumbHome": "Головна",
+    "crumbSmoke": "Коптильні",
+    "heroTitle": "Проєкти коптилень",
+    "heroDesc": "Готові проєкти коптилень для дачі та заміського будинку: від компактних моделей до комплексів холодного й гарячого копчення.",
+    "catalogLabel": "КАТАЛОГ DACHA DESIGN",
+    "catalogTitle": "Знайдіть свою коптильню",
+    "catalogDesc": "Оберіть тип копчення або перегляньте всі доступні проєкти.",
+    "filterAll": "Усі",
+    "filterHot": "Гаряче копчення",
+    "filterCold": "Холодне копчення",
+    "filter2in1": "2 в 1",
+    "filterComplex": "Комплекси",
+    "s1number": "ПРОЄКТ DD-S01",
+    "s1title": "Димок",
+    "s1material": "🧱 Цегла",
+    "s1mode": "🔥 Гаряче копчення",
+    "s1desc": "Компактна цегляна коптильня для гарячого копчення м’яса, риби та птиці на дачі або заміській ділянці.",
+    "s1details": "Детальніше",
+    "s1alt": "Коптильня «Димок»",
+    "s2number": "ПРОЄКТ DD-S02",
+    "s2title": "Буковина",
+    "s2material": "🌲 Дерево + цегла",
+    "s2mode": "❄️ Холодне копчення",
+    "s2desc": "Коптильня холодного копчення з окремою топкою та підземним димовим каналом для охолодження диму.",
+    "s2details": "Детальніше",
+    "s2alt": "Коптильня «Буковина»",
+    "s3number": "ПРОЄКТ DD-S03",
+    "s3title": "Карпатська 2 в 1",
+    "s3material": "🧱 Цегла + дерево",
+    "s3mode": "🔥❄️ Гаряче + холодне",
+    "s3desc": "Універсальна коптильня з двома незалежними топками: прямою подачею диму для гарячого копчення та окремим димовим каналом для холодного режиму.",
+    "s3details": "Детальніше",
+    "s3alt": "Коптильня «Карпатська 2 в 1»",
+    "s4number": "ПРОЄКТ DD-S04",
+    "s4title": "Гуцульська",
+    "s4material": "🧱 Цегла",
+    "s4mode": "🔥 Коптильня + піч",
+    "s4desc": "Капітальна цегляна коптильня з окремою топкою, багаторівневими решітками та камерою гарячого копчення.",
+    "s4details": "Детальніше",
+    "s4alt": "Коптильня «Гуцульська»",
+    "s5number": "ПРОЄКТ DD-S05",
+    "s5title": "Ватра",
+    "s5material": "🧱 Цегла + метал",
+    "s5mode": "🔥 Коптильня + мангал + казан",
+    "s5desc": "Багатофункціональний цегляний комплекс із коптильнею, мангалом, піччю під казан та зручними нішами для дров.",
+    "s5details": "Детальніше",
+    "s5alt": "Коптильня «Ватра»",
+    "s6number": "ПРОЄКТ DD-S06",
+    "s6title": "Чорногора 3 в 1",
+    "s6material": "🧱 Цегла + дерево",
+    "s6mode": "🔥❄️ Копчення + гриль",
+    "s6desc": "Флагманський комплекс із гарячим і холодним копченням, двома незалежними топками та повноцінною піччю-грилем.",
+    "s6details": "Детальніше",
+    "s6alt": "Коптильня «Чорногора 3 в 1»",
+    "customTitle": "Не знайшли відповідний розмір?",
+    "customDesc": "Надішліть розміри ділянки, фотографію та свої побажання. Ми адаптуємо наявний проєкт або розробимо індивідуальну коптильню спеціально для вас.",
+    "customLink": "Зв’язатися з нами →",
+    "footer": "© 2026 DachaDesign — ідеї для вашої ділянки"
+  },
+  "en": {
+    "pageTitle": "Smokehouse Projects — DachaDesign",
+    "navHome": "Home",
+    "navProjects": "Projects",
+    "navAll": "All Projects",
+    "navCatalog": "Catalog",
+    "navCustom": "Create Your Project",
+    "crumbHome": "Home",
+    "crumbSmoke": "Smokehouses",
+    "heroTitle": "Smokehouse Projects",
+    "heroDesc": "Ready-made smokehouse plans for cottages and country homes, from compact models to hot and cold smoking complexes.",
+    "catalogLabel": "DACHA DESIGN CATALOG",
+    "catalogTitle": "Find Your Smokehouse",
+    "catalogDesc": "Choose a smoking type or browse all available projects.",
+    "filterAll": "All",
+    "filterHot": "Hot Smoking",
+    "filterCold": "Cold Smoking",
+    "filter2in1": "2 in 1",
+    "filterComplex": "Complexes",
+    "s1number": "PROJECT DD-S01",
+    "s1title": "Dymok",
+    "s1material": "🧱 Brick",
+    "s1mode": "🔥 Hot smoking",
+    "s1desc": "A compact brick smokehouse for hot-smoking meat, fish and poultry at your cottage or country property.",
+    "s1details": "Details",
+    "s1alt": "Dymok smokehouse",
+    "s2number": "PROJECT DD-S02",
+    "s2title": "Bukovyna",
+    "s2material": "🌲 Wood + brick",
+    "s2mode": "❄️ Cold smoking",
+    "s2desc": "A cold-smoking smokehouse with a separate firebox and an underground smoke channel to cool the smoke.",
+    "s2details": "Details",
+    "s2alt": "Bukovyna smokehouse",
+    "s3number": "PROJECT DD-S03",
+    "s3title": "Carpathian 2 in 1",
+    "s3material": "🧱 Brick + wood",
+    "s3mode": "🔥❄️ Hot + cold",
+    "s3desc": "A versatile smokehouse with two independent fireboxes: direct smoke flow for hot smoking and a separate smoke channel for cold smoking.",
+    "s3details": "Details",
+    "s3alt": "Carpathian 2 in 1 smokehouse",
+    "s4number": "PROJECT DD-S04",
+    "s4title": "Hutsul",
+    "s4material": "🧱 Brick",
+    "s4mode": "🔥 Smokehouse + stove",
+    "s4desc": "A substantial brick smokehouse with a separate firebox, multi-level racks and a hot-smoking chamber.",
+    "s4details": "Details",
+    "s4alt": "Hutsul smokehouse",
+    "s5number": "PROJECT DD-S05",
+    "s5title": "Vatra",
+    "s5material": "🧱 Brick + metal",
+    "s5mode": "🔥 Smokehouse + BBQ + cauldron",
+    "s5desc": "A multifunctional brick complex with a smokehouse, BBQ grill, cauldron stove and handy firewood storage.",
+    "s5details": "Details",
+    "s5alt": "Vatra smokehouse",
+    "s6number": "PROJECT DD-S06",
+    "s6title": "Chornohora 3 in 1",
+    "s6material": "🧱 Brick + wood",
+    "s6mode": "🔥❄️ Smoking + grill",
+    "s6desc": "A flagship complex for hot and cold smoking, with two independent fireboxes and a full grill oven.",
+    "s6details": "Details",
+    "s6alt": "Chornohora 3 in 1 smokehouse",
+    "customTitle": "Need a Different Size?",
+    "customDesc": "Send us your plot dimensions, a photo and your requirements. We can adapt an existing plan or design a custom smokehouse for you.",
+    "customLink": "Contact Us →",
+    "footer": "© 2026 DachaDesign — ideas for your property"
+  },
+  "ru": {
+    "pageTitle": "Проекты коптилен — DachaDesign",
+    "navHome": "Главная",
+    "navProjects": "Проекты",
+    "navAll": "Все проекты",
+    "navCatalog": "Каталог",
+    "navCustom": "Создать свой проект",
+    "crumbHome": "Главная",
+    "crumbSmoke": "Коптильни",
+    "heroTitle": "Проекты коптилен",
+    "heroDesc": "Готовые проекты коптилен для дачи и загородного дома: от компактных моделей до комплексов холодного и горячего копчения.",
+    "catalogLabel": "КАТАЛОГ DACHA DESIGN",
+    "catalogTitle": "Найдите свою коптильню",
+    "catalogDesc": "Выберите тип копчения или посмотрите все доступные проекты.",
+    "filterAll": "Все",
+    "filterHot": "Горячее копчение",
+    "filterCold": "Холодное копчение",
+    "filter2in1": "2 в 1",
+    "filterComplex": "Комплексы",
+    "s1number": "ПРОЕКТ DD-S01",
+    "s1title": "Дымок",
+    "s1material": "🧱 Кирпич",
+    "s1mode": "🔥 Горячее копчение",
+    "s1desc": "Компактная кирпичная коптильня для горячего копчения мяса, рыбы и птицы на даче или загородном участке.",
+    "s1details": "Подробнее",
+    "s1alt": "Коптильня «Дымок»",
+    "s2number": "ПРОЕКТ DD-S02",
+    "s2title": "Буковина",
+    "s2material": "🌲 Дерево + кирпич",
+    "s2mode": "❄️ Холодное копчение",
+    "s2desc": "Коптильня холодного копчения с отдельной топкой и подземным дымовым каналом для охлаждения дыма.",
+    "s2details": "Подробнее",
+    "s2alt": "Коптильня «Буковина»",
+    "s3number": "ПРОЕКТ DD-S03",
+    "s3title": "Карпатская 2 в 1",
+    "s3material": "🧱 Кирпич + дерево",
+    "s3mode": "🔥❄️ Горячее + холодное",
+    "s3desc": "Универсальная коптильня с двумя независимыми топками: прямой подачей дыма для горячего копчения и отдельным дымовым каналом для холодного режима.",
+    "s3details": "Подробнее",
+    "s3alt": "Коптильня «Карпатская 2 в 1»",
+    "s4number": "ПРОЕКТ DD-S04",
+    "s4title": "Гуцульская",
+    "s4material": "🧱 Кирпич",
+    "s4mode": "🔥 Коптильня + печь",
+    "s4desc": "Капитальная кирпичная коптильня с отдельной топкой, многоуровневыми решётками и камерой горячего копчения.",
+    "s4details": "Подробнее",
+    "s4alt": "Коптильня «Гуцульская»",
+    "s5number": "ПРОЕКТ DD-S05",
+    "s5title": "Ватра",
+    "s5material": "🧱 Кирпич + металл",
+    "s5mode": "🔥 Коптильня + мангал + казан",
+    "s5desc": "Многофункциональный кирпичный комплекс с коптильней, мангалом, печью под казан и удобными нишами для дров.",
+    "s5details": "Подробнее",
+    "s5alt": "Коптильня «Ватра»",
+    "s6number": "ПРОЕКТ DD-S06",
+    "s6title": "Черногора 3 в 1",
+    "s6material": "🧱 Кирпич + дерево",
+    "s6mode": "🔥❄️ Копчение + гриль",
+    "s6desc": "Флагманский комплекс с горячим и холодным копчением, двумя независимыми топками и полноценной печью-грилем.",
+    "s6details": "Подробнее",
+    "s6alt": "Коптильня «Черногора 3 в 1»",
+    "customTitle": "Не нашли подходящий размер?",
+    "customDesc": "Отправьте размеры участка, фотографию и свои пожелания. Мы адаптируем существующий проект или разработаем индивидуальную коптильню специально для вас.",
+    "customLink": "Связаться с нами →",
+    "footer": "© 2026 DachaDesign — идеи для вашего участка"
+  }
+};
+function setLanguage(lang) {
+  if (!translations[lang]) return;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (Object.prototype.hasOwnProperty.call(translations[lang], key)) el.textContent = translations[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.dataset.i18nAlt;
+    if (translations[lang][key]) el.setAttribute('alt', translations[lang][key]);
+  });
+  document.querySelectorAll('.language-switcher button').forEach(button => {
+    button.classList.toggle('active', button.dataset.lang === lang);
+  });
+  const menu = document.querySelector('.menu-toggle');
+  if (menu) menu.setAttribute('aria-label', lang === 'en' ? 'Open menu' : lang === 'ru' ? 'Открыть меню' : 'Відкрити меню');
+  try { localStorage.setItem('dachadesign-language', lang); } catch (e) {}
+}
+document.querySelectorAll('.language-switcher button').forEach(button => {
+  button.addEventListener('click', () => setLanguage(button.dataset.lang));
+});
+let savedLanguage = 'uk';
+try { savedLanguage = localStorage.getItem('dachadesign-language') || 'uk'; } catch (e) {}
+setLanguage(savedLanguage);
+</script></body>
 </html>
