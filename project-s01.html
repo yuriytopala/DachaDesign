@@ -881,7 +881,23 @@ img, video, iframe { max-width: 100%; }
 </style>
 
 <style id="dd-language-style">.header-inner nav{margin-left:auto}.header-inner{gap:18px}@media(max-width:600px){.header-inner .dd-language-switch{margin-left:auto}}.dd-language-switch{display:flex;gap:5px;align-items:center;flex-shrink:0}.dd-language-switch button{cursor:pointer;background:#fff;border:1px solid #d7ddd4;border-radius:7px;padding:8px 9px;font-weight:700;color:#263c2b}.dd-language-switch button[aria-pressed="true"]{background:#47764a;color:#fff;border-color:#47764a}@media(max-width:600px){.dd-language-switch{gap:2px}.dd-language-switch button{padding:7px 6px;font-size:12px}}</style>
-</head>
+<style id="dd-sale-note-style">
+.dd-sale-note {
+    margin: 14px 0 22px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #f2f4ee;
+    color: #46564a;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.dd-sale-note span { display: none; }
+html[lang="uk"] .dd-sale-note span[lang="uk"],
+html[lang="en"] .dd-sale-note span[lang="en"],
+html[lang="ru"] .dd-sale-note span[lang="ru"] {
+    display: block;
+}
+</style></head>
 <body>
 <!-- =========================
          ШАПКА
@@ -948,6 +964,10 @@ img, video, iframe { max-width: 100%; }
 <strong data-project-i18n="17">
                         490 грн
                     </strong>
+</div><div class="dd-sale-note">
+<span lang="uk">Ціна вказана за ескізні матеріали. Детальні робочі креслення не входять у цю пропозицію. Склад замовлення, терміни та остаточну вартість узгоджуємо до оплати.</span>
+<span lang="en">The listed price covers concept design materials. Detailed construction drawings are not included. Deliverables, timing and the final price are confirmed before payment.</span>
+<span lang="ru">Цена указана за эскизные материалы. Подробные рабочие чертежи в эту стоимость не входят. Состав заказа, сроки и окончательную цену согласовываем до оплаты.</span>
 </div>
 <a class="order-button" data-project-i18n="18" href="#order">
                     Замовити проєкт →
@@ -961,8 +981,7 @@ img, video, iframe { max-width: 100%; }
 <div class="section-label" data-project-i18n="19">ПРОЄКТ І КОНСТРУКЦІЯ</div>
 <h2 data-project-i18n="20">Будова коптильні «Димок»</h2>
 <p data-project-i18n="21">
-    В полном проекте показаны размеры конструкции, схема кирпичной кладки,
-    устройство топки и коптильной камеры, дымоход и основные строительные узлы.
+    Эскиз показывает основные размеры и элементы конструкции.
     Подробные чертежи доступны после приобретения проекта.
 </p>
 <h3 data-project-i18n="22">
@@ -1002,18 +1021,16 @@ img, video, iframe { max-width: 100%; }
 <div class="section-label" data-project-i18n="19">ПРОЄКТ І КОНСТРУКЦІЯ</div>
 <h2 data-project-i18n="20">Будова коптильні «Димок»</h2>
 <p data-project-i18n="35">
-    В полном проекте показаны размеры коптильни, устройство топки
-    и коптильной камеры, схема дымохода, кирпичной кладки
-    и основные строительные узлы.
+    Эскиз показывает основные размеры и элементы конструкции.
 </p>
 <div class="plan-image protected-plan">
 <img alt="Превью чертежей проекта Дымок" src="images/smokehouse-s01-plan-preview.png"/>
 <div class="plan-lock">
 <div class="lock-icon">🔒</div>
-<h3 data-project-i18n="36">Повний комплект креслень</h3>
+<h3 data-project-i18n="36">Ескізні матеріали проєкту</h3>
 <p data-project-i18n="37">
     Точные размеры, схема кирпичной кладки, устройство топки,
-    коптильной камеры и дымохода доступны после покупки проекта.
+    коптильной камеры и дымохода согласовываются отдельно до оплаты.
 </p>
 <a class="order-button" data-project-i18n="38" href="#order-form">
             Отримати проєкт за 490 грн →
@@ -1033,7 +1050,7 @@ img, video, iframe { max-width: 100%; }
                    Хочете збудувати таку коптильню?
                 </h2>
 <p data-project-i18n="40">
-    Получите готовый проект «Дымок» с размерами,
+    Закажите эскизный проект «Дымок» с размерами,
     схемой конструкции и перечнем основных материалов.
 </p>
 </div>
@@ -1168,7 +1185,7 @@ successMessage.classList.add("show");
 
 <script id="dd-language-script">
 (()=>{
-const translations={"uk": ["Димок — DachaDesign", "Головна", "Каталог", "Повернутися до категорії", "← Повернутися до коптилень", "ПРОЄКТ DD-S01", "Димок", "Компактна цегляна коптильня для гарячого копчення", "Розмір", "1,2 × 0,8 м", "Вид", "Гаряче копчення", "Матеріал", "Цегла", "Тип", "Компактна", "Вартість проєкту", "490 грн", "Замовити проєкт →", "ПРОЄКТ І КОНСТРУКЦІЯ", "Будова коптильні «Димок»", "У повному проєкті показано розміри конструкції, схему цегляної кладки, будову топки та коптильної камери, димохід і основні будівельні вузли. Детальні креслення доступні після придбання проєкту.", "Що входить до проєкту", "Загальні розміри коптильні", "Основні габарити конструкції", "Схема цегляної кладки", "Основні елементи корпусу", "Коптильна камера", "Розташування камери та внутрішніх елементів", "Топка", "Розташування та конструкція топкової частини", "Димохід", "Схема відведення диму", "Перелік матеріалів", "Основні матеріали для будівництва", "У повному проєкті показано розміри коптильні, будову топки та коптильної камери, схему димоходу, цегляної кладки й основні будівельні вузли.", "Повний комплект креслень", "Точні розміри, схема цегляної кладки, будова топки, коптильної камери та димоходу доступні після купівлі проєкту.", "Отримати проєкт за 490 грн →", "Хочете збудувати таку коптильню?", "Отримайте готовий проєкт «Димок» із розмірами, схемою конструкції та переліком основних матеріалів.", "Замовити за 490 грн →", "ЗАМОВЛЕННЯ ПРОЄКТУ", "Замовити «Димок»", "Залиште свої контакти, і ми зв’яжемося з вами для підтвердження замовлення.", "Проєкт", "DD-S01 — Димок", "Вартість", "Ваш сайт", "Ваше ім’я", "Телефон або Telegram", "Коментар", "Надіслати замовлення →", "✓ Замовлення надіслано! Ми зв’яжемося з вами найближчим часом.", "· Проєкти для дачі та заміського будинку"], "en": ["Dymok — DachaDesign", "Home", "Catalog", "Back to category", "← Back to smokehouses", "PROJECT DD-S01", "Dymok", "Compact brick smokehouse for hot smoking", "Size", "1.2 × 0.8 m", "Function", "Hot smoking", "Material", "Brick", "Type", "Compact", "Project price", "490 UAH", "Order this project →", "DESIGN AND CONSTRUCTION", "How the “Dymok” smokehouse is built", "The complete project shows the dimensions, brickwork layout, firebox and smoking chamber, chimney, and main construction details. Detailed drawings are available after purchasing the project.", "What is included", "Overall smokehouse dimensions", "Main structure dimensions", "Brickwork layout", "Main body components", "Smoking chamber", "Position of the chamber and internal components", "Firebox", "Firebox location and construction", "Chimney", "Smoke exhaust layout", "Materials list", "Main construction materials", "The complete project shows the smokehouse dimensions, firebox and smoking chamber, chimney and brickwork layouts, and key construction details.", "Complete drawing set", "Exact dimensions, brickwork layout, and details of the firebox, smoking chamber, and chimney are available after purchase.", "Get the project for 490 UAH →", "Want to build this smokehouse?", "Get the ready-made “Dymok” project with dimensions, construction diagrams, and a list of main materials.", "Order for 490 UAH →", "PROJECT ORDER", "Order “Dymok”", "Leave your contact details and we will get in touch to confirm your order.", "Project", "DD-S01 — Dymok", "Price", "Your website", "Your name", "Phone or Telegram", "Comment", "Submit order →", "✓ Order sent! We will contact you shortly.", "· Designs for gardens and country homes"], "ru": ["Дымок — DachaDesign", "Главная", "Каталог", "Вернуться в категорию", "← Вернуться к коптильням", "ПРОЕКТ DD-S01", "Дымок", "Компактная кирпичная коптильня для горячего копчения", "Размер", "1,2 × 0,8 м", "Вид", "Горячее копчение", "Материал", "Кирпич", "Тип", "Компактная", "Стоимость проекта", "490 грн", "Заказать проект →", "ПРОЕКТ И КОНСТРУКЦИЯ", "Устройство коптильни «Дымок»", "В полном проекте показаны размеры конструкции, схема кирпичной кладки, устройство топки и коптильной камеры, дымоход и основные строительные узлы. Подробные чертежи доступны после приобретения проекта.", "Что входит в проект", "Общие размеры коптильни", "Основные габариты конструкции", "Схема кирпичной кладки", "Основные элементы корпуса", "Коптильная камера", "Расположение камеры и внутренних элементов", "Топка", "Расположение и конструкция топочной части", "Дымоход", "Схема отвода дыма", "Перечень материалов", "Основные материалы для строительства", "В полном проекте показаны размеры коптильни, устройство топки и коптильной камеры, схема дымохода, кирпичной кладки и основные строительные узлы.", "Полный комплект чертежей", "Точные размеры, схема кирпичной кладки, устройство топки, коптильной камеры и дымохода доступны после покупки проекта.", "Получить проект за 490 грн →", "Хотите построить такую коптильню?", "Получите готовый проект «Дымок» с размерами, схемой конструкции и перечнем основных материалов.", "Заказать за 490 грн →", "ЗАКАЗ ПРОЕКТА", "Заказать «Дымок»", "Оставьте свои контакты, и мы свяжемся с вами для подтверждения заказа.", "Проект", "DD-S01 — Дымок", "Стоимость", "Ваш сайт", "Ваше имя", "Телефон или Telegram", "Комментарий", "Отправить заказ →", "✓ Заказ отправлен! Мы свяжемся с вами в ближайшее время.", "· Проекты для дачи и загородного дома"]};
+const translations={"uk": ["Димок — DachaDesign", "Головна", "Каталог", "Повернутися до категорії", "← Повернутися до коптилень", "ПРОЄКТ DD-S01", "Димок", "Компактна цегляна коптильня для гарячого копчення", "Розмір", "1,2 × 0,8 м", "Вид", "Гаряче копчення", "Матеріал", "Цегла", "Тип", "Компактна", "Вартість проєкту", "490 грн", "Замовити проєкт →", "ПРОЄКТ І КОНСТРУКЦІЯ", "Будова коптильні «Димок»", "Ескіз показує основні габарити та елементи конструкції. Детальні креслення доступні після придбання проєкту.", "Що входить до проєкту", "Загальні розміри коптильні", "Основні габарити конструкції", "Схема цегляної кладки", "Основні елементи корпусу", "Коптильна камера", "Розташування камери та внутрішніх елементів", "Топка", "Розташування та конструкція топкової частини", "Димохід", "Схема відведення диму", "Перелік матеріалів", "Основні матеріали для будівництва", "Ескіз показує основні габарити та елементи конструкції.", "Ескізні матеріали проєкту", "Точні розміри, схема цегляної кладки, будова топки, коптильної камери та димоходу доступні після купівлі проєкту.", "Отримати проєкт за 490 грн →", "Хочете збудувати таку коптильню?", "Замовте ескізний проєкт «Димок» із розмірами, схемою конструкції та переліком основних матеріалів.", "Замовити за 490 грн →", "ЗАМОВЛЕННЯ ПРОЄКТУ", "Замовити «Димок»", "Залиште свої контакти, і ми зв’яжемося з вами для підтвердження замовлення.", "Проєкт", "DD-S01 — Димок", "Вартість", "Ваш сайт", "Ваше ім’я", "Телефон або Telegram", "Коментар", "Надіслати замовлення →", "✓ Замовлення надіслано! Ми зв’яжемося з вами найближчим часом.", "· Проєкти для дачі та заміського будинку"], "en": ["Dymok — DachaDesign", "Home", "Catalog", "Back to category", "← Back to smokehouses", "PROJECT DD-S01", "Dymok", "Compact brick smokehouse for hot smoking", "Size", "1.2 × 0.8 m", "Function", "Hot smoking", "Material", "Brick", "Type", "Compact", "Project price", "490 UAH", "Order this project →", "DESIGN AND CONSTRUCTION", "How the “Dymok” smokehouse is built", "The complete project shows the dimensions, brickwork layout, firebox and smoking chamber, chimney, and main construction details. Detailed drawings are available after purchasing the project.", "What is included", "Overall smokehouse dimensions", "Main structure dimensions", "Brickwork layout", "Main body components", "Smoking chamber", "Position of the chamber and internal components", "Firebox", "Firebox location and construction", "Chimney", "Smoke exhaust layout", "Materials list", "Main construction materials", "The complete project shows the smokehouse dimensions, firebox and smoking chamber, chimney and brickwork layouts, and key construction details.", "Concept design materials", "Exact dimensions, brickwork layout, and details of the firebox, smoking chamber, and chimney are available after purchase.", "Get the project for 490 UAH →", "Want to build this smokehouse?", "Get the ready-made “Dymok” project with dimensions, construction diagrams, and a list of main materials.", "Order for 490 UAH →", "PROJECT ORDER", "Order “Dymok”", "Leave your contact details and we will get in touch to confirm your order.", "Project", "DD-S01 — Dymok", "Price", "Your website", "Your name", "Phone or Telegram", "Comment", "Submit order →", "✓ Order sent! We will contact you shortly.", "· Designs for gardens and country homes"], "ru": ["Дымок — DachaDesign", "Главная", "Каталог", "Вернуться в категорию", "← Вернуться к коптильням", "ПРОЕКТ DD-S01", "Дымок", "Компактная кирпичная коптильня для горячего копчения", "Размер", "1,2 × 0,8 м", "Вид", "Горячее копчение", "Материал", "Кирпич", "Тип", "Компактная", "Стоимость проекта", "490 грн", "Заказать проект →", "ПРОЕКТ И КОНСТРУКЦИЯ", "Устройство коптильни «Дымок»", "Эскиз показывает основные размеры и элементы конструкции. Подробные чертежи доступны после приобретения проекта.", "Что входит в проект", "Общие размеры коптильни", "Основные габариты конструкции", "Схема кирпичной кладки", "Основные элементы корпуса", "Коптильная камера", "Расположение камеры и внутренних элементов", "Топка", "Расположение и конструкция топочной части", "Дымоход", "Схема отвода дыма", "Перечень материалов", "Основные материалы для строительства", "Эскиз показывает основные размеры и элементы конструкции.", "Эскизные материалы проекта", "Точные размеры, схема кирпичной кладки, устройство топки, коптильной камеры и дымохода согласовываются отдельно до оплаты.", "Получить проект за 490 грн →", "Хотите построить такую коптильню?", "Закажите эскизный проект «Дымок» с размерами, схемой конструкции и перечнем основных материалов.", "Заказать за 490 грн →", "ЗАКАЗ ПРОЕКТА", "Заказать «Дымок»", "Оставьте свои контакты, и мы свяжемся с вами для подтверждения заказа.", "Проект", "DD-S01 — Дымок", "Стоимость", "Ваш сайт", "Ваше имя", "Телефон или Telegram", "Комментарий", "Отправить заказ →", "✓ Заказ отправлен! Мы свяжемся с вами в ближайшее время.", "· Проекты для дачи и загородного дома"]};
 const placeholder={uk:{name:'Наприклад, Юрій',message:'Наприклад: хочу змінити розміри коптильні...',open:'Відкрити меню',close:'Закрити меню'},en:{name:'For example, Alex',message:'For example: I would like to change the smokehouse dimensions...',open:'Open menu',close:'Close menu'},ru:{name:'Например, Юрий',message:'Например: хочу изменить размеры коптильни...',open:'Открыть меню',close:'Закрыть меню'}};
 function setProjectLanguage(lang){
  if(!translations[lang])lang='uk';
