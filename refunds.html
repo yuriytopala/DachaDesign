@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DachaDesign — Повернення коштів</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f5f1;color:#223026;font:16px Arial,sans-serif}header{background:white;padding:20px max(5%,calc((100% - 1050px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.logo{font-size:25px;font-weight:800;color:#263c2b;text-decoration:none}.logo span{color:#557f50}.langs{display:flex;gap:5px}.langs button{border:1px solid #b9cbb8;background:white;color:#25402a;border-radius:7px;padding:9px;cursor:pointer}.langs button.active{background:#315b3b;color:white}main{max-width:840px;margin:48px auto;padding:0 20px}h1{font-size:clamp(30px,5vw,44px);margin:0 0 15px}p{line-height:1.7}.panel{background:white;padding:clamp(20px,4vw,40px);border-radius:18px;box-shadow:0 8px 25px #1e321614;margin-top:26px}label{font-weight:700;display:block;margin:20px 0 7px}input,select,textarea{width:100%;font:inherit;border:1px solid #b8c7b7;border-radius:9px;padding:13px;background:#fff}textarea{min-height:115px;resize:vertical}button.submit{background:#315b3b;color:white;border:0;padding:15px 25px;border-radius:9px;margin-top:20px;font:700 16px Arial;cursor:pointer}button.submit:hover{background:#24462d}button.submit:disabled{opacity:.6;cursor:wait}.note{font-size:14px;color:#536153}.contact a{color:#315b3b}footer{margin-top:55px;padding:26px 20px;background:#1d2b20;color:#dce4da;text-align:center}footer a{color:#e4c78d}#status{margin-top:12px;color:#315b3b}</style></head>
+<body><header><a class="logo" href="index.html">Dacha<span>Design</span></a><div class="langs"><button type="button" data-lang="uk">🇺🇦 UA</button><button type="button" data-lang="en">🇬🇧 EN</button><button type="button" data-lang="ru">🇷🇺 RU</button></div></header>
+<main><h1 data-t="title">Повернення коштів</h1><p data-t="intro">Якщо у вас виникла проблема з оплатою або отриманням цифрового проєкту, надішліть звернення через форму або напишіть нам електронною поштою. Кожне звернення розглядається індивідуально відповідно до законодавства України.</p><p class="contact"><strong data-t="seller">Продавець:</strong> ФОП Гладій Інна Павлівна<br><strong>Email:</strong> <a href="mailto:topala.cv@gmail.com">topala.cv@gmail.com</a></p>
+<section class="panel"><h2 data-t="formTitle">Заява на повернення коштів</h2><p class="note" data-t="note">Заповніть форму та натисніть «Надіслати». Звернення буде передано продавцю для розгляду.</p><form id="refundForm"><label for="name" data-t="name">Ім’я покупця</label><input id="name" name="name" required maxlength="120" autocomplete="name"><label for="email" data-t="email">Email покупця</label><input id="email" name="email" type="email" required maxlength="254" autocomplete="email"><label for="order" data-t="order">Номер замовлення</label><input id="order" name="order" required maxlength="100"><label for="reason" data-t="reason">Причина звернення</label><select id="reason" name="reason" required><option value="other" data-t="other">Інша причина</option><option value="not_received" data-t="notReceived">Проєкт не отримано</option><option value="duplicate" data-t="duplicate">Подвійна оплата</option><option value="mismatch" data-t="mismatch">Невідповідність опису</option></select><label for="comment" data-t="comment">Коментар</label><textarea id="comment" name="comment" required maxlength="3000"></textarea><p class="note" data-t="privacy">Дані використовуються лише для опрацювання вашого звернення. Не вказуйте номер картки, CVV або паролі.</p><button class="submit" type="submit" data-t="send">Надіслати звернення</button><p id="status" role="status" aria-live="polite"></p></form></section></main><footer>© 2026 DachaDesign · <a href="index.html" data-t="home">На головну</a></footer>
+<script>
+const dict={uk:{title:'Повернення коштів',intro:'Якщо у вас виникла проблема з оплатою або отриманням цифрового проєкту, надішліть звернення через форму або напишіть нам електронною поштою. Кожне звернення розглядається індивідуально відповідно до законодавства України.',seller:'Продавець:',formTitle:'Заява на повернення коштів',note:'Заповніть форму та натисніть «Надіслати». Звернення буде передано продавцю для розгляду.',name:'Ім’я покупця',email:'Email покупця',order:'Номер замовлення',reason:'Причина звернення',other:'Інша причина',notReceived:'Проєкт не отримано',duplicate:'Подвійна оплата',mismatch:'Невідповідність опису',comment:'Коментар',privacy:'Дані використовуються лише для опрацювання вашого звернення. Не вказуйте номер картки, CVV або паролі.',send:'Надіслати звернення',home:'На головну',status:'Звернення успішно надіслано. Ми розглянемо його та зв’яжемося з вами.',sending:'Надсилання…',error:'Не вдалося надіслати звернення. Спробуйте ще раз або напишіть на email.'},en:{title:'Refund requests',intro:'If you have an issue with payment or receiving a digital project, use this form or contact us by email. Requests are reviewed individually in accordance with Ukrainian law.',seller:'Seller:',formTitle:'Refund request',note:'Complete the form and press Submit. Your request will be forwarded to the seller for review.',name:'Customer name',email:'Customer email',order:'Order number',reason:'Reason for request',other:'Other reason',notReceived:'Project not received',duplicate:'Duplicate payment',mismatch:'Not as described',comment:'Comment',privacy:'Your information is used only to handle this request. Do not enter card numbers, CVV codes, or passwords.',send:'Submit request',home:'Home',status:'Your request has been submitted successfully. We will review it and contact you.',sending:'Sending…',error:'Could not submit your request. Please try again or contact us by email.'},ru:{title:'Возврат средств',intro:'Если возникла проблема с оплатой или получением цифрового проекта, отправьте обращение через форму или напишите нам по электронной почте. Каждое обращение рассматривается индивидуально в соответствии с законодательством Украины.',seller:'Продавец:',formTitle:'Заявление на возврат средств',note:'Заполните форму и нажмите «Отправить». Обращение будет передано продавцу на рассмотрение.',name:'Имя покупателя',email:'Email покупателя',order:'Номер заказа',reason:'Причина обращения',other:'Другая причина',notReceived:'Проект не получен',duplicate:'Двойная оплата',mismatch:'Не соответствует описанию',comment:'Комментарий',privacy:'Данные используются только для обработки обращения. Не указывайте номер карты, CVV или пароли.',send:'Отправить обращение',home:'На главную',status:'Обращение успешно отправлено. Мы рассмотрим его и свяжемся с вами.',sending:'Отправка…',error:'Не удалось отправить обращение. Повторите попытку или напишите на email.'}};
+let lang='uk';function setLang(l){lang=dict[l]?l:'uk';document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(el=>{el.textContent=dict[lang][el.dataset.t]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));try{localStorage.setItem('dachadesign-language',lang)}catch(e){}}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));try{setLang(localStorage.getItem('dachadesign-language')||'uk')}catch(e){setLang('uk')}
+const REFUND_API = 'https://dachadesign-orders.topala-cv.workers.dev/refund';
+document.querySelector('#refundForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('status');
+  const payload = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    order: document.getElementById('order').value.trim(),
+    reason: document.getElementById('reason').value,
+    comment: document.getElementById('comment').value.trim(),
+    website: ''
+  };
+  button.disabled = true;
+  status.style.color = '#315b3b';
+  status.textContent = dict[lang].sending;
+  try {
+    const response = await fetch(REFUND_API, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (!response.ok || result.success !== true) throw new Error('Submission failed');
+    status.textContent = dict[lang].status;
+    form.reset();
+  } catch (error) {
+    status.style.color = '#a12626';
+    status.textContent = dict[lang].error;
+  } finally {
+    button.disabled = false;
+  }
+});
+</script></body></html>

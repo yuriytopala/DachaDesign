@@ -879,7 +879,15 @@ img, video, iframe { max-width: 100%; }
 }
 
 </style>
-<style id="dd-language-style">.header-inner nav{margin-left:auto}.header-inner{gap:18px}.dd-language-switch{display:flex;gap:5px;align-items:center;flex-shrink:0}.dd-language-switch button{cursor:pointer;background:#fff;border:1px solid #d7ddd4;border-radius:7px;padding:8px 9px;font-weight:700;color:#263c2b}.dd-language-switch button[aria-pressed="true"]{background:#47764a;color:#fff;border-color:#47764a}@media(max-width:600px){.header-inner .dd-language-switch{margin-left:auto}.dd-language-switch{gap:2px}.dd-language-switch button{padding:7px 6px;font-size:12px}}</style></head>
+<style id="dd-language-style">.header-inner nav{margin-left:auto}.header-inner{gap:18px}.dd-language-switch{display:flex;gap:5px;align-items:center;flex-shrink:0}.dd-language-switch button{cursor:pointer;background:#fff;border:1px solid #d7ddd4;border-radius:7px;padding:8px 9px;font-weight:700;color:#263c2b}.dd-language-switch button[aria-pressed="true"]{background:#47764a;color:#fff;border-color:#47764a}@media(max-width:600px){.header-inner .dd-language-switch{margin-left:auto}.dd-language-switch{gap:2px}.dd-language-switch button{padding:7px 6px;font-size:12px}}</style><style id="dd-checkout-style">
+.dd-checkout-info {background:#edf4eb;border:1px solid #cbdcc8;border-radius:12px;padding:18px 20px;color:#294b31;line-height:1.6}
+.dd-checkout-info p{margin:6px 0 0;color:#4d5b4e;font-size:14px}
+.dd-consent label{display:flex;align-items:flex-start;gap:10px;line-height:1.5;font-size:14px;color:#344536;cursor:pointer}
+.dd-consent input{width:19px;height:19px;flex:0 0 19px;margin-top:1px;accent-color:#3f7048}
+.dd-legal-links{padding-left:29px;margin-top:8px;font-size:13px;line-height:1.8}
+.dd-legal-links a{color:#315a39;text-underline-offset:2px}
+</style>
+</head>
 <body>
 <!-- =========================
          ШАПКА
@@ -891,7 +899,7 @@ img, video, iframe { max-width: 100%; }
             </a>
 <nav aria-label="Навигация по сайту" id="project-navigation">
 <a data-project-i18n="2" href="index.html">Головна</a>
-<a data-project-i18n="3" href="index.html#catalog">Каталог</a>
+<a data-project-i18n="3" href="index.html#projects">Каталог</a>
 <a data-project-i18n="4" href="smokehouses.html">Повернутися до категорії</a>
 </nav><div aria-label="Language / Мова" class="dd-language-switch" role="group"><button aria-label="Українська" data-lang="uk" type="button">UA</button><button aria-label="English" data-lang="en" type="button">EN</button><button aria-label="Русский" data-lang="ru" type="button">RU</button></div>
 <button aria-controls="project-navigation" aria-expanded="false" aria-label="Открыть меню" class="mobile-menu-toggle" type="button">☰</button>
@@ -915,8 +923,8 @@ img, video, iframe { max-width: 100%; }
 <div class="detail-specs">
 <div>
 <strong data-project-i18n="9">Розмір</strong>
-<span>1,2 × 1,0 м<span>
-</span></span></div>
+<span>1,2 × 1,0 м</span>
+</div>
 <div>
 <strong data-project-i18n="10">Вид</strong>
 <span data-project-i18n="11">Гаряче + холодне</span>
@@ -1031,6 +1039,14 @@ img, video, iframe { max-width: 100%; }
 <label data-project-i18n="56" for="message">Коментар</label>
 <textarea id="message" name="message" placeholder="Например: хочу изменить размеры коптильни..." rows="5"></textarea>
 </div>
+<div class="full-width dd-checkout-info" role="note">
+  <strong data-checkout-uk="Як відбувається замовлення" data-checkout-en="How ordering works" data-checkout-ru="Как происходит заказ">Як відбувається замовлення</strong>
+  <p data-checkout-uk="Зараз ви надсилаєте заявку, а не здійснюєте оплату. Ми зв’яжемося з вами для підтвердження замовлення та пояснимо подальші кроки. Онлайн-оплата й автоматичне завантаження ще не підключені." data-checkout-en="You are submitting an inquiry, not making a payment. We will contact you to confirm your order and explain the next steps. Online payment and automatic downloads are not yet enabled." data-checkout-ru="Сейчас вы отправляете заявку, а не оплачиваете покупку. Мы свяжемся с вами для подтверждения заказа и объясним дальнейшие шаги. Онлайн-оплата и автоматическая выдача файла пока не подключены.">Зараз ви надсилаєте заявку, а не здійснюєте оплату. Ми зв’яжемося з вами для підтвердження замовлення та пояснимо подальші кроки. Онлайн-оплата й автоматичне завантаження ще не підключені.</p>
+</div>
+<div class="full-width dd-consent">
+  <label><input type="checkbox" name="consent" required /> <span data-checkout-uk="Я ознайомився(-лася) з умовами замовлення та політикою конфіденційності." data-checkout-en="I have read the terms of sale and privacy policy." data-checkout-ru="Я ознакомился(-лась) с условиями заказа и политикой конфиденциальности.">Я ознайомився(-лася) з умовами замовлення та політикою конфіденційності.</span></label>
+  <div class="dd-legal-links"><a href="offer.html" data-checkout-uk="Публічна оферта" data-checkout-en="Terms of sale" data-checkout-ru="Публичная оферта">Публічна оферта</a> · <a href="privacy.html" data-checkout-uk="Політика конфіденційності" data-checkout-en="Privacy policy" data-checkout-ru="Политика конфиденциальности">Політика конфіденційності</a> · <a href="payment-delivery.html" data-checkout-uk="Оплата та отримання" data-checkout-en="Payment and delivery" data-checkout-ru="Оплата и получение">Оплата та отримання</a></div>
+</div>
 <div class="full-width">
 <button class="submit-order" data-project-i18n="57" type="submit">Надіслати замовлення →</button>
 <div class="order-success" data-project-i18n="58" id="order-success">✓ Замовлення надіслано! Ми зв’яжемося з вами найближчим часом.</div>
@@ -1115,5 +1131,15 @@ successMessage.classList.add("show");
 const footerCopy={uk:' · Проєкти для дачі та заміського будинку',en:' · Projects for gardens and country homes',ru:' · Проекты для дачи и загородного дома'};const place={uk:{name:'Наприклад, Юрій',contact:'+380... або @username',message:'Опишіть бажані зміни до проєкту...',open:'Відкрити меню',close:'Закрити меню'},en:{name:'For example, Alex',contact:'+380... or @username',message:'Describe any changes you would like...',open:'Open menu',close:'Close menu'},ru:{name:'Например, Юрий',contact:'+380... или @username',message:'Опишите желаемые изменения проекта...',open:'Открыть меню',close:'Закрыть меню'}};
 function setProjectLanguage(lang){if(!translations[lang])lang='uk';window.ddFormLabels=({uk:{sending:'Надсилаємо...',error:'Не вдалося надіслати замовлення. Спробуйте ще раз.',submit:'Надіслати замовлення →'},en:{sending:'Sending...',error:'Could not send your order. Please try again.',submit:'Submit order →'},ru:{sending:'Отправляем...',error:'Не удалось отправить заказ. Попробуйте ещё раз.',submit:'Отправить заказ →'}})[lang];document.documentElement.lang=lang;const ft=document.querySelector('[data-dd-footer]');if(ft)ft.textContent=footerCopy[lang];document.querySelectorAll('[data-project-i18n]').forEach(el=>{const i=Number(el.dataset.projectI18n);if(translations[lang][i]!==undefined)el.textContent=translations[lang][i]});document.querySelectorAll('.dd-language-switch button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));for(const id of ['name','contact','message']){const el=document.getElementById(id);if(el)el.placeholder=place[lang][id]}const menu=document.querySelector('.mobile-menu-toggle');if(menu)menu.setAttribute('aria-label',menu.getAttribute('aria-expanded')==='true'?place[lang].close:place[lang].open);try{localStorage.setItem('dachadesign-language',lang)}catch(e){}}
 document.querySelectorAll('.dd-language-switch button').forEach(b=>b.addEventListener('click',()=>setProjectLanguage(b.dataset.lang)));let lang='uk';try{lang=localStorage.getItem('dachadesign-language')||'uk'}catch(e){}setProjectLanguage(lang);
-})();</script></body>
+})();</script><script id="dd-checkout-language">
+(function(){
+ function syncCheckout(){
+   var lang=document.documentElement.lang;
+   if(!['uk','en','ru'].includes(lang))lang='uk';
+   document.querySelectorAll('[data-checkout-uk]').forEach(function(el){el.textContent=el.getAttribute('data-checkout-'+lang);});
+ }
+ syncCheckout();
+ document.querySelectorAll('.dd-language-switch button[data-lang]').forEach(function(btn){btn.addEventListener('click',syncCheckout);});
+})();
+</script></body>
 </html>
