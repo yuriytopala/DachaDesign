@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DachaDesign — Ваше замовлення</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f5f0;color:#273329;font-family:Arial,Helvetica,sans-serif}header{background:white;border-bottom:1px solid #e5e8e2;padding:22px max(20px,calc((100vw - 860px)/2))}header a{font-size:24px;font-weight:800;color:#294b31;text-decoration:none}main{max-width:860px;margin:65px auto;padding:0 20px}section{background:#fff;border-radius:20px;padding:36px;box-shadow:0 10px 32px rgba(30,50,32,.1)}h1{font-size:clamp(25px,4vw,36px)}p{line-height:1.65;color:#5a675c}.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}button,.back{border:0;border-radius:10px;background:#3f7048;color:white;font-size:16px;font-weight:700;padding:14px 20px;cursor:pointer;text-decoration:none}button:disabled{background:#8e9c90;cursor:not-allowed}.back{background:#eff3ee;color:#294b31}#dd-status{margin-top:20px;white-space:pre-wrap;padding:16px 18px;background:#eef2eb;border-radius:10px;color:#304b36;min-height:50px}#dd-status.error{background:#fff2ef;color:#8a3029}footer{text-align:center;font-size:13px;padding:30px;color:#708070}@media(max-width:600px){main{margin:28px auto}section{padding:25px 19px}.buttons{flex-direction:column}.buttons button,.buttons a{text-align:center}}
+</style>
+</head>
+<body>
+<header><a href="index.html">DachaDesign</a></header>
+<main><section>
+  <h1 id="dd-title">Ваше замовлення</h1>
+<p style="color:#b42318;font-weight:bold">⚠️ ТЕСТОВА СТОРІНКА — реальні платежі вимкнено</p>
+<p id="dd-description">Після оплати перевіримо статус платежу безпосередньо в monobank. Коли банк підтвердить оплату, тут з’явиться можливість завантажити ескіз «Іскра».</p>
+<p><strong>DD-B01 — Іскра / Iskra / Искра · 390 ₴ · PNG</strong></p>
+<div id="dd-status" role="status" aria-live="polite">Перевіряємо замовлення…</div>
+<div class="buttons"><button type="button" id="dd-refresh">Перевірити оплату</button><button type="button" id="dd-download" disabled>Завантажити ескіз PNG</button><a class="back" href="project-b01.html">До проєкту</a></div>
+</section></main><footer>DachaDesign · Замовлення та оплата</footer>
+<script>
+(function(){
+  "use strict";
+  const API = "https://dachadesign-payments-test.topala-cv.workers.dev";
+  const STORAGE_KEY = "dachadesign-purchase-test-v1";
+  const status = document.getElementById("dd-status");
+  const checkButton = document.getElementById("dd-refresh");
+  const downloadButton = document.getElementById("dd-download");
+  const i18n = {
+    uk:{title:"Ваше замовлення",description:"Після оплати перевіримо статус платежу безпосередньо в monobank. Після підтвердження можна завантажити готовий ескіз «Іскра» (PNG).",checking:"Перевіряємо платіж…",notFound:"Замовлення не знайдено в цьому браузері. Якщо ви вже оплатили, зв’яжіться з підтримкою й збережіть квитанцію банку.",paid:"Оплату підтверджено! Тепер можна завантажити ескіз.",pending:"Платіж ще не підтверджено. Якщо ви щойно оплатили, спробуйте ще раз трохи пізніше.",failed:"Не вдалося перевірити платіж. Спробуйте пізніше або зв’яжіться з підтримкою.",downloading:"Готуємо файл…",downloadError:"Не вдалося отримати файл. Спробуйте пізніше.",check:"Перевірити оплату",download:"Завантажити ескіз PNG",back:"До проєкту"},
+    en:{title:"Your order",description:"We verify your payment directly with monobank. Once confirmed, you can download the ready-made Iskra PNG concept.",checking:"Checking payment…",notFound:"No order was found in this browser. If you already paid, contact support and keep your receipt.",paid:"Payment confirmed! Your file is ready to download.",pending:"Payment has not been confirmed yet. If you just paid, try again shortly.",failed:"Could not check payment. Please try later or contact support.",downloading:"Preparing your file…",downloadError:"Could not download the file. Please try again.",check:"Check payment",download:"Download PNG concept",back:"Back to project"},
+    ru:{title:"Ваш заказ",description:"Проверим оплату непосредственно в monobank. После подтверждения можно скачать готовый эскиз «Искра» (PNG).",checking:"Проверяем платёж…",notFound:"Заказ не найден в этом браузере. Если вы уже оплатили, свяжитесь с поддержкой и сохраните квитанцию банка.",paid:"Оплата подтверждена! Теперь можно скачать эскиз.",pending:"Оплата пока не подтверждена. Если вы только что оплатили, попробуйте ещё раз немного позже.",failed:"Не удалось проверить платёж. Попробуйте позже или свяжитесь с поддержкой.",downloading:"Готовим файл…",downloadError:"Не удалось скачать файл. Попробуйте позже.",check:"Проверить оплату",download:"Скачать эскиз PNG",back:"К проекту"}
+  };
+  let lang = "uk"; try {lang = localStorage.getItem("dachadesign-language") || "uk";} catch(_) {}
+  if(!i18n[lang]) lang="uk"; document.documentElement.lang=lang;
+  const t=i18n[lang]; document.title="DachaDesign — " + t.title;
+  document.getElementById("dd-title").textContent=t.title;
+  document.getElementById("dd-description").textContent=t.description;
+  checkButton.textContent=t.check; downloadButton.textContent=t.download; document.querySelector(".back").textContent=t.back;
+  function message(text,error=false){status.textContent=text;status.classList.toggle("error",error);} 
+  let order;
+  try { const data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null"); if(data && typeof data.orderId==="string" && typeof data.accessToken==="string" && data.projectId==="DD-B01") order=data;} catch(_) {}
+  if(!order){message(t.notFound,true);checkButton.disabled=true;return;}
+  async function api(path){
+    const url=new URL(API+path); url.searchParams.set("orderId",order.orderId);
+    return fetch(url.toString(),{method:"GET",headers:{"Authorization":"Bearer "+order.accessToken},cache:"no-store"});
+  }
+  let busy=false;
+  async function check(){
+    if(busy)return; busy=true; checkButton.disabled=true; downloadButton.disabled=true; message(t.checking);
+    try {
+      const response=await api("/checkout-status");
+      if(!response.ok)throw new Error("status");
+      const data=await response.json();
+      if(data.paid===true && data.projectId==="DD-B01"){message(t.paid);downloadButton.disabled=false;} else {message(t.pending);}
+    }catch(_){message(t.failed,true);}finally{busy=false;checkButton.disabled=false;}
+  }
+  checkButton.addEventListener("click",check);
+  downloadButton.addEventListener("click",async()=>{
+    if(busy)return;busy=true;downloadButton.disabled=true;message(t.downloading);
+    try{
+      const response=await api("/download");
+      if(!response.ok)throw new Error("download");
+      const blob=await response.blob();
+      if(blob.type && !blob.type.startsWith("image/png"))throw new Error("type");
+      const objectUrl=URL.createObjectURL(blob);
+      const a=document.createElement("a");a.href=objectUrl;a.download="bbq-b01-plan.png";a.style.display="none";document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(objectUrl),60000);
+      message(t.paid);downloadButton.disabled=false;
+    }catch(_){message(t.downloadError,true);downloadButton.disabled=false;}finally{busy=false;}
+  });
+  // Проверка один раз после возврата из monobank, без частого опроса API.
+  check();
+})();
+</script>
+</body></html>
