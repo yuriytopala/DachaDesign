@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -5,71 +6,499 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DachaDesign — Ваше замовлення</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f4f5f0;color:#273329;font-family:Arial,Helvetica,sans-serif}header{background:white;border-bottom:1px solid #e5e8e2;padding:22px max(20px,calc((100vw - 860px)/2))}header a{font-size:24px;font-weight:800;color:#294b31;text-decoration:none}main{max-width:860px;margin:65px auto;padding:0 20px}section{background:#fff;border-radius:20px;padding:36px;box-shadow:0 10px 32px rgba(30,50,32,.1)}h1{font-size:clamp(25px,4vw,36px)}p{line-height:1.65;color:#5a675c}.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}button,.back{border:0;border-radius:10px;background:#3f7048;color:white;font-size:16px;font-weight:700;padding:14px 20px;cursor:pointer;text-decoration:none}button:disabled{background:#8e9c90;cursor:not-allowed}.back{background:#eff3ee;color:#294b31}#dd-status{margin-top:20px;white-space:pre-wrap;padding:16px 18px;background:#eef2eb;border-radius:10px;color:#304b36;min-height:50px}#dd-status.error{background:#fff2ef;color:#8a3029}footer{text-align:center;font-size:13px;padding:30px;color:#708070}@media(max-width:600px){main{margin:28px auto}section{padding:25px 19px}.buttons{flex-direction:column}.buttons button,.buttons a{text-align:center}}
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #f4f5f0;
+    color: #273329;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  header {
+    background: white;
+    border-bottom: 1px solid #e5e8e2;
+    padding: 22px max(20px, calc((100vw - 860px)/2));
+  }
+
+  header a {
+    font-size: 24px;
+    font-weight: 800;
+    color: #294b31;
+    text-decoration: none;
+  }
+
+  main {
+    max-width: 860px;
+    margin: 65px auto;
+    padding: 0 20px;
+  }
+
+  section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 10px 32px rgba(30, 50, 32, .1);
+  }
+
+  h1 { font-size: clamp(25px, 4vw, 36px); }
+
+  p {
+    line-height: 1.65;
+    color: #5a675c;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  button, .back {
+    border: 0;
+    border-radius: 10px;
+    background: #3f7048;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  button:disabled {
+    background: #8e9c90;
+    cursor: not-allowed;
+  }
+
+  .back {
+    background: #eff3ee;
+    color: #294b31;
+  }
+
+  #dd-status {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    padding: 16px 18px;
+    background: #eef2eb;
+    border-radius: 10px;
+    color: #304b36;
+    min-height: 50px;
+    line-height: 1.6;
+  }
+
+  #dd-status.error {
+    background: #fff2ef;
+    color: #8a3029;
+  }
+
+  #dd-status.success {
+    background: #e6f4e8;
+    color: #245b32;
+  }
+
+  #dd-order-info {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    padding: 30px;
+    color: #708070;
+  }
+
+  @media(max-width:600px) {
+    main { margin: 28px auto; }
+    section { padding: 25px 19px; }
+    .buttons { flex-direction: column; }
+    .buttons button, .buttons a { text-align: center; }
+  }
 </style>
 </head>
+
 <body>
-<header><a href="index.html">DachaDesign</a></header>
-<main><section>
-<h1 id="dd-title">Ваше замовлення</h1>
-<p id="dd-description">Після оплати перевіримо статус платежу безпосередньо в monobank. Коли банк підтвердить оплату, тут з’явиться можливість завантажити ескіз «Іскра».</p>
-<p><strong>DD-B01 — Іскра / Iskra / Искра · 390 ₴ · PNG</strong></p>
-<div id="dd-status" role="status" aria-live="polite">Перевіряємо замовлення…</div>
-<div class="buttons"><button type="button" id="dd-refresh">Перевірити оплату</button><button type="button" id="dd-download" disabled>Завантажити ескіз PNG</button><a class="back" href="project-b01.html">До проєкту</a></div>
-</section></main><footer>DachaDesign · Замовлення та оплата</footer>
+
+<header>
+  <a href="index.html">DachaDesign</a>
+</header>
+
+<main>
+  <section>
+    <h1 id="dd-title">Ваше замовлення</h1>
+
+    <p id="dd-description">
+      Перевіряємо оплату через monobank.
+      Після підтвердження ви зможете завантажити проєкт.
+    </p>
+
+    <p>
+      <strong>
+        DD-B01 — Іскра / Iskra / Искра · 390 ₴ · PNG
+      </strong>
+    </p>
+
+    <p id="dd-order-info" hidden></p>
+
+    <div
+      id="dd-status"
+      role="status"
+      aria-live="polite"
+    >
+      Перевіряємо замовлення…
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="dd-refresh">
+        Перевірити оплату
+      </button>
+
+      <button type="button" id="dd-download" disabled>
+        Завантажити ескіз PNG
+      </button>
+
+      <a class="back" href="project-b01.html">
+        До проєкту
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  DachaDesign · Замовлення та оплата
+</footer>
+
 <script>
-(function(){
+(function () {
   "use strict";
-  const API = "https://dachadesign-payments.topala-cv.workers.dev";
+
+  // Cloudflare Payments Worker.
+  const API =
+    "https://dachadesign-payments.topala-cv.workers.dev";
+
+  // This key must match the checkout page.
   const STORAGE_KEY = "dachadesign-purchase-v1";
-  const status = document.getElementById("dd-status");
+
+  const PROJECT_ID = "DD-B01";
+  const FILE_NAME = "bbq-b01-plan.png";
+
+  const statusElement = document.getElementById("dd-status");
   const checkButton = document.getElementById("dd-refresh");
   const downloadButton = document.getElementById("dd-download");
-  const i18n = {
-    uk:{title:"Ваше замовлення",description:"Після оплати перевіримо статус платежу безпосередньо в monobank. Після підтвердження можна завантажити готовий ескіз «Іскра» (PNG).",checking:"Перевіряємо платіж…",notFound:"Замовлення не знайдено в цьому браузері. Якщо ви вже оплатили, зв’яжіться з підтримкою й збережіть квитанцію банку.",paid:"Оплату підтверджено! Тепер можна завантажити ескіз.",pending:"Платіж ще не підтверджено. Якщо ви щойно оплатили, спробуйте ще раз трохи пізніше.",failed:"Не вдалося перевірити платіж. Спробуйте пізніше або зв’яжіться з підтримкою.",downloading:"Готуємо файл…",downloadError:"Не вдалося отримати файл. Спробуйте пізніше.",check:"Перевірити оплату",download:"Завантажити ескіз PNG",back:"До проєкту"},
-    en:{title:"Your order",description:"We verify your payment directly with monobank. Once confirmed, you can download the ready-made Iskra PNG concept.",checking:"Checking payment…",notFound:"No order was found in this browser. If you already paid, contact support and keep your receipt.",paid:"Payment confirmed! Your file is ready to download.",pending:"Payment has not been confirmed yet. If you just paid, try again shortly.",failed:"Could not check payment. Please try later or contact support.",downloading:"Preparing your file…",downloadError:"Could not download the file. Please try again.",check:"Check payment",download:"Download PNG concept",back:"Back to project"},
-    ru:{title:"Ваш заказ",description:"Проверим оплату непосредственно в monobank. После подтверждения можно скачать готовый эскиз «Искра» (PNG).",checking:"Проверяем платёж…",notFound:"Заказ не найден в этом браузере. Если вы уже оплатили, свяжитесь с поддержкой и сохраните квитанцию банка.",paid:"Оплата подтверждена! Теперь можно скачать эскиз.",pending:"Оплата пока не подтверждена. Если вы только что оплатили, попробуйте ещё раз немного позже.",failed:"Не удалось проверить платёж. Попробуйте позже или свяжитесь с поддержкой.",downloading:"Готовим файл…",downloadError:"Не удалось скачать файл. Попробуйте позже.",check:"Проверить оплату",download:"Скачать эскиз PNG",back:"К проекту"}
+  const orderInfo = document.getElementById("dd-order-info");
+
+  const translations = {
+    uk: {
+      title: "Ваше замовлення",
+      description: "Перевіряємо платіж безпосередньо через monobank. Після підтвердження можна завантажити ескіз «Іскра» у форматі PNG.",
+      checking: "Перевіряємо оплату…",
+      notFound: "Дані замовлення не знайдено в цьому браузері. Якщо ви вже оплатили, збережіть квитанцію банку та зв’яжіться з підтримкою.",
+      unauthorized: "Не вдалося підтвердити доступ до замовлення. Збережіть квитанцію та зверніться до підтримки.",
+      paid: "Оплату підтверджено! Тепер можна завантажити ескіз.",
+      pending: "Платіж ще не підтверджено. Якщо ви щойно оплатили, зачекайте трохи та перевірте знову.",
+      unsuccessful: "Оплату не підтверджено або платіж скасовано. Якщо гроші списано, збережіть квитанцію та зверніться до підтримки.",
+      failed: "Не вдалося перевірити платіж. Спробуйте пізніше.",
+      downloading: "Готуємо файл для завантаження…",
+      downloaded: "Завантаження розпочато. Перевірте папку завантажень браузера.",
+      downloadError: "Не вдалося завантажити файл. Спробуйте пізніше.",
+      expired: "Доступ до файлу завершився або вичерпано ліміт завантажень. Якщо потрібна допомога, зверніться до підтримки.",
+      check: "Перевірити оплату",
+      download: "Завантажити ескіз PNG",
+      back: "До проєкту",
+      order: "Номер замовлення"
+    },
+
+    ru: {
+      title: "Ваш заказ",
+      description: "Проверяем оплату непосредственно через monobank. После подтверждения можно скачать эскиз «Искра» в формате PNG.",
+      checking: "Проверяем оплату…",
+      notFound: "Данные заказа не найдены в этом браузере. Если вы уже оплатили, сохраните квитанцию банка и обратитесь в поддержку.",
+      unauthorized: "Не удалось подтвердить доступ к заказу. Сохраните квитанцию и обратитесь в поддержку.",
+      paid: "Оплата подтверждена! Теперь можно скачать эскиз.",
+      pending: "Платёж пока не подтверждён. Если вы только что оплатили, немного подождите и проверьте снова.",
+      unsuccessful: "Оплата не подтверждена или платёж отменён. Если деньги списаны, сохраните квитанцию и обратитесь в поддержку.",
+      failed: "Не удалось проверить платёж. Попробуйте позже.",
+      downloading: "Готовим файл для скачивания…",
+      downloaded: "Скачивание началось. Проверьте папку загрузок браузера.",
+      downloadError: "Не удалось скачать файл. Попробуйте позже.",
+      expired: "Срок доступа закончился или исчерпан лимит скачиваний. При необходимости обратитесь в поддержку.",
+      check: "Проверить оплату",
+      download: "Скачать эскиз PNG",
+      back: "К проекту",
+      order: "Номер заказа"
+    },
+
+    en: {
+      title: "Your order",
+      description: "We verify your payment directly through monobank. Once confirmed, you can download the Iskra PNG project.",
+      checking: "Checking payment…",
+      notFound: "Order details were not found in this browser. If you paid, keep your bank receipt and contact support.",
+      unauthorized: "Could not verify access to this order. Keep your receipt and contact support.",
+      paid: "Payment confirmed! Your file is ready.",
+      pending: "Payment is not confirmed yet. If you just paid, please try again shortly.",
+      unsuccessful: "Payment was not confirmed or has been reversed. If you were charged, keep your receipt and contact support.",
+      failed: "Payment verification failed. Please try again later.",
+      downloading: "Preparing your download…",
+      downloaded: "Download started. Check your browser downloads.",
+      downloadError: "Could not download the file. Please try again later.",
+      expired: "Download access has expired or the limit was reached. Contact support if you need help.",
+      check: "Check payment",
+      download: "Download PNG",
+      back: "Back to project",
+      order: "Order number"
+    }
   };
-  let lang = "uk"; try {lang = localStorage.getItem("dachadesign-language") || "uk";} catch(_) {}
-  if(!i18n[lang]) lang="uk"; document.documentElement.lang=lang;
-  const t=i18n[lang]; document.title="DachaDesign — " + t.title;
-  document.getElementById("dd-title").textContent=t.title;
-  document.getElementById("dd-description").textContent=t.description;
-  checkButton.textContent=t.check; downloadButton.textContent=t.download; document.querySelector(".back").textContent=t.back;
-  function message(text,error=false){status.textContent=text;status.classList.toggle("error",error);} 
-  let order;
-  try { const data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null"); if(data && typeof data.orderId==="string" && typeof data.accessToken==="string" && data.projectId==="DD-B01") order=data;} catch(_) {}
-  if(!order){message(t.notFound,true);checkButton.disabled=true;return;}
-  async function api(path){
-    const url=new URL(API+path); url.searchParams.set("orderId",order.orderId);
-    return fetch(url.toString(),{method:"GET",headers:{"Authorization":"Bearer "+order.accessToken},cache:"no-store"});
+
+  // Restore site language.
+  let lang = "uk";
+
+  try {
+    lang = localStorage.getItem("dachadesign-language") || "uk";
+  } catch (_) {}
+
+  if (!translations[lang]) {
+    lang = "uk";
   }
-  let busy=false;
-  async function check(){
-    if(busy)return; busy=true; checkButton.disabled=true; downloadButton.disabled=true; message(t.checking);
+
+  const t = translations[lang];
+
+  document.documentElement.lang = lang;
+  document.title = "DachaDesign — " + t.title;
+
+  document.getElementById("dd-title").textContent = t.title;
+  document.getElementById("dd-description").textContent = t.description;
+
+  checkButton.textContent = t.check;
+  downloadButton.textContent = t.download;
+
+  document.querySelector(".back").textContent = t.back;
+
+  function message(text, type = "") {
+    statusElement.textContent = text;
+    statusElement.className = type;
+  }
+
+  // Restore order credentials.
+  // Never put the secret accessToken into the URL.
+  let order = null;
+
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const stored = raw ? JSON.parse(raw) : null;
+
+    if (
+      stored &&
+      stored.projectId === PROJECT_ID &&
+      typeof stored.orderId === "string" &&
+      /^DD-[a-f0-9-]{36}$/i.test(stored.orderId) &&
+      typeof stored.accessToken === "string" &&
+      /^[a-f0-9-]{70,100}$/.test(stored.accessToken)
+    ) {
+      order = stored;
+    }
+  } catch (_) {}
+
+  let busy = false;
+  let paymentConfirmed = false;
+  let downloadLocked = false;
+
+  function updateButtons() {
+    checkButton.disabled = busy || !order;
+
+    downloadButton.disabled =
+      busy ||
+      !order ||
+      !paymentConfirmed ||
+      downloadLocked;
+  }
+
+  if (!order) {
+    message(t.notFound, "error");
+    updateButtons();
+    return;
+  }
+
+  // Display order number but never its secret token.
+  orderInfo.hidden = false;
+  orderInfo.textContent = `${t.order}: ${order.orderId}`;
+
+  async function requestAPI(path) {
+    const url = new URL(API + path);
+
+    url.searchParams.set("orderId", order.orderId);
+
+    return fetch(url.toString(), {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + order.accessToken
+      },
+      cache: "no-store"
+    });
+  }
+
+  // Verify payment directly through the server.
+  async function checkPayment() {
+    if (busy) return;
+
+    busy = true;
+    updateButtons();
+    message(t.checking);
+
     try {
-      const response=await api("/checkout-status");
-      if(!response.ok)throw new Error("status");
-      const data=await response.json();
-      if(data.paid===true && data.projectId==="DD-B01"){message(t.paid);downloadButton.disabled=false;} else {message(t.pending);}
-    }catch(_){message(t.failed,true);}finally{busy=false;checkButton.disabled=false;}
+      const response = await requestAPI("/checkout-status");
+
+      if (response.status === 401) {
+        paymentConfirmed = false;
+        downloadLocked = true;
+        message(t.unauthorized, "error");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Payment status HTTP error");
+      }
+
+      const result = await response.json();
+
+      if (result.paid === true && result.projectId === PROJECT_ID) {
+        paymentConfirmed = true;
+        message(t.paid, "success");
+        return;
+      }
+
+      paymentConfirmed = false;
+
+      if (
+        result.status === "reversed" ||
+        result.status === "failure" ||
+        result.status === "expired"
+      ) {
+        message(t.unsuccessful, "error");
+      } else {
+        message(t.pending);
+      }
+
+    } catch (error) {
+      paymentConfirmed = false;
+      message(t.failed, "error");
+
+    } finally {
+      busy = false;
+      updateButtons();
+    }
   }
-  checkButton.addEventListener("click",check);
-  downloadButton.addEventListener("click",async()=>{
-    if(busy)return;busy=true;downloadButton.disabled=true;message(t.downloading);
-    try{
-      const response=await api("/download");
-      if(!response.ok)throw new Error("download");
-      const blob=await response.blob();
-      if(blob.type && !blob.type.startsWith("image/png"))throw new Error("type");
-      const objectUrl=URL.createObjectURL(blob);
-      const a=document.createElement("a");a.href=objectUrl;a.download="bbq-b01-plan.png";a.style.display="none";document.body.appendChild(a);a.click();a.remove();
-      setTimeout(()=>URL.revokeObjectURL(objectUrl),60000);
-      message(t.paid);downloadButton.disabled=false;
-    }catch(_){message(t.downloadError,true);downloadButton.disabled=false;}finally{busy=false;}
+
+  // Download the file only after successful verification.
+  async function downloadProject() {
+    if (
+      busy ||
+      !paymentConfirmed ||
+      downloadLocked
+    ) {
+      return;
+    }
+
+    busy = true;
+    updateButtons();
+    message(t.downloading);
+
+    try {
+      const response = await requestAPI("/download");
+
+      if (response.status === 401) {
+        paymentConfirmed = false;
+        downloadLocked = true;
+        message(t.unauthorized, "error");
+        return;
+      }
+
+      if (response.status === 403) {
+        downloadLocked = true;
+        message(t.expired, "error");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Download HTTP error");
+      }
+
+      const contentType =
+        response.headers.get("Content-Type") || "";
+
+      // The Worker may respond with JSON when payment
+      // has not been confirmed yet.
+      if (!contentType.toLowerCase().includes("image/png")) {
+        let result = null;
+
+        try {
+          result = await response.json();
+        } catch (_) {}
+
+        if (result && result.paid === false) {
+          paymentConfirmed = false;
+          message(t.pending);
+          return;
+        }
+
+        throw new Error("Unexpected download response");
+      }
+
+      const blob = await response.blob();
+
+      if (
+        blob.size === 0 ||
+        (
+          blob.type &&
+          !blob.type.toLowerCase().startsWith("image/png")
+        )
+      ) {
+        throw new Error("Invalid PNG file");
+      }
+
+      const objectUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = FILE_NAME;
+      link.style.display = "none";
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(function () {
+        URL.revokeObjectURL(objectUrl);
+      }, 60000);
+
+      message(t.downloaded, "success");
+
+    } catch (error) {
+      message(t.downloadError, "error");
+
+    } finally {
+      busy = false;
+      updateButtons();
+    }
+  }
+
+  checkButton.addEventListener("click", checkPayment);
+  downloadButton.addEventListener("click", downloadProject);
+
+  // Check once on initial page load.
+  checkPayment();
+
+  // Check again if restored from browser back-forward cache.
+  // No continuous polling of the Monobank API.
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      checkPayment();
+    }
   });
-  // Проверка один раз после возврата из monobank, без частого опроса API.
-  check();
+
 })();
 </script>
-</body></html>
+
+</body>
+</html>
