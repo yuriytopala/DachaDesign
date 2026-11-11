@@ -188,6 +188,24 @@
           paid = true;
           downloadButton.disabled = false;
           show(t.paid, "success");
+          // Only a verified paid=true status may register a GA4 purchase.
+          // Never send buyer contact details or the download access token.
+          // The backend controls payment status; its amount is preferred
+          // if checkout-status includes amountKop in a future version.
+          const value = Number.isInteger(result.amountKop) && result.amountKop > 0
+            ? result.amountKop / 100 : project[1];
+          const analyticsPurchase = {
+            transactionId: order.orderId,
+            projectId: order.projectId,
+            itemName: project[0],
+            value
+          };
+          if (typeof window.DachaDesignTrackPurchase === "function") {
+            window.DachaDesignTrackPurchase(analyticsPurchase);
+          } else {
+            // Defer only in memory if the consent script has not loaded yet.
+            window.DachaDesignPendingPurchase = analyticsPurchase;
+          }
         } else {
           paid = false;
           const failed = ["failure", "reversed", "expired", "cancelled", "canceled"].includes(String(result.status || "").toLowerCase());
