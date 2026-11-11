@@ -20,8 +20,8 @@
     // Import that order into the new history before overwriting it.
     let previous = null;
     try { previous = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    // The history is optional; quota or blocked storage must not prevent payment.
+    // Save history before overwriting the former single-order record.
+    // History is best-effort; never prevent checkout if the history is full.
     try {
       const value = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
       const list = Array.isArray(value) ? value : [];
@@ -40,6 +40,7 @@
       }
       localStorage.setItem(HISTORY_KEY, JSON.stringify(saved));
     } catch (_) {}
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   }
 
   const match = /^project-([bghknst])(\d{2})(?:\.html)?$/i.exec(location.pathname.split("/").pop() || "");
