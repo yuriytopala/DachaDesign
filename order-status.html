@@ -16,6 +16,11 @@
     p { line-height: 1.65; color: #5a675c; }
     .order-info { font-weight: 700; color: #35483a; }
     .order-id { font-size: 13px; overflow-wrap: anywhere; }
+    .saved-orders { margin: 20px 0 16px; padding: 16px; border: 1px solid #d8e4d7; background: #f5f8f3; border-radius: 12px; }
+    .saved-orders[hidden] { display: none; }
+    .saved-orders label { display: block; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .saved-orders select { display:block; width: 100%; padding: 12px; border: 1px solid #9fb29f; border-radius: 8px; color: #25372b; background: white; font: inherit; }
+    .saved-orders p { font-size: 13px; margin: 8px 0 0; }
     .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
     button, .back { border: 0; border-radius: 10px; background: #3f7048; color: #fff; font-size: 16px; font-weight: 700; padding: 14px 20px; cursor: pointer; text-decoration: none; }
     button:disabled { background: #8e9c90; cursor: not-allowed; }
@@ -32,6 +37,11 @@
   <main><section>
     <h1 id="dd-title">Ваше замовлення</h1>
     <p id="dd-description">Перевіряємо оплату через monobank. Після підтвердження ви зможете завантажити свій проєкт.</p>
+    <div id="dd-saved-wrap" class="saved-orders" hidden>
+      <label id="dd-saved-label" for="dd-saved-select">Збережені замовлення</label>
+      <select id="dd-saved-select"></select>
+      <p id="dd-saved-help"></p>
+    </div>
     <p id="dd-project" class="order-info"></p>
     <p id="dd-order-id" class="order-id"></p>
     <div id="dd-status" role="status" aria-live="polite">Перевіряємо замовлення…</div>
@@ -47,6 +57,7 @@
     "use strict";
     const API = "https://dachadesign-payments.topala-cv.workers.dev";
     const STORAGE_KEY = "dachadesign-purchase-v1";
+    const HISTORY_KEY = "dachadesign-orders-v1";
     // These are display-only names and prices; the Worker controls actual prices and R2 files.
     const PROJECTS = {
       "DD-B01": ["Іскра",390], "DD-B02": ["Буковинський",490],
@@ -81,7 +92,7 @@
         downloaded:"Завантаження розпочато. Перевірте папку завантажень браузера.",
         downloadError:"Не вдалося завантажити файл. Спробуйте пізніше.",
         expired:"Термін доступу або ліміт завантажень вичерпано. Зверніться до підтримки.",
-        check:"Перевірити оплату", download:"Завантажити проєкт PNG", back:"До проєкту", catalog:"До каталогу", order:"Номер замовлення"
+        check:"Перевірити оплату", download:"Завантажити проєкт PNG", back:"До проєкту", catalog:"До каталогу", order:"Номер замовлення", saved:"Збережені замовлення", savedHint:"Показані тільки замовлення, збережені в цьому браузері. Оплата перевіряється окремо."
       },
       ru: {
         title:"Ваш заказ", description:"Проверяем оплату через monobank. После подтверждения можно скачать приобретённый проект PNG.",
@@ -94,7 +105,7 @@
         downloaded:"Скачивание началось. Проверьте папку загрузок браузера.",
         downloadError:"Не удалось скачать файл. Попробуйте позже.",
         expired:"Срок доступа или лимит скачиваний исчерпан. Обратитесь в поддержку.",
-        check:"Проверить оплату", download:"Скачать проект PNG", back:"К проекту", catalog:"К каталогу", order:"Номер заказа"
+        check:"Проверить оплату", download:"Скачать проект PNG", back:"К проекту", catalog:"К каталогу", order:"Номер заказа", saved:"Сохранённые заказы", savedHint:"Показаны только заказы, сохранённые в этом браузере. Оплата проверяется отдельно."
       },
       en: {
         title:"Your order", description:"We verify payment through monobank. Once confirmed, you can download your purchased PNG project.",
@@ -107,7 +118,7 @@
         downloaded:"Download started. Check your browser downloads folder.",
         downloadError:"Could not download the file. Please try later.",
         expired:"Your access period or download limit has been reached. Contact support.",
-        check:"Check payment", download:"Download PNG project", back:"Back to project", catalog:"Back to catalog", order:"Order number"
+        check:"Check payment", download:"Download PNG project", back:"Back to project", catalog:"Back to catalog", order:"Order number", saved:"Saved orders", savedHint:"Only orders saved in this browser are shown. Payment is checked separately."
       }
     };
     let lang = "uk";
@@ -131,16 +142,30 @@
       statusElement.className = kind;
     }
 
-    let order = null;
+    // Read previously saved orders locally; do not put download tokens in URLs.
+    function validOrder(value) {
+      return value && typeof value === "object" &&
+        /^DD-[a-f0-9-]{36}$/i.test(value.orderId || "") &&
+        /^[a-f0-9-]{70,100}$/.test(value.accessToken || "") &&
+        Object.prototype.hasOwnProperty.call(PROJECTS, value.projectId);
+    }
+    function readStored(key) {
+      try { return JSON.parse(localStorage.getItem(key) || "null"); } catch (_) { return null; }
+    }
+    const latest = readStored(STORAGE_KEY);
+    const oldHistory = readStored(HISTORY_KEY);
+    const candidates = [latest, ...(Array.isArray(oldHistory) ? oldHistory.slice(0, 100) : [])];
+    const seenOrders = new Set();
+    const savedOrders = candidates.filter(item => {
+      if (!validOrder(item) || seenOrders.has(item.orderId)) return false;
+      seenOrders.add(item.orderId);
+      return true;
+    }).slice(0, 50);
+    // Also migrate the original single saved order before the next checkout.
     try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      if (saved && typeof saved.orderId === "string" &&
-          typeof saved.accessToken === "string" &&
-          typeof saved.projectId === "string" && PROJECTS[saved.projectId] &&
-          saved.orderId.length < 150 && saved.accessToken.length < 300) {
-        order = saved;
-      }
+      if (savedOrders.length) localStorage.setItem(HISTORY_KEY, JSON.stringify(savedOrders));
     } catch (_) {}
+    const order = savedOrders[0] || null;
 
     if (!order) {
       backLink.textContent = t.catalog;
@@ -148,6 +173,33 @@
       return;
     }
 
+    if (savedOrders.length > 1) {
+      $("dd-saved-wrap").hidden = false;
+      $("dd-saved-label").textContent = t.saved;
+      $("dd-saved-help").textContent = t.savedHint;
+      const select = $("dd-saved-select");
+      for (const savedOrder of savedOrders) {
+        const option = document.createElement("option");
+        option.value = savedOrder.orderId;
+        const display = PROJECTS[savedOrder.projectId];
+        option.textContent = savedOrder.projectId + " — " + display[0];
+        select.appendChild(option);
+      }
+      select.value = order.orderId;
+      select.addEventListener("change", () => {
+        const selected = savedOrders.find(item => item.orderId === select.value);
+        if (!selected) return;
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(selected));
+          // Reusing the existing checkout-status/download code prevents accidental
+          // cross-order credential use; no payment request is created here.
+          location.reload();
+        } catch (_) {
+          select.value = order.orderId;
+          show(t.failed, "error");
+        }
+      });
+    }
     const project = PROJECTS[order.projectId];
     const code = order.projectId.slice(3, 4);
     const number = order.projectId.slice(-2);

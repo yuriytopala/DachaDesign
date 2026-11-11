@@ -7,6 +7,42 @@
 
   const API = "https://dachadesign-payments.topala-cv.workers.dev";
   const STORAGE_KEY = "dachadesign-purchase-v1";
+  const HISTORY_KEY = "dachadesign-orders-v1";
+
+  function validSavedOrder(item) {
+    return item && /^DD-[a-f0-9-]{36}$/i.test(item.orderId || "") &&
+      /^[a-f0-9-]{70,100}$/.test(item.accessToken || "") &&
+      /^DD-[BGHKNST][0-9]{2}$/.test(item.projectId || "");
+  }
+
+  function rememberOrder(next) {
+    // Keep the existing current-order key for all already deployed pages.
+    // Import that order into the new history before overwriting it.
+    let previous = null;
+    try { previous = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
+    // Save history before overwriting the former single-order record.
+    // History is best-effort; never prevent checkout if the history is full.
+    try {
+      const value = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      const list = Array.isArray(value) ? value : [];
+      const seen = new Set();
+      const saved = [];
+      for (const candidate of [next, previous, ...list]) {
+        if (!validSavedOrder(candidate) || seen.has(candidate.orderId)) continue;
+        seen.add(candidate.orderId);
+        saved.push({
+          orderId: candidate.orderId,
+          accessToken: candidate.accessToken,
+          projectId: candidate.projectId,
+          createdAt: Number.isFinite(candidate.createdAt) ? candidate.createdAt : Date.now()
+        });
+        if (saved.length >= 50) break;
+      }
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(saved));
+    } catch (_) {}
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  }
+
   const match = /^project-([bghknst])(\d{2})(?:\.html)?$/i.exec(location.pathname.split("/").pop() || "");
   if (!match) return;
   const projectId = `DD-${match[1].toUpperCase()}${match[2]}`;
@@ -86,11 +122,24 @@
     if (description) description.textContent = t().description;
     resume.textContent = t().resume;
   }
-  function refreshResume() {
-    let old;
-    try { old = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
-    resume.style.display = old && old.projectId === projectId && old.orderId && old.accessToken ? "inline-block" : "none";
+  function savedForThisProject() {
+    let latest = null, history = [];
+    try { latest = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
+    try {
+      const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      if (Array.isArray(parsed)) history = parsed;
+    } catch (_) {}
+    return [latest, ...history].find(item =>
+      validSavedOrder(item) && item.projectId === projectId) || null;
   }
+  function refreshResume() {
+    resume.style.display = savedForThisProject() ? "inline-block" : "none";
+  }
+  resume.addEventListener("click", () => {
+    const saved = savedForThisProject();
+    if (!saved) return;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (_) {}
+  });
   function showError(text) {
     status.textContent = text;
     status.style.display = "block";
@@ -147,12 +196,12 @@
         throw new Error("paymentUrl");
       }
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        rememberOrder({
           orderId: result.orderId,
           accessToken: result.accessToken,
           projectId,
           createdAt: Date.now()
-        }));
+        });
       } catch (_) { throw new Error("storage"); }
       refreshResume();
       redirecting = true;
