@@ -2,7 +2,7 @@
 (function(){
   "use strict";
   var ID="G-9Z9D4Q6FWQ", KEY="dachadesign-analytics-consent-v1";
-  var choice=null, loaded=false, banner=null;
+  var choice=null, loaded=false, banner=null, googleTagReady=false, pendingPurchase=null;
   var labels={
     uk:["Аналітичні cookie","Лише з вашої згоди ми використовуємо Google Analytics для статистики відвідувань і покращення сайту. Без згоди аналітика не завантажується.","Дозволити","Відхилити","Політика конфіденційності"],
     ru:["Аналитические cookie","Только с вашего согласия мы используем Google Analytics для статистики посещений и улучшения сайта. Без согласия аналитика не загружается.","Разрешить","Отклонить","Политика конфиденциальности"],
@@ -29,7 +29,7 @@
   }
   function start(){
     window["ga-disable-"+ID]=false;
-    if(loaded){window.gtag("consent","update",state(true));return;}
+    if(loaded){window.gtag("consent","update",state(true));sendPurchaseIfReady();return;}
     loaded=true;
     window.dataLayer=window.dataLayer||[];
     window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
@@ -42,6 +42,8 @@
     var script=document.createElement("script");
     script.async=true;
     script.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(ID);
+    script.onload=function(){googleTagReady=true;sendPurchaseIfReady();};
+    script.onerror=function(){googleTagReady=false;};
     document.head.appendChild(script);
   }
   function stop(){
@@ -49,10 +51,59 @@
     if(typeof window.gtag==="function")window.gtag("consent","update",state(false));
     forgetCookies();
   }
+
+  // Purchase data comes only from the paid=true response from the payment Worker.
+  // It is held in memory until analytics consent is granted and the tag is ready.
+  function validatePurchase(event){
+    if(!event || typeof event!=="object")return false;
+    if(typeof event.transactionId!=="string" ||
+       !/^DD-[a-f0-9-]{36}$/i.test(event.transactionId))return false;
+    if(typeof event.projectId!=="string" ||
+       !/^DD-[BGHKNST][0-9]{2}$/.test(event.projectId))return false;
+    if(typeof event.itemName!=="string" || event.itemName.length>120 ||
+       typeof event.value!=="number" || !isFinite(event.value) ||
+       event.value<=0 || event.value>100000)return false;
+    return true;
+  }
+  function sendPurchaseIfReady(){
+    if(choice!=="yes" || !googleTagReady || !pendingPurchase ||
+       typeof window.gtag!=="function")return;
+    var event=pendingPurchase;
+    pendingPurchase=null;
+    var key="dachadesign-analytics-purchase-v1:"+event.transactionId;
+    // Local idempotency plus GA4 transaction_id deduplication. We never
+    // store the buyer's name/contact, access token, or bank details here.
+    try{
+      if(localStorage.getItem(key)==="sent")return;
+      localStorage.setItem(key,"sent");
+    }catch(error){return;}
+    window.gtag("event","purchase",{
+      send_to:ID,
+      transaction_id:event.transactionId,
+      currency:"UAH",
+      value:event.value,
+      items:[{
+        item_id:event.projectId,
+        item_name:event.itemName,
+        price:event.value,
+        quantity:1
+      }]
+    });
+  }
+  window.DachaDesignTrackPurchase=function(event){
+    if(!validatePurchase(event))return;
+    pendingPurchase={
+      transactionId:event.transactionId,
+      projectId:event.projectId,
+      itemName:event.itemName,
+      value:event.value
+    };
+    sendPurchaseIfReady();
+  };
   function setChoice(v){
     choice=v;
     try{localStorage.setItem(KEY,v);}catch(e){}
-    if(v==="yes")start();else stop();
+    if(v==="yes")start();else{pendingPurchase=null;stop();}
     if(banner){banner.remove();banner=null;}
   }
   function show(){
@@ -79,6 +130,10 @@
     document.body.appendChild(banner);
   }
   function init(){
+    if(window.DachaDesignPendingPurchase){
+      window.DachaDesignTrackPurchase(window.DachaDesignPendingPurchase);
+      delete window.DachaDesignPendingPurchase;
+    }
     choice=saved();
     if(choice==="yes")start();
     if(!choice||location.hash==="#analytics-choices")show();
