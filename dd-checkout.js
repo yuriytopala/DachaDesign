@@ -121,11 +121,24 @@
     if (description) description.textContent = t().description;
     resume.textContent = t().resume;
   }
-  function refreshResume() {
-    let old;
-    try { old = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
-    resume.style.display = old && old.projectId === projectId && old.orderId && old.accessToken ? "inline-block" : "none";
+  function savedForThisProject() {
+    let latest = null, history = [];
+    try { latest = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (_) {}
+    try {
+      const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      if (Array.isArray(parsed)) history = parsed;
+    } catch (_) {}
+    return [latest, ...history].find(item =>
+      validSavedOrder(item) && item.projectId === projectId) || null;
   }
+  function refreshResume() {
+    resume.style.display = savedForThisProject() ? "inline-block" : "none";
+  }
+  resume.addEventListener("click", () => {
+    const saved = savedForThisProject();
+    if (!saved) return;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (_) {}
+  });
   function showError(text) {
     status.textContent = text;
     status.style.display = "block";
