@@ -10,8 +10,8 @@
 
 
 
-    <title data-i18n="pageTitle">Проєкти дерев’яних альтанок для дачі | DachaDesign</title>
-<meta name="description" content="Перегляньте проєкти дерев’яних альтанок для дачі: компактні та просторі моделі, 3D-візуалізації й ідеї оформлення. Оберіть альтанку в DachaDesign."/>
+    <title data-i18n="pageTitle">Проєкти альтанок з дерева: 2×3, 3×3, 3×4, 4×4 | DachaDesign</title>
+<meta name="description" content="Проєкти дерев’яних альтанок 2×3, 3×3, 3×4 і 4×4 м. Порівняйте 3D-ескізи, розміри й ціни моделей та оберіть альтанку для своєї ділянки."/>
 <link rel="canonical" href="https://dachadesign.com.ua/gazebos"/>
 
 
@@ -746,6 +746,18 @@ header { gap: 16px; }
 .language-switcher button.active { background: #315c3b; color: white; border-color: #315c3b; }
 @media (max-width: 950px) { header .language-switcher { margin-left: auto; } header .menu-toggle { flex-shrink: 0; } }
 @media (max-width: 420px) { header { gap: 8px; } header .logo { font-size: 22px; } .language-switcher { gap: 3px; } .language-switcher button { min-width: 37px; padding: 5px; font-size: 12px; } }
+
+.gazebo-guide{margin:48px 0 56px;padding:30px;background:#fff;border-radius:18px;line-height:1.6;box-shadow:0 10px 30px rgba(30,50,32,.06)}
+.gazebo-guide>h2{font-size:clamp(23px,3vw,32px);line-height:1.25;margin:0 0 12px;color:#253a29}
+.gazebo-guide>p{font-size:16px;margin:0 0 22px;color:#526454}
+.gazebo-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gazebo-guide-grid article{background:#f5f7f2;padding:20px;border-radius:12px}
+.gazebo-guide-grid h3{font-size:19px;line-height:1.35;margin:0 0 10px}
+.gazebo-guide-grid p{font-size:15px;line-height:1.6;margin:0 0 15px;color:#526454}
+.gazebo-guide-grid a{color:#37633d;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.gazebo-guide .gazebo-guide-note{font-size:14px;margin:20px 0 0}
+@media(max-width:850px){.gazebo-guide-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.gazebo-guide{padding:22px 18px}}
 </style>
 </head>
 <body>
@@ -793,7 +805,7 @@ header { gap: 16px; }
 
 
 
-        <h1 data-i18n="heroTitle">Проєкти альтанок</h1>
+        <h1 data-i18n="heroTitle">Проєкти альтанок з дерева</h1>
 
 
 
@@ -1251,6 +1263,16 @@ header { gap: 16px; }
 </article>
 </div>
 
+<section class="gazebo-guide" aria-labelledby="gazebo-guide-title">
+  <h2 id="gazebo-guide-title" data-i18n="guideTitle">Як обрати проєкт альтанки з дерева</h2>
+  <p data-i18n="guideIntro">Порівняйте габарити ділянки, потрібні місця для сидіння та доступний простір для проходу. Дерев’яні альтанки DachaDesign представлені у розмірах від 2×3 до 4×4 м.</p>
+  <div class="gazebo-guide-grid">
+    <article><h3 data-i18n="guideSmallTitle">Компактні 2×3 і 3×3 м</h3><p data-i18n="guideSmallText">Для невеликої ділянки порівняйте прямокутну «Карпати» 2×3 м та квадратну «Лісова» 3×3 м.</p><a href="project-g01.html" data-i18n="guideSmallLink">Альтанка «Карпати» 2×3 →</a></article>
+<article><h3 data-i18n="guideMidTitle">Сімейні 3×4 м</h3><p data-i18n="guideMidText">Моделі «Верховина» і «Полонина» 3×4 м дають більше простору для обіднього столу та відпочинку.</p><a href="project-g03.html" data-i18n="guideMidLink">Альтанка «Верховина» 3×4 →</a></article>
+<article><h3 data-i18n="guideLargeTitle">Просторі 4×4 м</h3><p data-i18n="guideLargeText">«Смерека» та «Говерла» 4×4 м підійдуть для більшої зони відпочинку. Порівняйте оформлення та планування.</p><a href="project-g04.html" data-i18n="guideLargeLink">Альтанка «Смерека» 4×4 →</a></article>
+  </div>
+  <p class="gazebo-guide-note" data-i18n="guideNote">На сторінці кожної моделі є габарити, 3D-ескіз та умови замовлення. Уточнюйте склад робочих креслень і зміни до оплати.</p>
+</section>
     <section class="custom">
 
 
@@ -1271,7 +1293,7 @@ header { gap: 16px; }
 
 
 
-        <a data-i18n="customLink" href="#">Створити свій проєкт →</a>
+        <a data-i18n="customLink" href="index.html#custom-order">Створити свій проєкт →</a>
 
 
 
@@ -1364,7 +1386,7 @@ header { gap: 16px; }
 <script>
 const gazeboTranslations = {
   "uk": {
-    "pageTitle": "Проєкти дерев’яних альтанок для дачі | DachaDesign",
+    "pageTitle": "Проєкти альтанок з дерева: 2×3, 3×3, 3×4, 4×4 | DachaDesign",
     "menuOpen": "Відкрити меню",
     "menuClose": "Закрити меню",
     "menuLabel": "Головне меню",
@@ -1372,7 +1394,7 @@ const gazeboTranslations = {
     "navAll": "Усі проєкти",
     "navGaz": "Альтанки",
     "navContacts": "Контакти",
-    "heroTitle": "Проєкти альтанок",
+    "heroTitle": "Проєкти альтанок з дерева",
     "heroDescription": "Від компактних альтанок для невеликої ділянки до просторих зон відпочинку для всієї родини. Оберіть готову ідею або адаптуйте проєкт під свої розміри.",
     "catalogLabel": "КАТАЛОГ DACHA DESIGN",
     "catalogTitle": "Знайдіть свою альтанку",
@@ -1398,7 +1420,19 @@ const gazeboTranslations = {
     "d3": "Простора альтанка з місцем для великого столу та повноцінної зони відпочинку.",
     "d4": "Велика квадратна альтанка для компанії з просторою обідньою зоною та місцем для відпочинку.",
     "d5": "Сучасна альтанка з прямими лініями, обідньою зоною та комфортним місцем для відпочинку.",
-    "d6": "Простора альтанка преміумкласу з відкритими сторонами, м’якою зоною відпочинку та декоративними шторами."
+    "d6": "Простора альтанка преміумкласу з відкритими сторонами, м’якою зоною відпочинку та декоративними шторами.",
+    "guideTitle": "Як обрати проєкт альтанки з дерева",
+    "guideIntro": "Порівняйте габарити ділянки, потрібні місця для сидіння та доступний простір для проходу. Дерев’яні альтанки DachaDesign представлені у розмірах від 2×3 до 4×4 м.",
+    "guideSmallTitle": "Компактні 2×3 і 3×3 м",
+    "guideSmallText": "Для невеликої ділянки порівняйте прямокутну «Карпати» 2×3 м та квадратну «Лісова» 3×3 м.",
+    "guideSmallLink": "Альтанка «Карпати» 2×3 →",
+    "guideMidTitle": "Сімейні 3×4 м",
+    "guideMidText": "Моделі «Верховина» і «Полонина» 3×4 м дають більше простору для обіднього столу та відпочинку.",
+    "guideMidLink": "Альтанка «Верховина» 3×4 →",
+    "guideLargeTitle": "Просторі 4×4 м",
+    "guideLargeText": "«Смерека» та «Говерла» 4×4 м підійдуть для більшої зони відпочинку. Порівняйте оформлення та планування.",
+    "guideLargeLink": "Альтанка «Смерека» 4×4 →",
+    "guideNote": "На сторінці кожної моделі є габарити, 3D-ескіз та умови замовлення. Уточнюйте склад робочих креслень і зміни до оплати."
   },
   "en": {
     "pageTitle": "Wooden Gazebo Designs for Gardens | DachaDesign",
@@ -1409,7 +1443,7 @@ const gazeboTranslations = {
     "navAll": "All Projects",
     "navGaz": "Gazebos",
     "navContacts": "Contacts",
-    "heroTitle": "Gazebo Projects",
+    "heroTitle": "Wooden Gazebo Designs",
     "heroDescription": "From compact gazebos for smaller properties to spacious outdoor areas for the whole family. Choose a ready-made design or adapt a project to your dimensions.",
     "catalogLabel": "DACHA DESIGN CATALOG",
     "catalogTitle": "Find Your Gazebo",
@@ -1435,7 +1469,19 @@ const gazeboTranslations = {
     "d3": "A spacious gazebo with room for a large table and a comfortable lounge area.",
     "d4": "A large square gazebo with a generous dining area and space to relax.",
     "d5": "A modern gazebo with clean lines, a dining area and comfortable seating.",
-    "d6": "A premium spacious gazebo with open sides, a soft lounge area and decorative curtains."
+    "d6": "A premium spacious gazebo with open sides, a soft lounge area and decorative curtains.",
+    "guideTitle": "Choosing a wooden gazebo design",
+    "guideIntro": "Consider your available outdoor space, seating needs and room for access. DachaDesign offers wooden gazebo concepts from 2×3 to 4×4 m.",
+    "guideSmallTitle": "Compact 2×3 and 3×3 m designs",
+    "guideSmallText": "For a small garden, compare the rectangular 2×3 m Carpathians and square 3×3 m Forest.",
+    "guideSmallLink": "Carpathians 2×3 gazebo →",
+    "guideMidTitle": "Family-sized 3×4 m designs",
+    "guideMidText": "Verkhovyna and Polonyna 3×4 m leave more space for a dining table and seating.",
+    "guideMidLink": "Verkhovyna 3×4 gazebo →",
+    "guideLargeTitle": "Spacious 4×4 m designs",
+    "guideLargeText": "Smereka and Hoverla 4×4 m offer larger seating areas. Compare their layouts and styling.",
+    "guideLargeLink": "Smereka 4×4 gazebo →",
+    "guideNote": "Each model page shows dimensions, a 3D concept and ordering terms. Confirm any construction drawings or changes before payment."
   },
   "ru": {
     "pageTitle": "Проекты деревянных беседок для дачи | DachaDesign",
@@ -1446,7 +1492,7 @@ const gazeboTranslations = {
     "navAll": "Все проекты",
     "navGaz": "Беседки",
     "navContacts": "Контакты",
-    "heroTitle": "Проекты беседок",
+    "heroTitle": "Проекты беседок из дерева",
     "heroDescription": "От компактных беседок для небольшого участка до просторных зон отдыха для всей семьи. Выберите готовую идею или адаптируйте проект под свои размеры.",
     "catalogLabel": "КАТАЛОГ DACHA DESIGN",
     "catalogTitle": "Найдите свою беседку",
@@ -1472,7 +1518,19 @@ const gazeboTranslations = {
     "d3": "Просторная беседка с местом для большого стола и полноценной зоны отдыха.",
     "d4": "Большая квадратная беседка для компании с просторной обеденной зоной и местом для отдыха.",
     "d5": "Современная беседка с прямыми линиями, обеденной зоной и комфортным местом для отдыха.",
-    "d6": "Премиальная просторная беседка с открытыми сторонами, мягкой зоной отдыха и декоративными шторами."
+    "d6": "Премиальная просторная беседка с открытыми сторонами, мягкой зоной отдыха и декоративными шторами.",
+    "guideTitle": "Как выбрать проект беседки из дерева",
+    "guideIntro": "Сравните размеры участка, нужное количество мест и пространство для прохода. В DachaDesign есть деревянные беседки размерами от 2×3 до 4×4 м.",
+    "guideSmallTitle": "Компактные 2×3 и 3×3 м",
+    "guideSmallText": "Для небольшого участка сравните прямоугольную «Карпаты» 2×3 м и квадратную «Лесная» 3×3 м.",
+    "guideSmallLink": "Беседка «Карпаты» 2×3 →",
+    "guideMidTitle": "Семейные 3×4 м",
+    "guideMidText": "Модели «Верховина» и «Полонина» 3×4 м оставляют больше места для стола и отдыха.",
+    "guideMidLink": "Беседка «Верховина» 3×4 →",
+    "guideLargeTitle": "Просторные 4×4 м",
+    "guideLargeText": "«Смерека» и «Говерла» 4×4 м подойдут для большей зоны отдыха. Сравните оформление и планировку.",
+    "guideLargeLink": "Беседка «Смерека» 4×4 →",
+    "guideNote": "На странице каждой модели есть размеры, 3D-эскиз и условия заказа. Состав рабочих чертежей и изменения уточняйте до оплаты."
   }
 };
 function setGazeboLanguage(lang) {
