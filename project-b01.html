@@ -414,7 +414,7 @@ document.querySelectorAll('.dd-language-switch button').forEach(b=>b.addEventLis
 
   function rememberOrder(next) {
     const older = ordersInBrowser();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    // Archive existing orders before updating the legacy current order.
     try {
       const seen = new Set();
       const items = [next, ...older].filter(item => {
@@ -424,6 +424,7 @@ document.querySelectorAll('.dd-language-switch button').forEach(b=>b.addEventLis
       }).slice(0, 50);
       localStorage.setItem(HISTORY_KEY, JSON.stringify(items));
     } catch (_) {}
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   }
 
   function projectOrder() {
