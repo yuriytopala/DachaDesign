@@ -7,7 +7,7 @@
 
   const API = "https://dachadesign-payments.topala-cv.workers.dev";
   const STORAGE_KEY = "dachadesign-purchase-v1";
-  const match = /^project-([bghknst])(\d{2})\.html$/i.exec(location.pathname.split("/").pop() || "");
+  const match = /^project-([bghknst])(\d{2})(?:\.html)?$/i.exec(location.pathname.split("/").pop() || "");
   if (!match) return;
   const projectId = `DD-${match[1].toUpperCase()}${match[2]}`;
   if (projectId === "DD-B01") return;
