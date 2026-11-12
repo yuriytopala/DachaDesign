@@ -407,7 +407,20 @@
 .custom-order-note { font-size: 14px; color: #596759; margin-top: 16px; line-height: 1.6; }
 #custom-order-status { margin-top: 15px; font-weight: 600; min-height: 20px; }
 @media(max-width:650px) { .custom-order-section { padding: 35px 5% 65px; } .custom-order-grid { grid-template-columns: 1fr; } }
+
+/* Clear, accessible category explanations and crawlable internal links. */
+.seo-topics{max-width:1230px;margin:0 auto;padding:38px 7% 62px;color:#233327}
+.seo-topics h2{font-size:clamp(23px,3vw,32px);line-height:1.3;margin:0 0 14px}
+.seo-topics>p{font-size:16px;line-height:1.65;color:#546554;margin:0 0 24px}
+.seo-topics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.seo-topics-grid>div{background:#fff;padding:19px;border-radius:14px;box-shadow:0 5px 20px rgba(21,35,24,.05)}
+.seo-topics-grid h3{font-size:19px;line-height:1.4;margin:0 0 10px}
+.seo-topics-grid a{color:#35643b;text-decoration:underline;text-underline-offset:3px}
+.seo-topics-grid p{font-size:15px;line-height:1.6;color:#566456;margin:0}
+@media(max-width:900px){.seo-topics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.seo-topics-grid{grid-template-columns:1fr}.seo-topics{padding:28px 5% 40px}}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DachaDesign","url":"https://dachadesign.com.ua/","description":"3D-ескізи та проєкти альтанок, коптилень, мангальних зон, літніх кухонь та навісів для дачі.","inLanguage":"uk"}</script>
 </head>
 <body>
 <header>
@@ -513,6 +526,20 @@
 <a data-i18n="customLink" href="#custom-order">Створити свій проєкт →</a>
 </div>
 </div>
+</section>
+
+
+<section class="seo-topics" aria-labelledby="seo-topics-title">
+  <h2 id="seo-topics-title" data-i18n="seoTopicsTitle">Які проєкти для дачі можна знайти в DachaDesign?</h2>
+  <p data-i18n="seoTopicsLead">У каталозі зібрані 3D-ескізи споруд для подвір’я та саду. Порівнюйте розміри, матеріали й оформлення перед тим, як замовити вподобаний проєкт.</p>
+  <div class="seo-topics-grid">
+    <div><h3><a href="gazebos.html" data-i18n="seoGazeboTitle">Проєкти альтанок з дерева</a></h3><p data-i18n="seoGazeboText">Дерев’яні альтанки 2×3, 3×3, 3×4 і 4×4 м для відпочинку на дачі.</p></div>
+    <div><h3><a href="smokehouses.html" data-i18n="seoSmokeTitle">Коптильні з цегли</a></h3><p data-i18n="seoSmokeText">Ескізи коптилень для гарячого та холодного копчення, зокрема з окремою топкою.</p></div>
+    <div><h3><a href="bbq.html" data-i18n="seoBbqTitle">Мангальні зони та мангали з цегли</a></h3><p data-i18n="seoBbqText">Компактні мангали, барбекю та комплекси з піччю для казана.</p></div>
+    <div><h3><a href="summer-kitchens.html" data-i18n="seoKitchenTitle">Проєкти літніх кухонь</a></h3><p data-i18n="seoKitchenText">Літні кухні з робочою поверхнею, мангалом і місцем для відпочинку.</p></div>
+    <div><h3><a href="carports.html" data-i18n="seoCarportTitle">Дерев’яні навіси для авто</a></h3><p data-i18n="seoCarportText">Навіси для одного, двох або трьох автомобілів із різними габаритами.</p></div>
+    <div><h3><a href="terraces.html" data-i18n="seoTerraceTitle">Тераси для дачі та будинку</a></h3><p data-i18n="seoTerraceText">Відкриті тераси, перголи й зони відпочинку для подвір’я.</p></div>
+  </div>
 </section>
 
 <section class="custom-order-section" id="custom-order">
