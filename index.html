@@ -8,6 +8,7 @@
 <title data-i18n="pageTitle">Проєкти для дачі: альтанки, коптильні, мангали | DachaDesign</title>
 <meta name="description" content="Готові 3D-проєкти й ескізи альтанок, коптилень, мангальних зон, літніх кухонь і навісів для дачі. Обирайте дизайн або замовляйте свій у DachaDesign."/>
 <link rel="canonical" href="https://dachadesign.com.ua/"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <style>
         * {
             margin: 0;
@@ -31,12 +32,36 @@
         }
 
         .logo {
-            font-size: 30px;
-            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #203120;
+            text-decoration: none;
+            flex-shrink: 0;
+            min-width: 0;
         }
-
-        .logo span {
-            color: #47764a;
+        .logo img { display: block; width: 62px; height: 62px; object-fit: contain; }
+        .logo-text { display: block; font-size: 27px; line-height: 1.08; font-weight: 800; }
+        .logo .logo-name-accent { color: #47764a; }
+        .logo-author { display: block; margin-top: 3px; color: #566456; font-size: 10px; font-weight: 600; letter-spacing: .2px; }
+        .hero-brand { display: flex; gap: 12px; align-items: center; width: fit-content; padding: 10px 16px 10px 8px; margin-bottom: 28px; border: 1px solid rgba(206,239,194,.24); border-radius: 18px; background: rgba(3,20,9,.46); }
+        .hero-brand img { width: 100px; height: 100px; display: block; object-fit: contain; }
+        .hero-brand-copy { display: flex; flex-direction: column; }
+        .hero-brand-name { color: #d6edc9; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(26px,3.1vw,44px); line-height: 1.1; font-weight: 700; }
+        .hero-brand-by { margin-top: 6px; color: #f1e5d2; font-size: 13px; letter-spacing: .8px; }
+        @media (max-width: 850px) {
+            .logo img { width: 48px; height: 48px; }
+            .logo-text { font-size: 22px; }
+        }
+        @media (max-width: 500px) {
+            .logo { gap: 5px; }
+            .logo img { width: 41px; height: 41px; }
+            .logo-text { font-size: 18px; }
+            .logo-author { font-size: 8px; letter-spacing: 0; }
+            .hero-brand { gap: 6px; padding: 6px 10px 6px 4px; margin-bottom: 18px; }
+            .hero-brand img { width: 70px; height: 70px; }
+            .hero-brand-name { font-size: 27px; }
+            .hero-brand-by { font-size: 10px; letter-spacing: .4px; }
         }
 
         nav {
@@ -424,9 +449,10 @@
 </head>
 <body>
 <header>
-<div class="logo">
-        Dacha<span>Design</span>
-</div>
+<a class="logo" href="/" aria-label="DachaDesign — головна сторінка">
+<img src="images/dachadesign-brand-icon.webp" alt="" width="62" height="62" decoding="async"/>
+<span class="logo-text">Dacha<span class="logo-name-accent">Design</span><small class="logo-author">by Designer Yuriy Topala</small></span>
+</a>
 <nav aria-label="Навігація сайтом" data-i18n-attr="aria-label:navAria" id="site-nav">
 <a data-i18n="navProjects" href="#projects">Усі проєкти</a>
 <a data-i18n="navGazebos" href="gazebos.html">Альтанки</a>
@@ -444,6 +470,10 @@
 </header>
 <section class="hero">
 <div class="hero-content">
+<div class="hero-brand" aria-label="DachaDesign — by Designer Yuriy Topala">
+<img src="images/dachadesign-brand-icon.webp" alt="" width="100" height="100" fetchpriority="high"/>
+<div class="hero-brand-copy"><strong class="hero-brand-name">DachaDesign</strong><span class="hero-brand-by">by Designer Yuriy Topala</span></div>
+</div>
 <div class="hero-small" data-i18n="heroSmall">ПРОЄКТИ • ДИЗАЙН • 3D-ВІЗУАЛІЗАЦІЯ</div>
 <h1>
 <span data-i18n="heroTitle">Створи дачу</span><br/>
